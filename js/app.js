@@ -5,9 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Función para cargar una página
   async function loadPage(page) {
     try {
-  
-
-      const response = await fetch(`semanas/${page}`);
+    
+      const response = await fetch(`${window.location.origin}/PostureAlert/semanas/${page}`);
       const html = await response.text();
       content.innerHTML = html;
 
