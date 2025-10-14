@@ -5,6 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Función para cargar una página
   async function loadPage(page) {
     try {
+      // Mostrar spinner
+    content.innerHTML = 
+      <div class="d-flex flex-column align-items-center justify-content-center py-5 text-light">
+        <div class="spinner-border text-info mb-3" role="status"></div>
+        <p>Cargando contenido...</p>
+      </div>;
+
       const response = await fetch(`semanas/${page}`);
       const html = await response.text();
       content.innerHTML = html;
