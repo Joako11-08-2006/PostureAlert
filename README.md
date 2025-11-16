@@ -6,7 +6,7 @@ Nuestro objetivo es crear una herramienta ergonómica inteligente que ayude a lo
 
 ---
 
-## 🚀 Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 - **HTML5** + **CSS3** (interfaz responsiva)
 - **Bootstrap 5** (diseño y componentes)
@@ -15,26 +15,7 @@ Nuestro objetivo es crear una herramienta ergonómica inteligente que ayude a lo
 
 ---
 
-## 🧑‍💻 Equipo de Desarrollo
-
-| Integrante | Rol |
-|-------------|-----|
-| **Elias Salomón Cárdenas** | UX/UI y desarrollo Frontend |
-| **Joaquin Casas** | Documentación e investigación |
-| **Steven Saldaña** | Hardware y prototipado |
-| **Roony Campos** | Control y fabricación digital |
-
----
-
-## 🖼️ Proyecto
-
-📍 **PostureAlert** es un dispositivo de escritorio que detecta malas posturas y emite alertas visuales mediante luces LED, ayudando al usuario a mantener una postura ergonómica ideal.
-
-🔗 **Demo en vivo:** [https://tuusuario.github.io/PostureAlert/](https://tuusuario.github.io/PostureAlert/)
-
----
-
-## 🧰 Estructura del Proyecto
+## Estructura del Proyecto
 POSTURE-ALERT/
 │
 ├── index.html → Página principal
@@ -53,6 +34,49 @@ POSTURE-ALERT/
 └── README.md
 ---
 
-## 🧠 Licencia
 
-Este proyecto está disponible bajo la licencia **MIT**, para fines académicos y de aprendizaje.
+## Equipo de Desarrollo
+
+| Integrante | Rol |
+|-------------|-----|
+| **Elias Salomón Cárdenas** | UX/UI y desarrollo Frontend |
+| **Joaquin Casas** | Documentación e investigación |
+| **Steven Saldaña** | Hardware y prototipado |
+| **Roony Campos** | Control y fabricación digital |
+
+---
+
+## 🚀 Proyecto
+
+📍 **PostureAlert** es un dispositivo de escritorio que detecta malas posturas y emite alertas visuales mediante luces LED, ayudando al usuario a mantener una postura ergonómica ideal.
+
+🔗 **Archivo editable en TinkerCAD** [https://www.tinkercad.com/things/jMNebJcd21R-diseno-3d-proyecto-21/edit?returnTo=https%3A%2F%2Fwww.tinkercad.com%2Fdashboard&sharecode=9ag4y4LhrCPaLeya_0RwhY6wyQ9jAB5jeBzDraXShGI]
+
+🔗 **Archivo exportado en .STL**
+
+✅ En el mismo repositorio en la carpeta Modelo 3D
+
+---
+
+## Imágenes del Procso de Diseño
+
+**Boceto del concepto**
+
+
+**Modelo base sin detalles**
+
+
+**Incorporación de aberturas espacio para electrónica**¨
+
+
+**Versión refinada o Versión Final**
+
+
+## Diagrama simple de ubicación interna
+
+---
+
+## Breve Reflexión del proyecto
+
+
+
