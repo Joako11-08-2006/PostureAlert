@@ -152,6 +152,5 @@ POSTURE-ALERT/
 
 # 💭 Reflexión del Proyecto
 
-El desarrollo de **PostureAlert** permitió aplicar diseño 3D, ergonomía y electrónica en un solo proyecto. El proceso completo —desde el boceto inicial hasta la versión final refinada— mostró la importancia de iterar, validar medidas, y planificar correctamente los espacios internos para los componentes electrónicos. Este proyecto reforzó habilidades en modelado CAD, pensamiento estructurado y resolución de problemas reales mediante prototipos funcionales.
-
+El desarrollo de **PostureAlert** permitió aplicar diseño 3D, ergonomía y electrónica en un solo proyecto. El proceso completo —desde el boceto inicial hasta la versión final refinada— mostró la importancia de iterar, validar medidas, y planificar correctamente los espacios internos para los componentes electrónicos. El primer boceto del prototipo mostraba practicamente un ladrillo con botones de colores. En la segunda iteración se formó la base del diseño principal, mientras que en la tercera iteración se fue forjando la idea de implementar la parte electrónica o ARDUINO en este caso. En la iteración posterior a esa, fuimos creando los agujeros o espacios internos para que esa idea de implementar ARDUINO se haga una realidad, así como el pasar de la idea a algo funcional.
 
