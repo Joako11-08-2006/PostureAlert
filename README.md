@@ -64,11 +64,6 @@ POSTURE-ALERT/
 
 ---
 
-# 🖼️ Vista Previa General
-*(Aquí puedes colocar una imagen principal del proyecto si deseas)*
-
----
-
 # 🎨 Imágenes del Proceso de Diseño
 
 ## ✏️ Boceto del Concepto
@@ -158,4 +153,5 @@ POSTURE-ALERT/
 # 💭 Reflexión del Proyecto
 
 El desarrollo de **PostureAlert** permitió aplicar diseño 3D, ergonomía y electrónica en un solo proyecto. El proceso completo —desde el boceto inicial hasta la versión final refinada— mostró la importancia de iterar, validar medidas, y planificar correctamente los espacios internos para los componentes electrónicos. Este proyecto reforzó habilidades en modelado CAD, pensamiento estructurado y resolución de problemas reales mediante prototipos funcionales.
+
 
