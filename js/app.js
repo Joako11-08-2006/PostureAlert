@@ -1,50 +1,56 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const navLinks = document.querySelectorAll(".nav-link[data-page]");
-  const content = document.getElementById("content");
+// Esperar a que TODO se cargue
+    window.addEventListener('load', () => {
+      // Inicializar AOS solo si está disponible
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 1000,
+          once: true
+        });
+      }
+    });
 
-  // Función para cargar una página
-  async function loadPage(page) {
-    try {
-    
-      const response = await fetch(`${window.location.origin}/PostureAlert/semanas/${page}`);
-      const html = await response.text();
-      content.innerHTML = html;
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
 
-      // Reiniciar animaciones
-      if (window.AOS) AOS.refreshHard();
+    document.addEventListener("DOMContentLoaded", () => {
+      const dropdownItems = document.querySelectorAll(".dropdown-item[data-page]");
+      const content = document.getElementById("content");
 
-      // Reaplicar los estilos globales (garantizar CSS cargado)
-      const cssLink = document.querySelector("link[href='css/style.css']");
-      if (!cssLink) {
-        const newLink = document.createElement("link");
-        newLink.rel = "stylesheet";
-        newLink.href = "css/style.css";
-        document.head.appendChild(newLink);
+      async function loadPage(page) {
+        try {
+          const response = await fetch(`${window.location.origin}/PostureAlert/semanas/${page}`);
+          const html = await response.text();
+          content.innerHTML = html;
+
+          if (typeof AOS !== 'undefined') {
+            AOS.refreshHard();
+          }
+          window.scrollTo({ top: 0, behavior: "smooth" });
+
+        } catch (error) {
+          console.error("Error al cargar la página:", error);
+          content.innerHTML = `
+            <div class="text-center py-5 text-light">
+              <h2>Error al cargar el contenido 😢</h2>
+              <p>No se pudo encontrar el archivo solicitado.</p>
+            </div>`;
+        }
       }
 
-      // Subir al inicio de la página
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      dropdownItems.forEach(item => {
+        item.addEventListener("click", (e) => {
+          e.preventDefault();
+          const page = item.getAttribute("data-page");
+          loadPage(page);
 
-    } catch (error) {
-      console.error("Error al cargar la página:", error);
-      content.innerHTML = `
-        <div class="text-center py-5 text-light">
-          <h2>Error al cargar el contenido 😢</h2>
-          <p>No se pudo encontrar el archivo solicitado.</p>
-        </div>`;
-    }
-  }
-
-  // Detectar clics en los enlaces del navbar
-  navLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      const page = link.getAttribute("data-page");
-      loadPage(page);
-
-      // Marcar enlace activo
-      navLinks.forEach(l => l.classList.remove("active"));
-      link.classList.add("active");
+          dropdownItems.forEach(i => i.classList.remove("active"));
+          item.classList.add("active");
+        });
+      });
     });
-  });
-});

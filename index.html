@@ -1,29 +1,27 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Posture Alert - Tech View</title>
+  <link rel="stylesheet" href="css/style.css">
 
-  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <!-- Google Fonts -->
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <!-- AOS -->
+
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- Estilos -->
-  <link rel="stylesheet" href="css/style.css" />
+  
 </head>
 
-<body>
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg fixed-top">
+ <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid px-4">
       <a class="navbar-brand" href="#">
         <div class="logo-icon">PA</div>
-        Posture Alert
+        <a id="Posture-Alert">Posture Alert</a>
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -32,15 +30,22 @@
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <!-- Enlaces directos a semanas -->
-          <li class="nav-item"><a class="nav-link" href="#" data-page="semana1.html">Semana 1</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" data-page="semana2.html">Semana 2</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" data-page="semana3.html">Semana 3</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" data-page="semana4.html">Semana 4</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" data-page="semana5.html">Semana 5</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" data-page="semana6.html">Semana 6</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" data-page="semana7.html">Semana 7</a></li>
-          <li class="nav-item"><a class="nav-link" href="#" data-page="semana8.html">Semana 8</a></li>
+          <!-- Dropdown de Semanas -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+               Semanas
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" data-page="semana1.html"> Semana 1</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana2.html"> Semana 2</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana3.html"> Semana 3</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana4.html"> Semana 4</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana5.html"> Semana 5</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana6.html"> Semana 6</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana7.html"> Semana 7</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana8.html"> Semana 8</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
@@ -49,23 +54,23 @@
   <!-- CONTENIDO PRINCIPAL -->
   <main id="content" class="content-area">
     <section class="hero" data-aos="fade-up">
-      <div class="text-center">
+      <div class="hero-content">
         <h1 class="gradient-text">Posture Alert</h1>
-        <p class="lead text-light">Tu postura, nuestra misión. Bienvenido al panel de avances del proyecto.</p>
-      </div>
+        <p class="lead">Tu postura, nuestra misión. Bienvenido al panel de avances del proyecto.</p>
 
-      <div class="team-info mt-5 text-center">
-        <h2 class="fw-bold text-info">Tecsup - C24 D</h2>
-        <p class="text-light"><strong>Diseño y Desarrollo de Software</strong></p>
+        <div class="team-info" data-aos="fade-up" data-aos-delay="200">
+          <h2 class="fw-bold">Tecsup - C24 D</h2>
+          <p class="text-light"><strong>Diseño y Desarrollo de Software</strong></p>
 
-        <div class="team-members mt-4">
-          <h5 class="text-light mb-3"><i class="bi bi-people-fill"></i> Miembros del equipo</h5>
-          <ul class="list-unstyled text-light">
-            <li>👨‍💻 Joaquin Casas</li>
-            <li>💡 Elias Cardenas</li>
-            <li>⚙️ Steven Saldaña</li>
-            <li>🔧 Roony Campos</li>
-          </ul>
+          <div class="team-members mt-4">
+            <h5><i class="bi bi-people-fill"></i> Miembros del equipo</h5>
+            <ul class="list-unstyled">
+              <li>💻 Joaquin Casas</li>
+              <li>💡 Elias Cardenas</li>
+              <li>⚙️ Steven Saldaña</li>
+              <li>🔧 Roony Campos</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -76,11 +81,9 @@
     <p>© 2024 Posture Alert | Proyecto de Innovación Tecnológica</p>
   </footer>
 
-  <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="js/app.js"></script>
-  <script>AOS.init();</script>
+ 
 </body>
 </html>
-
