@@ -837,4 +837,224 @@
       }
     }
 
+/* Estilos específicos Semana 7 */
+    .methodology-steps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .method-step {
+      flex: 1;
+      min-width: 150px;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--cream), var(--light-beige));
+      border-radius: 12px;
+      text-align: center;
+      border-top: 4px solid var(--accent-beige);
+    }
+
+    .step-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .method-step h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .method-step p {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .method-arrow {
+      font-size: 2rem;
+      color: var(--accent-beige);
+      font-weight: 700;
+    }
+
+    .tools-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .tool-item {
+      padding: 2rem;
+      background: var(--white);
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .tool-item:hover {
+      border-color: var(--accent-beige);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(201, 168, 130, 0.25);
+    }
+
+    .tool-logo {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .tool-item h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-item p {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .challenges-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .challenge-card {
+      padding: 1.5rem;
+      background: var(--cream);
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-beige);
+    }
+
+    .challenge-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.8rem;
+    }
+
+    .challenge-card p {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      margin: 0.3rem 0;
+    }
+
+    .challenge-card .solution {
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    .validation-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .result-positive,
+    .result-improve {
+      padding: 2rem;
+      border-radius: 16px;
+      border: 2px solid;
+    }
+
+    .result-positive {
+      background: #f0fdf4;
+      border-color: #86efac;
+    }
+
+    .result-improve {
+      background: #fef3c7;
+      border-color: #fbbf24;
+    }
+
+    .result-positive h4,
+    .result-improve h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .result-positive ul,
+    .result-improve ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .result-positive li,
+    .result-improve li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text-dark);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .result-positive li::before,
+    .result-improve li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent-beige);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .gantt-table {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .gantt-row {
+      display: grid;
+      grid-template-columns: 1.5fr 2fr 1fr 1.5fr;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .gantt-row:last-child {
+      border-bottom: none;
+    }
+
+    .gantt-row.header {
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    .gantt-row div {
+      color: var(--text-dark);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .methodology-steps {
+        flex-direction: column;
+      }
+
+      .method-arrow {
+        transform: rotate(90deg);
+      }
+
+      .gantt-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+    }
+
+
 
