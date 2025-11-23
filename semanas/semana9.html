@@ -1,146 +1,599 @@
-<section class="container py-5">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semana 9 - Posture Alert</title>
+  <style>
+    :root {
+      --black: #000000;
+      --dark-gray: #1a1a1a;
+      --accent-beige: #c9a882;
+      --light-beige: #e8d5c4;
+      --cream: #f5ebe0;
+      --white: #ffffff;
+      --text-dark: #2d2d2d;
+      --text-light: #6b6b6b;
+    }
 
-  <!-- ENCABEZADO PRINCIPAL -->
-  <div class="text-center mb-5" data-aos="fade-up">
-    <h1 class="fw-bold mb-2 gradient-text">
-      Semana 9 · Del concepto al prototipo
-    </h1>
-    <p class="lead" style="color:#a3bffa;">
-      Técnicas de prototipado · Diseño · Modelado · Iteración
-    </p>
-  </div>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <!-- INTRODUCCIÓN -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
-    <div class="card-body p-4" data-aos="fade-up">
-      
-      <h2 class="fw-bold mb-3" style="color: var(--primary);">Introducción</h2>
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
 
-      <p style="color:#e5e7eb;">
-        Durante la fase inicial de prototipado, identificamos la necesidad de mejorar la forma del dispositivo,
-        ya que la versión anterior resultaba demasiado grande e incómoda para el usuario.  
-        Además, concluimos que el corte láser no ofrecía la precisión ni resistencia necesarias para nuestro diseño,
-        por lo que decidimos adoptar impresión 3D al 100%, obteniendo así un prototipo más firme, preciso y ergonómico.
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* HERO */
+    .week-hero {
+      text-align: center;
+      padding: 80px 20px 60px;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+      border-radius: 30px;
+      margin-bottom: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .week-hero::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(201, 168, 130, 0.1) 0%, transparent 70%);
+      top: -200px;
+      right: -100px;
+      border-radius: 50%;
+    }
+
+    .week-badge {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .week-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: var(--black);
+      margin-bottom: 1rem;
+      letter-spacing: -2px;
+      line-height: 1.1;
+    }
+
+    .week-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--text-light);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* SECTIONS */
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--light-beige);
+      color: var(--text-dark);
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--black);
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .section-description {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      line-height: 1.8;
+      max-width: 900px;
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 3rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-beige), var(--light-beige));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-icon {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .card-content p {
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .card-content strong {
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    /* ANALYSIS SECTION */
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .analysis-card {
+      background: linear-gradient(135deg, var(--cream), var(--light-beige));
+      padding: 2rem;
+      border-radius: 20px;
+      border: 2px solid transparent;
+      transition: all 0.4s ease;
+    }
+
+    .analysis-card:hover {
+      border-color: var(--accent-beige);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(201, 168, 130, 0.25);
+    }
+
+    .analysis-question {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .analysis-answer {
+      color: var(--text-dark);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* IMAGE SHOWCASE */
+    .image-showcase {
+      margin: 3rem 0;
+      text-align: center;
+    }
+
+    .image-showcase img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease;
+    }
+
+    .image-showcase img:hover {
+      transform: scale(1.02);
+    }
+
+    .image-caption {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* HIGHLIGHT BOX */
+    .highlight-box {
+      background: var(--black);
+      color: var(--white);
+      padding: 2.5rem;
+      border-radius: 20px;
+      margin: 3rem 0;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+    }
+
+    .highlight-box h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .highlight-box p {
+      color: rgba(255,255,255,0.85);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .highlight-box strong {
+      color: var(--accent-beige);
+    }
+
+    /* COMPARISON TABLE */
+    .comparison-table {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .comparison-column {
+      background: var(--cream);
+      padding: 2rem;
+      border-radius: 16px;
+      border-left: 4px solid var(--accent-beige);
+    }
+
+    .comparison-column h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .comparison-column p {
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .card {
+        padding: 2rem;
+      }
+
+      .analysis-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-table {
+        grid-template-columns: 1fr;
+      }
+
+      .week-hero {
+        padding: 60px 20px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- HERO -->
+    <div class="week-hero">
+      <div class="week-badge">SEMANA 9</div>
+      <h1 class="week-title">Del Concepto al Prototipo</h1>
+      <p class="week-subtitle">
+        Técnicas de prototipado · Diseño · Modelado · Iteración
       </p>
-
-      <figure class="text-center mt-3">
-        <img src="/PostureAlert/assets/img/semana9_idea.jpg"
-             alt="Imagen introductoria semana 9"
-             class="img-fluid rounded-4 shadow"
-             style="max-width: 780px; object-fit: contain;">
-        <figcaption class="mt-2" style="color:#94a3b8;"></figcaption>
-      </figure>
-
     </div>
-  </div>
 
-  <!-- ANÁLISIS GUIADO -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
-    <div class="card-body p-4" data-aos="fade-up">
-      
-      <h2 class="fw-bold mb-3" style="color: var(--primary);">Análisis Guiado</h2>
+    <!-- INTRODUCCIÓN -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <span>📋</span>
+          <span>Contexto</span>
+        </div>
+        <h2 class="section-title">Evolución del Diseño</h2>
+      </div>
 
-      <h5 style="color:#00d8ff;">Características principales del objeto</h5>
-      <ul style="color:#e5e7eb;">
-        <li><strong>¿Qué problema busca resolver?</strong></li>
-        <p>Reducir lesiones y dolores de espalda en estudiantes derivados de malas posturas prolongadas.</p>
+      <div class="card">
+        <div class="card-content">
+          <p>
+            Durante la fase inicial de prototipado, identificamos la necesidad de mejorar la forma del dispositivo,
+            ya que la versión anterior resultaba <strong>demasiado grande e incómoda</strong> para el usuario.
+          </p>
+          <p>
+            Además, concluimos que el <strong>corte láser no ofrecía la precisión ni resistencia necesarias</strong> para nuestro diseño,
+            por lo que decidimos adoptar <strong>impresión 3D al 100%</strong>, obteniendo así un prototipo más firme, preciso y ergonómico.
+          </p>
+        </div>
+      </div>
 
-        <li><strong>¿Cuál es su función principal?</strong></li>
-        <p>Detectar una mala postura y alertar automáticamente al usuario.</p>
+      <div class="image-showcase">
+        <img src="/PostureAlert/assets/img/semana9_idea.jpg" alt="Evolución del diseño PostureAlert">
+        <p class="image-caption">Figura 1. Evolución del concepto hacia un diseño más ergonómico y funcional.</p>
+      </div>
+    </section>
 
-        <li><strong>¿Qué acciones realiza el usuario con él?</strong></li>
-        <p>
-          El usuario coloca el dispositivo en su espalda mediante una correa en forma de “X”.  
-          Una vez encendido, continúa sus actividades normalmente; si la postura es incorrecta, el dispositivo emite un pitido,
-          permitiendo corregir la posición sin distracciones visuales.
+    <!-- ANÁLISIS GUIADO -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <span>🔍</span>
+          <span>Análisis</span>
+        </div>
+        <h2 class="section-title">Análisis Guiado del Objeto</h2>
+        <p class="section-description">
+          Evaluación sistemática de las características, funciones y componentes del dispositivo.
         </p>
-      </ul>
+      </div>
 
-      <h5 class="mt-3" style="color:#00d8ff;">Identificación de partes</h5>
-      <ul style="color:#e5e7eb;">
-        <li><strong>¿Cuántas piezas distintas tiene?</strong></li>
-        <p>Actualmente solo tiene 2 piezas: la caja contenedora y su tapa.</p>
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon">🎯</div>
+          <span>Características Principales</span>
+        </div>
+        
+        <div class="analysis-grid">
+          <div class="analysis-card">
+            <div class="analysis-question">
+              ❓ ¿Qué problema busca resolver?
+            </div>
+            <p class="analysis-answer">
+              Reducir lesiones y dolores de espalda en estudiantes derivados de malas posturas prolongadas.
+            </p>
+          </div>
 
-        <li><strong>¿Cómo están unidas o ensambladas?</strong></li>
-        <p>Encaje directo entre tapa y contenedor. En futuras iteraciones se agregarán componentes electrónicos internos.</p>
+          <div class="analysis-card">
+            <div class="analysis-question">
+              ❓ ¿Cuál es su función principal?
+            </div>
+            <p class="analysis-answer">
+              Detectar una mala postura y alertar automáticamente al usuario mediante retroalimentación auditiva.
+            </p>
+          </div>
 
-        <li><strong>¿Alguna pieza se mueve o ajusta?</strong></li>
-        <p>La tapa puede abrirse y cerrarse libremente.</p>
-      </ul>
+          <div class="analysis-card">
+            <div class="analysis-question">
+              ❓ ¿Qué acciones realiza el usuario?
+            </div>
+            <p class="analysis-answer">
+              El usuario coloca el dispositivo en su espalda mediante una correa en forma de "X". 
+              Una vez encendido, continúa sus actividades normalmente; si la postura es incorrecta, 
+              el dispositivo emite un pitido, permitiendo corregir la posición sin distracciones visuales.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <figure class="text-center mt-3">
-        <img src="/PostureAlert/assets/img/semana9_idea2.jpg"
-             alt="Diagrama de partes del prototipo"
-             class="img-fluid rounded-4 shadow"
-             style="max-width: 780px; object-fit: contain;">
-        <figcaption class="mt-2" style="color:#94a3b8;">
-          Vista preliminar del nuevo diseño, más compacto y cómodo para el usuario.
-        </figcaption>
-      </figure>
+    <!-- IDENTIFICACIÓN DE PARTES -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <span>🔧</span>
+          <span>Estructura</span>
+        </div>
+        <h2 class="section-title">Identificación de Partes</h2>
+      </div>
 
-    </div>
-  </div>
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon">📦</div>
+          <span>Componentes del Sistema</span>
+        </div>
 
-  <!-- DISEÑO Y MODELADO -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
-    <div class="card-body p-4" data-aos="fade-up">
+        <div class="analysis-grid">
+          <div class="analysis-card">
+            <div class="analysis-question">
+              🔹 ¿Cuántas piezas distintas tiene?
+            </div>
+            <p class="analysis-answer">
+              Actualmente solo tiene <strong>2 piezas</strong>: la caja contenedora y su tapa.
+            </p>
+          </div>
 
-      <h2 class="fw-bold mb-3" style="color: var(--primary);">Diseño y Modelado</h2>
+          <div class="analysis-card">
+            <div class="analysis-question">
+              🔹 ¿Cómo están unidas o ensambladas?
+            </div>
+            <p class="analysis-answer">
+              Encaje directo entre tapa y contenedor. En futuras iteraciones se agregarán componentes electrónicos internos.
+            </p>
+          </div>
 
-      <h5 style="color:#00d8ff;">Descripción de la forma</h5>
-      <ul style="color:#e5e7eb;">
-        <li><strong>¿Qué geometría tiene cada parte?</strong></li>
-        <p>La caja contenedora tiene un diseño cilíndrico para mayor ergonomía.</p>
+          <div class="analysis-card">
+            <div class="analysis-question">
+              🔹 ¿Alguna pieza se mueve o ajusta?
+            </div>
+            <p class="analysis-answer">
+              La tapa puede abrirse y cerrarse libremente para acceso a la electrónica interna.
+            </p>
+          </div>
+        </div>
+      </div>
 
-        <li><strong>¿Qué proporciones tiene?</strong></li>
-        <p>El diseño actual mide 35×75 mm con una altura de 16 mm.</p>
+      <div class="image-showcase">
+        <img src="/PostureAlert/assets/img/semana9_idea2.jpg" alt="Diagrama de componentes">
+        <p class="image-caption">Figura 2. Vista preliminar del nuevo diseño, más compacto y cómodo para el usuario.</p>
+      </div>
+    </section>
 
-        <li><strong>¿Qué detalles no se pueden omitir?</strong></li>
+    <!-- DISEÑO Y MODELADO -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <span>✏️</span>
+          <span>Diseño</span>
+        </div>
+        <h2 class="section-title">Diseño y Modelado</h2>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon">📐</div>
+          <span>Descripción de la Forma</span>
+        </div>
+
+        <div class="comparison-table">
+          <div class="comparison-column">
+            <h4>Geometría y Proporciones</h4>
+            <p>
+              <strong>¿Qué geometría tiene cada parte?</strong><br>
+              La caja contenedora tiene un diseño <strong>cilíndrico</strong> para mayor ergonomía.
+            </p>
+            <p style="margin-top: 1rem;">
+              <strong>¿Qué proporciones tiene?</strong><br>
+              El diseño actual mide <strong>35×75 mm</strong> con una altura de <strong>16 mm</strong>.
+            </p>
+          </div>
+
+          <div class="comparison-column">
+            <h4>Detalles Críticos</h4>
+            <p>
+              <strong>¿Qué no se puede omitir?</strong><br>
+              La forma debe ser cómoda para el usuario y permitir futura integración de más electrónica. 
+              Esta iteración busca definir la base estructural ideal antes de añadir nuevas funciones.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon">👤</div>
+          <span>Relación Forma-Usabilidad</span>
+        </div>
+
+        <div class="analysis-grid">
+          <div class="analysis-card">
+            <div class="analysis-question">
+              💡 ¿Cómo mejora la interacción del usuario?
+            </div>
+            <p class="analysis-answer">
+              La forma cilíndrica reduce molestias y hace el dispositivo <strong>casi imperceptible</strong> al usarlo.
+            </p>
+          </div>
+
+          <div class="analysis-card">
+            <div class="analysis-question">
+              💡 ¿Es cómodo, seguro e intuitivo?
+            </div>
+            <p class="analysis-answer">
+              <strong>Cómodo</strong> por su tamaño compacto, <strong>seguro</strong> porque no interfiere con el usuario 
+              e <strong>intuitivo</strong> porque solo requiere encenderlo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESENTACIÓN Y FEEDBACK -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <span>📊</span>
+          <span>Evaluación</span>
+        </div>
+        <h2 class="section-title">Presentación y Retroalimentación</h2>
+      </div>
+
+      <div class="highlight-box">
+        <h3>🔄 Iteración Continua</h3>
         <p>
-          La forma debe ser cómoda para el usuario y permitir futura integración de más electrónica.
-          Esta iteración busca definir la base estructural ideal antes de añadir nuevas funciones.
+          Se presentó el nuevo diseño del prototipo, mostrando mejoras en <strong>ergonomía, tamaño y forma</strong>.
+          El feedback recibido sugirió trabajar la estabilidad, estética y futura integración de componentes internos.
         </p>
-      </ul>
-
-      <h5 class="mt-3" style="color:#00d8ff;">Relación forma–usabilidad</h5>
-      <ul style="color:#e5e7eb;">
-        <li><strong>¿Cómo mejora la interacción del usuario?</strong></li>
-        <p>La forma cilíndrica reduce molestias y hace el dispositivo casi imperceptible al usarlo.</p>
-
-        <li><strong>¿Es cómodo, seguro e intuitivo?</strong></li>
-        <p>
-          Cómodo por su tamaño compacto, seguro porque no interfiere con el usuario e intuitivo porque solo requiere encenderlo.
+        <p style="margin-top: 1rem;">
+          Aunque no es el diseño final, permitió esclarecer el rumbo evolutivo del dispositivo:
+          <strong>abandonar el corte láser</strong> y consolidar un diseño <strong>curvo/cilíndrico</strong> que favorezca la comodidad.
         </p>
-      </ul>
+      </div>
 
-    </div>
+      <div class="image-showcase">
+        <img src="/PostureAlert/assets/img/semana9_idea3.jpg" alt="Aplicación del diseño en usuario">
+        <p class="image-caption">Figura 3. Aplicación del diseño en una persona durante pruebas de uso.</p>
+      </div>
+    </section>
+
+    <!-- CONCLUSIÓN -->
+    <section class="section">
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon">✅</div>
+          <span>Conclusiones de la Semana 9</span>
+        </div>
+        <div class="card-content">
+          <p>
+            Esta semana representó un <strong>punto de inflexión crítico</strong> en el desarrollo del proyecto. 
+            La decisión de migrar completamente a impresión 3D y adoptar una geometría cilíndrica 
+            establece las bases para un producto más <strong>robusto, ergonómico y escalable</strong>.
+          </p>
+          <p>
+            El análisis sistemático del objeto nos permitió identificar áreas de mejora y 
+            priorizar la <strong>experiencia del usuario</strong> sobre la complejidad técnica innecesaria.
+          </p>
+        </div>
+      </div>
+    </section>
+
   </div>
 
-  <!-- PRESENTACIÓN Y RETROALIMENTACIÓN -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
-    <div class="card-body p-4" data-aos="fade-up">
-
-      <h2 class="fw-bold mb-3" style="color: var(--primary);">Presentación y Retroalimentación</h2>
-
-      <p style="color:#e5e7eb;">
-        Se presentó el nuevo diseño del prototipo, mostrando mejoras en ergonomía, tamaño y forma.
-        El feedback recibido sugirió trabajar la estabilidad, estética y futura integración de componentes internos.
-        Aunque no es el diseño final, permitió esclarecer el rumbo evolutivo del dispositivo:
-        abandonar el corte láser y consolidar un diseño curvo/cilíndrico que favorezca la comodidad.
-      </p>
-
-      <figure class="text-center mt-3">
-        <img src="/PostureAlert/assets/img/semana9_idea3.jpg"
-             alt="Retroalimentación semanal"
-             class="img-fluid rounded-4 shadow"
-             style="max-width: 780px; object-fit: contain;">
-        <figcaption class="mt-2" style="color:#94a3b8;">
-          Aplicación del diseño en una persona durante pruebas de uso.
-        </figcaption>
-      </figure>
-
-    </div>
-  </div>
-
-</section>
-
+</body>
+</html>
