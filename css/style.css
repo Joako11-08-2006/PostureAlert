@@ -646,3 +646,195 @@
       color: var(--black);
     }
 
+/* Estilos específicos Semana 8 */
+    .website-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .feature-item {
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--cream), var(--light-beige));
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(201, 168, 130, 0.25);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-item h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-item p {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .presentation-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .highlight-box {
+      padding: 2rem;
+      background: var(--cream);
+      border-radius: 16px;
+      border-left: 4px solid var(--accent-beige);
+    }
+
+    .highlight-box h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .highlight-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .highlight-box li {
+      padding: 0.6rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .highlight-box li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent-beige);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .rubric-table {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .rubric-row {
+      display: grid;
+      grid-template-columns: 1.5fr 3fr 1fr;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .rubric-row:last-child {
+      border-bottom: none;
+    }
+
+    .rubric-row.header {
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    .rubric-row div {
+      color: var(--text-dark);
+      font-size: 0.9rem;
+    }
+
+    .level {
+      font-weight: 700;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    .level.excellent {
+      background: #86efac;
+      color: #166534;
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .achievement-card {
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--cream), var(--light-beige));
+      border-radius: 16px;
+      text-align: center;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .achievement-card:hover {
+      border-color: var(--accent-beige);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(201, 168, 130, 0.25);
+    }
+
+    .achievement-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .achievement-card h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .achievement-card p {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .conclusion-card {
+      background: linear-gradient(135deg, var(--black), var(--dark-gray));
+      color: var(--white);
+    }
+
+    .conclusion-card .card-icon {
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+    }
+
+    .conclusion-card .card-title {
+      color: var(--white);
+    }
+
+    .conclusion-card .card-text {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .conclusion-card strong {
+      color: var(--accent-beige);
+    }
+
+    @media (max-width: 768px) {
+      .rubric-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+    }
+
+
