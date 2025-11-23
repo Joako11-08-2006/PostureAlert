@@ -1,189 +1,288 @@
-<!-- =============================
-     SEMANA 7 · PLANIFICACIÓN, CREACIÓN Y VALIDACIÓN DE PIEZAS
-     ============================= -->
-<section class="container py-5">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semana 7 - Prototipado Rápido</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-  <!-- ENCABEZADO -->
-  <div class="text-center mb-5" data-aos="fade-up">
-    <h1 class="fw-bold mb-2" style="color: var(--primary); text-shadow: 0 0 18px rgba(0,216,255,.3);">
-      Semana 7 · Proceso Creativo: Planificación, Creación y Validación de Piezas
-    </h1>
-    <p class="lead mb-0" style="color:#a3bffa;">
-      Aplicación del <strong>prototipado rápido</strong> para optimizar las piezas estructurales y electrónicas del dispositivo <strong>PostureAlert</strong>.
-    </p>
-  </div>
-
-  <!-- OBJETIVO -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body text-center p-4" data-aos="fade-up">
-      <h2 class="fw-bold mb-3" style="color: var(--primary);">🎯 Objetivo</h2>
-      <p class="mb-0" style="color:#e5e7eb;">
-        Diseñar y prototipar las piezas físicas de <strong>PostureAlert</strong> mediante técnicas de <strong>prototipado rápido</strong>,
-        identificando limitaciones técnicas en impresión 3D y corte láser, y utilizándolas como motor creativo para mejorar el diseño final del dispositivo:contentReference[oaicite:0]{index=0}.
+  <div class="container">
+    
+    <!-- HERO -->
+    <div class="week-hero">
+      <div class="week-badge">SEMANA 7</div>
+      <h1 class="week-title">Prototipado Rápido</h1>
+      <p class="week-subtitle">
+        Planificación, creación y validación de piezas mediante iteración continua
       </p>
     </div>
+
+    <!-- OBJETIVO -->
+    <section class="section">
+      <div class="section-label">
+        <span>🎯</span>
+        <span>Objetivo</span>
+      </div>
+      <h2 class="section-title">Propósito de la Semana</h2>
+      
+      <div class="card">
+        <p class="card-text">
+          Diseñar y prototipar las piezas físicas de <strong>PostureAlert</strong> mediante técnicas de 
+          <strong>prototipado rápido</strong>, identificando limitaciones técnicas en impresión 3D y corte láser, 
+          y utilizándolas como motor creativo para mejorar el diseño final del dispositivo.
+        </p>
+      </div>
+    </section>
+
+    <!-- PLANIFICACIÓN -->
+    <section class="section">
+      <div class="section-label">
+        <span>📋</span>
+        <span>Planificación</span>
+      </div>
+      <h2 class="section-title">Metodología Design-Plan-Build-Test</h2>
+      
+      <div class="card">
+        <p class="card-text" style="margin-bottom: 2rem;">
+          Se aplicó una planificación basada en el método <strong>Design–Plan–Build–Test</strong>, 
+          distribuyendo tareas y tiempos mediante un mini Gantt para optimizar el flujo de trabajo.
+        </p>
+
+        <div class="methodology-steps">
+          <div class="method-step">
+            <div class="step-icon">✏️</div>
+            <h4>Design</h4>
+            <p>Boceto inicial y definición de especificaciones</p>
+          </div>
+
+          <div class="method-arrow">→</div>
+
+          <div class="method-step">
+            <div class="step-icon">📐</div>
+            <h4>Plan</h4>
+            <p>Modelado 3D y preparación de archivos</p>
+          </div>
+
+          <div class="method-arrow">→</div>
+
+          <div class="method-step">
+            <div class="step-icon">🔧</div>
+            <h4>Build</h4>
+            <p>Fabricación mediante impresión 3D</p>
+          </div>
+
+          <div class="method-arrow">→</div>
+
+          <div class="method-step">
+            <div class="step-icon">🔍</div>
+            <h4>Test</h4>
+            <p>Validación funcional y ajustes</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HERRAMIENTAS -->
+    <section class="section">
+      <div class="section-label">
+        <span>🛠️</span>
+        <span>Software</span>
+      </div>
+      <h2 class="section-title">Herramientas Utilizadas</h2>
+      
+      <div class="tools-showcase">
+        <div class="tool-item">
+          <div class="tool-logo">🎨</div>
+          <h4>Tinkercad</h4>
+          <p>Creación rápida de prototipos conceptuales</p>
+        </div>
+
+        <div class="tool-item">
+          <div class="tool-logo">📦</div>
+          <h4>Onshape</h4>
+          <p>Modelado paramétrico y optimización de piezas</p>
+        </div>
+
+        <div class="tool-item">
+          <div class="tool-logo">🖨️</div>
+          <h4>Bambu Studio</h4>
+          <p>Preparación de STL y simulación de impresión</p>
+        </div>
+      </div>
+
+      <div class="full-image">
+        <img src="/PostureAlert/assets/img/semana7_planificacion.jpg" 
+             alt="Planificación y modelado" 
+             style="max-width: 100%; border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.12);">
+        <p class="image-caption">Figura 1. Planificación y modelado digital de las piezas del dispositivo.</p>
+      </div>
+    </section>
+
+    <!-- PROTOTIPADO -->
+    <section class="section">
+      <div class="section-label">
+        <span>⚙️</span>
+        <span>Fabricación</span>
+      </div>
+      <h2 class="section-title">Creación y Prototipado Rápido</h2>
+      
+      <div class="card">
+        <p class="card-text" style="margin-bottom: 2rem;">
+          Se imprimieron las primeras piezas estructurales del dispositivo PostureAlert, 
+          validando el espacio para los componentes internos. Durante el proceso se identificaron 
+          <strong>limitaciones técnicas</strong> como el grosor de capa, el tiempo de impresión y las tolerancias de ajuste, 
+          que se convirtieron en oportunidades para rediseñar y optimizar el encastre.
+        </p>
+
+        <div class="challenges-grid">
+          <div class="challenge-card">
+            <h4>🔸 Limitación Detectada</h4>
+            <p><strong>Grosor de pared insuficiente</strong></p>
+            <p class="solution">Solución: Aumentar a mínimo 2mm para resistencia estructural</p>
+          </div>
+
+          <div class="challenge-card">
+            <h4>🔸 Limitación Detectada</h4>
+            <p><strong>Tiempo de impresión excesivo</strong></p>
+            <p class="solution">Solución: Optimizar geometría y reducir relleno al 15%</p>
+          </div>
+
+          <div class="challenge-card">
+            <h4>🔸 Limitación Detectada</h4>
+            <p><strong>Tolerancias muy ajustadas</strong></p>
+            <p class="solution">Solución: Agregar 0.3mm de holgura en encastres</p>
+          </div>
+        </div>
+
+        <div class="full-image">
+          <img src="/PostureAlert/assets/img/semana7_prototipado.jpg" 
+               alt="Prototipado físico" 
+               style="max-width: 100%; border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.12);">
+          <p class="image-caption">Figura 2. Prototipo físico del dispositivo PostureAlert impreso en 3D.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALIDACIÓN -->
+    <section class="section">
+      <div class="section-label">
+        <span>🔍</span>
+        <span>Validación</span>
+      </div>
+      <h2 class="section-title">Validación del Prototipo</h2>
+      
+      <div class="card">
+        <p class="card-text" style="margin-bottom: 2rem;">
+          La validación se centró en comprobar la <strong>ergonomía y estabilidad</strong> del dispositivo 
+          cuando se usa en la espalda. Se realizaron pruebas funcionales verificando la comodidad durante uso prolongado 
+          y la resistencia de los materiales.
+        </p>
+
+        <div class="validation-results">
+          <div class="result-positive">
+            <h4>✅ Resultados Positivos</h4>
+            <ul>
+              <li>Peso ligero y cómodo para uso continuo</li>
+              <li>Ensamblaje firme sin adhesivos</li>
+              <li>Espacio suficiente para componentes internos</li>
+              <li>Geometría ergonómica adaptable</li>
+            </ul>
+          </div>
+
+          <div class="result-improve">
+            <h4>🔄 Áreas de Mejora</h4>
+            <ul>
+              <li>Optimizar sistema de correas para ajuste rápido</li>
+              <li>Reforzar esquinas de la tapa</li>
+              <li>Agregar ventilación para disipación de calor</li>
+              <li>Mejorar acabado superficial mediante post-procesamiento</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="full-image">
+          <img src="/PostureAlert/assets/img/semana7_validacion.jpg" 
+               alt="Validación funcional" 
+               style="max-width: 100%; border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.12);">
+          <p class="image-caption">Figura 3. Pruebas de validación funcional del dispositivo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MINI GANTT -->
+    <section class="section">
+      <div class="section-label">
+        <span>📅</span>
+        <span>Cronograma</span>
+      </div>
+      <h2 class="section-title">Mini Gantt del Proceso</h2>
+      
+      <div class="card">
+        <div class="gantt-table">
+          <div class="gantt-row header">
+            <div>Etapa</div>
+            <div>Actividad</div>
+            <div>Tiempo</div>
+            <div>Responsable</div>
+          </div>
+
+          <div class="gantt-row">
+            <div>Idea inicial</div>
+            <div>Boceto rápido en papel</div>
+            <div>15 min</div>
+            <div>Equipo</div>
+          </div>
+
+          <div class="gantt-row">
+            <div>Modelado 3D</div>
+            <div>Diseño en Onshape/Tinkercad</div>
+            <div>45 min</div>
+            <div>E. Cárdenas</div>
+          </div>
+
+          <div class="gantt-row">
+            <div>Simulación</div>
+            <div>Pruebas en Bambu Studio</div>
+            <div>20 min</div>
+            <div>Equipo</div>
+          </div>
+
+          <div class="gantt-row">
+            <div>Validación virtual</div>
+            <div>Revisión de tolerancias</div>
+            <div>15 min</div>
+            <div>Equipo</div>
+          </div>
+
+          <div class="gantt-row">
+            <div>Impresión 3D</div>
+            <div>Fabricación y ensamblaje</div>
+            <div>60 min</div>
+            <div>Fab Lab</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSIÓN -->
+    <section class="section">
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon">✅</div>
+          <span>Conclusión</span>
+        </div>
+        <p class="card-text">
+          Esta semana permitió consolidar las habilidades de <strong>diseño paramétrico</strong> y 
+          <strong>prototipado rápido</strong>, aplicándolas directamente en la mejora de PostureAlert. 
+          El proceso demostró la importancia de planificar, probar, fallar y ajustar para alcanzar 
+          un diseño eficiente y funcional. Con esta iteración, el equipo logró un modelo más ergonómico, 
+          estable y viable para futuras pruebas de usuario.
+        </p>
+      </div>
+    </section>
+
   </div>
 
-  <!-- PLANIFICACIÓN Y SOFTWARE -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body p-4" data-aos="fade-up" data-aos-delay="50">
-      <h3 class="fw-bold mb-3" style="color:#00d8ff;">🧩 Planificación y Herramientas Utilizadas</h3>
-      <p style="color:#e5e7eb;">
-        Se aplicó una planificación basada en el método <strong>Design–Plan–Build–Test</strong>, distribuyendo tareas y tiempos mediante un mini Gantt.
-        Las herramientas empleadas fueron:
-      </p>
-      <ul class="text-start d-inline-block" style="color:#a3bffa; max-width:720px;">
-        <li><strong>Tinkercad:</strong> para la creación rápida de prototipos conceptuales.</li>
-        <li><strong>Onshape:</strong> para modelado paramétrico y optimización de las piezas del cuerpo del dispositivo.</li>
-        <li><strong>Bambu Studio:</strong> para el preparado del archivo STL y simulación de impresión 3D.</li>
-      </ul>
-
-      <figure class="text-center mt-4">
-        <img src="/PostureAlert/assets/img/semana7_planificacion.jpg"
-             alt="Planificación y modelado 3D del proyecto PostureAlert"
-             class="img-fluid d-block mx-auto rounded-4 shadow"
-             style="max-width: 780px; width: 100%; object-fit: contain;">
-        <figcaption class="mt-2" style="color:#94a3b8;">
-          Figura 1. Planificación y modelado digital de las piezas del dispositivo PostureAlert.
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <!-- PROTOTIPADO RÁPIDO -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body p-4 text-center" data-aos="fade-up" data-aos-delay="100">
-      <h3 class="fw-bold mb-3" style="color:#00d8ff;">⚙️ Creación y Prototipado Rápido</h3>
-      <p style="color:#e5e7eb;">
-        Se imprimieron las primeras piezas estructurales del dispositivo PostureAlert, validando el espacio para los componentes electrónicos
-        (sensor ultrasónico, LED RGB y módulo Arduino Nano).  
-        Durante el proceso se identificaron <strong>limitaciones técnicas</strong> como el grosor de capa, el tiempo de impresión y las tolerancias de ajuste, 
-        que se convirtieron en oportunidades para rediseñar el modelo y optimizar el encastre:contentReference[oaicite:1]{index=1}.
-      </p>
-
-      <figure class="text-center mt-4">
-        <img src="/PostureAlert/assets/img/semana7_prototipado.jpg"
-             alt="Prototipado físico de PostureAlert con impresión 3D"
-             class="img-fluid d-block mx-auto rounded-4 shadow"
-             style="max-width: 780px; width: 100%; object-fit: contain;">
-        <figcaption class="mt-2" style="color:#94a3b8;">
-          Figura 2. Prototipo físico del dispositivo PostureAlert impreso en 3D.
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <!-- VALIDACIÓN Y ANÁLISIS -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body p-4 text-center" data-aos="fade-up" data-aos-delay="150">
-      <h3 class="fw-bold mb-3" style="color:#00d8ff;">🔍 Validación del Prototipo</h3>
-      <p style="color:#e5e7eb;">
-        La validación se centró en comprobar la <strong>ergonomía y estabilidad</strong> del dispositivo sobre el escritorio. 
-        Se realizaron pruebas funcionales midiendo la distancia del sensor a la espalda del usuario, verificando la activación del LED cuando la postura se inclinaba incorrectamente.
-      </p>
-      <p style="color:#a3bffa;">
-        Los resultados demostraron una detección precisa en un rango de 30–70 cm, con retroalimentación inmediata.  
-        Se propuso mejorar el ángulo del sensor y reforzar la base para reducir vibraciones durante el uso continuo.
-      </p>
-
-      <figure class="text-center mt-4">
-        <img src="/PostureAlert/assets/img/semana7_validacion.jpg"
-             alt="Pruebas de validación del dispositivo PostureAlert"
-             class="img-fluid d-block mx-auto rounded-4 shadow"
-             style="max-width: 780px; width: 100%; object-fit: contain;">
-        <figcaption class="mt-2" style="color:#94a3b8;">
-          Figura 3. Validación funcional del sensor y LED del dispositivo PostureAlert.
-        </figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <!-- MINI GANTT -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body p-4 text-center" data-aos="fade-up" data-aos-delay="200">
-      <h3 class="fw-bold mb-3" style="color:#00d8ff;">📅 Mini Gantt del Prototipado</h3>
-      <p style="color:#e5e7eb;">
-        Se elaboró un plan de trabajo con tiempos estimados por fase, siguiendo la metodología propuesta por la docente Evelyn Cuadrado:contentReference[oaicite:2]{index=2}:
-      </p>
-
-      <table class="table table-dark table-striped mx-auto" style="max-width:720px;">
-        <thead>
-          <tr style="color:#00d8ff;">
-            <th>Etapa</th>
-            <th>Actividad</th>
-            <th>Tiempo estimado</th>
-            <th>Responsable</th>
-          </tr>
-        </thead>
-        <tbody style="color:#e5e7eb;">
-          <tr>
-            <td>Idea inicial</td>
-            <td>Boceto rápido en papel</td>
-            <td>15 min</td>
-            <td>Equipo</td>
-          </tr>
-          <tr>
-            <td>Modelado 3D</td>
-            <td>Diseño en Onshape / Tinkercad</td>
-            <td>45 min</td>
-            <td>E. Cárdenas</td>
-          </tr>
-          <tr>
-            <td>Simulación</td>
-            <td>Pruebas en Bambu Studio</td>
-            <td>20 min</td>
-            <td>Equipo</td>
-          </tr>
-          <tr>
-            <td>Validación virtual</td>
-            <td>Revisión de tolerancias y soportes</td>
-            <td>15 min</td>
-            <td>Equipo</td>
-          </tr>
-          <tr>
-            <td>Impresión 3D</td>
-            <td>Fabricación y ensamblaje físico</td>
-            <td>60 min</td>
-            <td>Fab Lab Tecsup</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- CONCLUSIÓN -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body text-center p-4" data-aos="fade-up" data-aos-delay="250">
-      <h2 class="fw-bold mb-3" style="color: var(--primary);">💭 Conclusión de la Semana 7</h2>
-      <p class="mb-3" style="color:#e5e7eb;">
-        Esta semana permitió consolidar las habilidades de <strong>diseño paramétrico</strong> y <strong>prototipado rápido</strong>,
-        aplicándolas directamente en la mejora de <strong>PostureAlert</strong>.  
-        El proceso demostró la importancia de planificar, probar, fallar y ajustar para alcanzar un diseño eficiente y funcional.
-      </p>
-      <p style="color:#a3bffa;">
-        Con esta iteración, el equipo logró un modelo más ergonómico, estable y viable para futuras pruebas de usuario.
-      </p>
-    </div>
-  </div>
-
-  <!-- REFERENCIAS -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mt-5"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body p-4" data-aos="fade-up" data-aos-delay="300">
-      <h3 class="fw-bold text-center mb-3" style="color: var(--primary);">📚 Referencias</h3>
-      <ul class="text-start d-inline-block" style="color:#a3bffa; max-width:720px;">
-        <li>Tecsup (2025). <em>Investigación e Innovación Tecnológica – Semana 7: Proceso creativo en la planificación, creación y validación de piezas</em>. Docente: Evelyn A. Cuadrado Guerrero:contentReference[oaicite:3]{index=3}.</li>
-        <li>Autodesk (2024). <em>Guía de Tinkercad y prototipado rápido.</em></li>
-        <li>Bambu Lab (2024). <em>Best practices for rapid 3D printing.</em></li>
-        <li>Equipo PostureAlert (2025). <em>Registro de validación funcional y pruebas del dispositivo.</em></li>
-      </ul>
-    </div>
-  </div>
-
-</section>
+  <script src="js/app.js"></script>
