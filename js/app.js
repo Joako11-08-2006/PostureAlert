@@ -1,56 +1,97 @@
-// Esperar a que TODO se cargue
-    window.addEventListener('load', () => {
-      // Inicializar AOS solo si está disponible
-      if (typeof AOS !== 'undefined') {
-        AOS.init({
-          duration: 1000,
-          once: true
-        });
-      }
-    });
+<body>
 
-    window.addEventListener('scroll', () => {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <div class="logo-container">
+          <div class="logo-icon">PA</div>
+          <span>Posture Alert</span>
+        </div>
+      </a>
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const dropdownItems = document.querySelectorAll(".dropdown-item[data-page]");
-      const content = document.getElementById("content");
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      async function loadPage(page) {
-        try {
-          const response = await fetch(`${window.location.origin}/PostureAlert/semanas/${page}`);
-          const html = await response.text();
-          content.innerHTML = html;
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              Documentación
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" data-page="semana1">Semana 1 - Reto Inicial</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana2">Semana 2 - Investigación</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana3">Semana 3 - Design Thinking</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana4">Semana 4 - Prototipo Físico</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana5">Semana 5 - Empatía y Usuario</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana6">Semana 6 - Corte Láser</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana7">Semana 7 - Prototipado Rápido</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana8">Semana 8 - Entrega Final</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana9">Semana 9 - Concepto a Prototipo</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana10">Semana 10 - Diseño de Piezas</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana11">Semana 11 - Validación</a></li>
+              <li><a class="dropdown-item" href="#" data-page="semana12">Semana 12 - Modelado 3D</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-          if (typeof AOS !== 'undefined') {
-            AOS.refreshHard();
-          }
-          window.scrollTo({ top: 0, behavior: "smooth" });
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main id="content">
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-10 mx-auto">
+            <div class="hero-content fade-in">
+              <div class="hero-badge">
+                <i class="bi bi-lightning-charge-fill"></i>
+                <span>Innovación Tecnológica 2024</span>
+              </div>
+              
+              <h1 class="hero-title">Posture Alert</h1>
+              
+              <p class="hero-subtitle">
+                Dispositivo ergonómico inteligente diseñado para mejorar la salud postural en estudiantes. 
+                Tu postura, nuestra misión.
+              </p>
 
-        } catch (error) {
-          console.error("Error al cargar la página:", error);
-          content.innerHTML = `
-            <div class="text-center py-5 text-light">
-              <h2>Error al cargar el contenido 😢</h2>
-              <p>No se pudo encontrar el archivo solicitado.</p>
-            </div>`;
-        }
-      }
+              <!-- TEAM CARD -->
+              <div class="team-card">
+                <div class="team-header">
+                  <h2>Tecsup - C24 D</h2>
+                  <p>Diseño y Desarrollo de Software</p>
+                </div>
 
-      dropdownItems.forEach(item => {
-        item.addEventListener("click", (e) => {
-          e.preventDefault();
-          const page = item.getAttribute("data-page");
-          loadPage(page);
+                <div class="team-section-title">
+                  <i class="bi bi-people-fill"></i>
+                  <span>Equipo de Desarrollo</span>
+                </div>
 
-          dropdownItems.forEach(i => i.classList.remove("active"));
-          item.classList.add("active");
-        });
-      });
-    });
+                <div class="team-grid">
+                  <div class="team-member">💻 Joaquin Casas</div>
+                  <div class="team-member">💡 Elias Cardenas</div>
+                  <div class="team-member">⚙️ Steven Saldaña</div>
+                  <div class="team-member">🔧 Roony Campos</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div class="container">
+      <p>© 2024 Posture Alert | Proyecto de Innovación Tecnológica - Tecsup</p>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
