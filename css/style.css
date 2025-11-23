@@ -1266,6 +1266,176 @@
       }
     }
 
+/* Estilos específicos Semana 2 */
+    .sources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .source-card {
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--cream), var(--light-beige));
+      border-radius: 16px;
+      border-left: 4px solid var(--accent-beige);
+    }
+
+    .source-card h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .source-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .source-card li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text-dark);
+    }
+
+    .source-card li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent-beige);
+      font-weight: 700;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .stat-card {
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--cream), var(--light-beige));
+      border-radius: 16px;
+      text-align: center;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      border-color: var(--accent-beige);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(201, 168, 130, 0.3);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .testimonial-card {
+      padding: 2rem;
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      position: relative;
+      border-left: 4px solid var(--accent-beige);
+    }
+
+    .testimonial-quote {
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--accent-beige);
+      opacity: 0.3;
+      line-height: 0.8;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-text {
+      color: var(--text-dark);
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-author {
+      color: var(--black);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .findings-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .findings-list li {
+      padding: 1rem 0;
+      padding-left: 2rem;
+      position: relative;
+      color: var(--text-dark);
+      line-height: 1.7;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .findings-list li:last-child {
+      border-bottom: none;
+    }
+
+    .findings-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent-beige);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .references-box {
+      margin-top: 2rem;
+      padding: 2rem;
+      background: var(--cream);
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-beige);
+    }
+
+    .references-box h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .references-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .references-box li {
+      padding: 0.5rem 0;
+      color: var(--text-dark);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+
 
 
 
