@@ -1,170 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semana 1 - Posture Alert</title>
+  <style>
+    :root {
+      --black: #000000;
+      --dark-gray: #1a1a1a;
+      --accent-beige: #c9a882;
+      --light-beige: #e8d5c4;
+      --cream: #f5ebe0;
+      --white: #ffffff;
+      --text-dark: #2d2d2d;
+      --text-light: #6b6b6b;
+    }
 
-<!-- =============================
-     SEMANA 1 · RETO 1 · POSTUREALERT
-     ============================= -->
-<section class="container py-5">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <!-- ENCABEZADO -->
-  <div class="text-center mb-4" data-aos="fade-up">
-    <h1 class="fw-bold mb-2" style="color: white; text-shadow: 0 0 20px rgb(247, 244, 244);">
-      Semana 1 
-</h1>
-    <p class="lead mb-0" style="color:#a3bffa;">
-      ¿Cómo podríamos diseñar herramientas ergonómicas que reduzcan la fatiga y el riesgo de lesiones en trabajos de manufactura?
-    </p>
-  </div>
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
 
-  <!-- DESCRIPCIÓN DEL PROBLEMA -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body p-4 text-center" data-aos="fade-up">
-      <h2 class="fw-bold mb-3" style="color: var(--primary);">Descripción del problema y su contexto</h2>
-      <p class="mb-3" style="color:#e5e7eb;">
-        Durante las jornadas laborales o de estudio prolongadas, las personas suelen adoptar posturas incorrectas
-        que generan <strong>fatiga muscular, dolor cervical y lumbar</strong>. En entornos de manufactura o trabajo de escritorio,
-        mantener la posición encorvada por horas incrementa el riesgo de lesiones por esfuerzo repetitivo.
-      </p>
-      <p class="mb-0" style="color:#a3bffa;">
-        La mayoría de soluciones existentes, como sillas ergonómicas o wearables, resultan costosas o invasivas.
-        Por ello, surge la necesidad de crear un <strong>dispositivo pequeño, accesible y fácil de usar</strong>
-        que advierta cuando la postura no es adecuada.
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* HERO HEADER */
+    .week-hero {
+      text-align: center;
+      padding: 80px 20px 60px;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+      border-radius: 30px;
+      margin-bottom: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .week-hero::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(201, 168, 130, 0.1) 0%, transparent 70%);
+      top: -200px;
+      right: -100px;
+      border-radius: 50%;
+    }
+
+    .week-badge {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .week-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: var(--black);
+      margin-bottom: 1rem;
+      letter-spacing: -2px;
+      line-height: 1.1;
+    }
+
+    .week-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--text-light);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* CONTENT SECTIONS */
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--light-beige);
+      color: var(--text-dark);
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--black);
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .section-description {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      line-height: 1.8;
+      max-width: 900px;
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 3rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-beige), var(--light-beige));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-icon {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .card-content p {
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .card-content strong {
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    /* LISTS */
+    .list-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .list-item {
+      background: var(--cream);
+      padding: 1.2rem 1.5rem;
+      border-radius: 14px;
+      border-left: 4px solid var(--accent-beige);
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .list-item:hover {
+      transform: translateX(8px);
+      background: var(--light-beige);
+      box-shadow: 0 5px 20px rgba(201, 168, 130, 0.2);
+    }
+
+    .list-numbered {
+      counter-reset: list-counter;
+      list-style: none;
+      padding: 0;
+    }
+
+    .list-numbered li {
+      counter-increment: list-counter;
+      padding: 1rem 1.5rem 1rem 4rem;
+      margin-bottom: 0.8rem;
+      background: var(--white);
+      border-radius: 12px;
+      position: relative;
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+
+    .list-numbered li::before {
+      content: counter(list-counter);
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+      color: var(--black);
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .list-numbered li:hover {
+      background: var(--cream);
+      transform: translateX(8px);
+    }
+
+    /* STRENGTHS GRID */
+    .strengths-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .strength-card {
+      background: linear-gradient(135deg, var(--cream) 0%, var(--light-beige) 100%);
+      padding: 2rem;
+      border-radius: 20px;
+      border: 2px solid transparent;
+      transition: all 0.4s ease;
+    }
+
+    .strength-card:hover {
+      border-color: var(--accent-beige);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(201, 168, 130, 0.25);
+    }
+
+    .strength-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .strength-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .strength-card li {
+      color: var(--text-dark);
+      padding: 0.6rem 0;
+      padding-left: 1.8rem;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .strength-card li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent-beige);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* IMAGE CONTAINER */
+    .image-showcase {
+      margin: 3rem 0;
+      text-align: center;
+    }
+
+    .image-showcase img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease;
+    }
+
+    .image-showcase img:hover {
+      transform: scale(1.02);
+    }
+
+    .image-caption {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* HIGHLIGHT BOX */
+    .highlight-box {
+      background: var(--black);
+      color: var(--white);
+      padding: 2.5rem;
+      border-radius: 20px;
+      margin: 3rem 0;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+    }
+
+    .highlight-box h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .highlight-box p {
+      color: rgba(255,255,255,0.85);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .highlight-box strong {
+      color: var(--accent-beige);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .card {
+        padding: 2rem;
+      }
+
+      .list-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .strengths-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .week-hero {
+        padding: 60px 20px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- HERO -->
+    <div class="week-hero">
+      <div class="week-badge">SEMANA 1</div>
+      <h1 class="week-title">Reto Inicial</h1>
+      <p class="week-subtitle">
+        ¿Cómo podríamos diseñar herramientas ergonómicas que reduzcan la fatiga y el riesgo de lesiones en trabajos de manufactura?
       </p>
     </div>
-  </div>
 
-  <!-- IDEAS BRAINSTORMING -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body p-4" data-aos="fade-up" data-aos-delay="50">
-      <h2 class="fw-bold mb-3 text-center" style="color: var(--primary);">Ideas aportadas durante el brainstorming (20)</h2>
-      <ol class="mb-0" style="color:#e5e7eb; columns: 2; column-gap: 2rem;">
-        <li>Luz de escritorio que cambia de color al detectar mala postura.</li>
-        <li>Sensor infrarrojo con alarma visual y sonora.</li>
-        <li>Cojín de asiento con detector de presión.</li>
-        <li>Base de monitor con inclinómetro.</li>
-        <li>Soporte lumbar con vibración correctiva.</li>
-        <li>Aplicación con recordatorios ergonómicos.</li>
-        <li>Clip para ropa con sensor de inclinación.</li>
-        <li>Mouse que vibra si el brazo está mal posicionado.</li>
-        <li>Banda elástica con sensor de estiramiento.</li>
-        <li>Proyector láser que marca la posición ideal.</li>
-        <li>Dispositivo de escritorio con sensor de distancia ToF.</li>
-        <li>Gafas que detectan inclinación de cabeza.</li>
-        <li>Alfombra con sensor de peso.</li>
-        <li>Monitor con sensor integrado de ángulo de cuello.</li>
-        <li>Sensor acústico que reconoce encorvamiento.</li>
-        <li>Luz ambiental que indica postura correcta.</li>
-        <li>Mini dron que detecta postura (idea creativa, descartada).</li>
-        <li>Soporte de espalda con alerta háptica.</li>
-        <li>Dispositivo IoT de escritorio conectado al celular.</li>
-        <li><strong>PostureAlert</strong>: pequeño dispositivo que detecta postura y da aviso visual.</li>
-      </ol>
-    </div>
-  </div>
-
-  <!-- JUSTIFICACIÓN DE LA IDEA GANADORA -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body p-4 text-center" data-aos="fade-up" data-aos-delay="100">
-      <h2 class="fw-bold mb-3" style="color: var(--primary);">🏆 Nuestra solución elegida: PostureAlert</h2>
-      <p class="mb-3" style="color:#e5e7eb;">
-        El equipo eligió <strong>PostureAlert</strong> como la solución final por su practicidad, bajo costo y facilidad de implementación.
-        Es un dispositivo compacto que se coloca sobre el escritorio y emite alertas visuales cuando detecta una postura incorrecta.
-      </p>
-      <p class="mb-0" style="color:#a3bffa;">
-        Gracias a su <strong>diseño minimalista y su tecnología simple</strong>, PostureAlert ayuda a corregir hábitos sin interrumpir
-        las tareas del usuario, convirtiéndose en una herramienta ideal para estudiantes y trabajadores.
-      </p>
-    </div>
-  </div>
-
-  <!-- FORTALEZAS -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body p-4" data-aos="fade-up" data-aos-delay="150">
-      <h2 class="fw-bold text-center mb-4" style="color: var(--primary);">Fortalezas Identificadas</h2>
-
-      <div class="text-start" style="color:#e5e7eb;">
-        <h5 style="color:#00d8ff;">🔸 Simplicidad extrema</h5>
-        <ul>
-          <li>Solo conectar y funcionar, sin configuraciones complejas.</li>
-          <li>Interfaz visual intuitiva con LED de colores.</li>
-          <li>Sin cables adicionales ni calibraciones.</li>
-        </ul>
-
-        <h5 style="color:#00d8ff;">🔸 Efectividad comprobada</h5>
-        <ul>
-          <li>Proporciona feedback inmediato y continuo.</li>
-          <li>Reduce la necesidad de autocorrección consciente.</li>
-          <li>Utiliza señales visuales no intrusivas.</li>
-        </ul>
-
-        <h5 style="color:#00d8ff;">🔸 Viabilidad económica</h5>
-        <ul>
-          <li>Componentes electrónicos básicos disponibles localmente.</li>
-          <li>Costo estimado de producción: <strong>S/ 55 – S/ 75</strong>.</li>
-          <li>Precio final estimado: <strong>S/ 95 – S/ 115</strong>.</li>
-        </ul>
-
-        <h5 style="color:#00d8ff;">🔸 Escalabilidad</h5>
-        <ul>
-          <li>Puede evolucionar con versiones premium (Bluetooth, app móvil, estadísticas).</li>
-          <li>Mercado amplio y fácilmente alcanzable (estudiantes, oficinas, salud laboral).</li>
-        </ul>
-
-        <h5 style="color:#00d8ff;">🔸 Diferenciación</h5>
-        <ul>
-          <li>No existe un producto similar en el mercado estudiantil o doméstico.</li>
-          <li>Diseño enfocado en ergonomía de escritorio y bajo costo.</li>
-          <li>Diseño moderno y discreto que se integra con cualquier ambiente.</li>
-        </ul>
+    <!-- PROBLEMA -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <span>🎯</span>
+          <span>Contexto</span>
+        </div>
+        <h2 class="section-title">Descripción del Problema</h2>
       </div>
-    </div>
-  </div>
 
-  <!-- BOCETO -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body text-center p-4" data-aos="fade-up" data-aos-delay="200">
-      <h2 class="fw-bold mb-4" style="color: var(--primary);">Boceto de la posible solución</h2>
+      <div class="card">
+        <div class="card-content">
+          <p>
+            Durante las jornadas laborales o de estudio prolongadas, las personas suelen adoptar posturas incorrectas
+            que generan <strong>fatiga muscular, dolor cervical y lumbar</strong>. En entornos de manufactura o trabajo de escritorio,
+            mantener la posición encorvada por horas incrementa el riesgo de lesiones por esfuerzo repetitivo.
+          </p>
+          <p>
+            La mayoría de soluciones existentes, como sillas ergonómicas o wearables, resultan costosas o invasivas.
+            Por ello, surge la necesidad de crear un <strong>dispositivo pequeño, accesible y fácil de usar</strong>
+            que advierta cuando la postura no es adecuada.
+          </p>
+        </div>
+      </div>
+    </section>
 
-      <figure class="text-center mb-3">
-        <img src="/PostureAlert/assets/img/semana1_boceto.jpg" 
-             alt="Boceto nítido y centrado del dispositivo PostureAlert"
-             class="img-fluid d-block mx-auto rounded-4 shadow"
-             style="max-width: 720px; width: 100%; object-fit: contain;">
-        <figcaption class="mt-2" style="color:#94a3b8;">Figura 1. Boceto centrado y nítido del dispositivo PostureAlert.</figcaption>
-      </figure>
+    <!-- BRAINSTORMING -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <span>💡</span>
+          <span>Ideación</span>
+        </div>
+        <h2 class="section-title">Brainstorming de Ideas</h2>
+        <p class="section-description">
+          Durante la sesión creativa, el equipo generó 20 ideas innovadoras para abordar el problema postural.
+          Cada propuesta fue evaluada según viabilidad, costo, y efectividad.
+        </p>
+      </div>
 
-      <div class="col-lg-10 mx-auto mt-4">
-        <div class="p-3 rounded-3 text-start" style="background: rgba(255,255,255,0.03); border:1px solid rgba(0,216,255,.15); color:#e5e7eb;">
-          <h3 class="h6 fw-bold mb-2" style="color:#a3bffa;">Indicaciones del boceto</h3>
-          <ul class="mb-0">
-            <li><strong>(1) Sensor ToF frontal:</strong> mide la distancia del torso al escritorio.</li>
-            <li><strong>(2) LED indicador:</strong> verde = buena postura, rojo = corregir.</li>
-            <li><strong>(3) Motor háptico interno:</strong> vibración corta tras mantener mala postura &gt; 5 s.</li>
-            <li><strong>(4) Botón lateral:</strong> ajusta sensibilidad o modo silencioso.</li>
-            <li><strong>(5) Base antideslizante:</strong> asegura estabilidad en cualquier superficie.</li>
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon">📝</div>
+          <span>20 Ideas Generadas</span>
+        </div>
+        <ol class="list-numbered">
+          <li>Luz de escritorio que cambia de color al detectar mala postura.</li>
+          <li>Sensor infrarrojo con alarma visual y sonora.</li>
+          <li>Cojín de asiento con detector de presión.</li>
+          <li>Base de monitor con inclinómetro.</li>
+          <li>Soporte lumbar con vibración correctiva.</li>
+          <li>Aplicación con recordatorios ergonómicos.</li>
+          <li>Clip para ropa con sensor de inclinación.</li>
+          <li>Mouse que vibra si el brazo está mal posicionado.</li>
+          <li>Banda elástica con sensor de estiramiento.</li>
+          <li>Proyector láser que marca la posición ideal.</li>
+          <li>Dispositivo de escritorio con sensor de distancia ToF.</li>
+          <li>Gafas que detectan inclinación de cabeza.</li>
+          <li>Alfombra con sensor de peso.</li>
+          <li>Monitor con sensor integrado de ángulo de cuello.</li>
+          <li>Sensor acústico que reconoce encorvamiento.</li>
+          <li>Luz ambiental que indica postura correcta.</li>
+          <li>Mini dron que detecta postura (idea creativa, descartada).</li>
+          <li>Soporte de espalda con alerta háptica.</li>
+          <li>Dispositivo IoT de escritorio conectado al celular.</li>
+          <li><strong>PostureAlert: pequeño dispositivo que detecta postura y da aviso visual.</strong></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SOLUCIÓN ELEGIDA -->
+    <section class="section">
+      <div class="highlight-box">
+        <h3>🏆 Nuestra Solución: PostureAlert</h3>
+        <p>
+          El equipo eligió <strong>PostureAlert</strong> como la solución final por su practicidad, bajo costo y facilidad de implementación.
+          Es un dispositivo compacto que se coloca sobre el escritorio y emite alertas visuales cuando detecta una postura incorrecta.
+        </p>
+        <p style="margin-top: 1rem;">
+          Gracias a su <strong>diseño minimalista y su tecnología simple</strong>, PostureAlert ayuda a corregir hábitos sin interrumpir
+          las tareas del usuario, convirtiéndose en una herramienta ideal para estudiantes y trabajadores.
+        </p>
+      </div>
+    </section>
+
+    <!-- FORTALEZAS -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <span>⭐</span>
+          <span>Análisis</span>
+        </div>
+        <h2 class="section-title">Fortalezas Identificadas</h2>
+      </div>
+
+      <div class="strengths-grid">
+        <div class="strength-card">
+          <div class="strength-title">🔸 Simplicidad Extrema</div>
+          <ul>
+            <li>Solo conectar y funcionar, sin configuraciones complejas</li>
+            <li>Interfaz visual intuitiva con LED de colores</li>
+            <li>Sin cables adicionales ni calibraciones</li>
+          </ul>
+        </div>
+
+        <div class="strength-card">
+          <div class="strength-title">🔸 Efectividad Comprobada</div>
+          <ul>
+            <li>Proporciona feedback inmediato y continuo</li>
+            <li>Reduce la necesidad de autocorrección consciente</li>
+            <li>Utiliza señales visuales no intrusivas</li>
+          </ul>
+        </div>
+
+        <div class="strength-card">
+          <div class="strength-title">🔸 Viabilidad Económica</div>
+          <ul>
+            <li>Componentes electrónicos básicos disponibles localmente</li>
+            <li>Costo estimado de producción: S/ 55 – S/ 75</li>
+            <li>Precio final estimado: S/ 95 – S/ 115</li>
+          </ul>
+        </div>
+
+        <div class="strength-card">
+          <div class="strength-title">🔸 Escalabilidad</div>
+          <ul>
+            <li>Puede evolucionar con versiones premium (Bluetooth, app móvil)</li>
+            <li>Mercado amplio y fácilmente alcanzable</li>
+            <li>Potencial para estadísticas y análisis de postura</li>
+          </ul>
+        </div>
+
+        <div class="strength-card">
+          <div class="strength-title">🔸 Diferenciación</div>
+          <ul>
+            <li>No existe un producto similar en el mercado estudiantil</li>
+            <li>Diseño enfocado en ergonomía de escritorio</li>
+            <li>Diseño moderno y discreto que se integra con cualquier ambiente</li>
           </ul>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- BOCETO -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <span>✏️</span>
+          <span>Diseño Inicial</span>
+        </div>
+        <h2 class="section-title">Boceto del Prototipo</h2>
+        <p class="section-description">
+          Primer acercamiento visual al dispositivo, definiendo componentes principales y su disposición espacial.
+        </p>
+      </div>
+
+      <div class="image-showcase">
+        <img src="/PostureAlert/assets/img/semana1_boceto.jpg" alt="Boceto inicial de PostureAlert">
+        <p class="image-caption">Figura 1. Boceto inicial del dispositivo PostureAlert con indicaciones de componentes.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon">🔧</div>
+          <span>Componentes del Boceto</span>
+        </div>
+        <div class="list-grid">
+          <div class="list-item">
+            <strong>(1) Sensor ToF frontal:</strong> Mide la distancia del torso al escritorio
+          </div>
+          <div class="list-item">
+            <strong>(2) LED indicador:</strong> Verde = buena postura, rojo = corregir
+          </div>
+          <div class="list-item">
+            <strong>(3) Motor háptico interno:</strong> Vibración corta tras mantener mala postura > 5s
+          </div>
+          <div class="list-item">
+            <strong>(4) Botón lateral:</strong> Ajusta sensibilidad o modo silencioso
+          </div>
+          <div class="list-item">
+            <strong>(5) Base antideslizante:</strong> Asegura estabilidad en cualquier superficie
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INNOVACIÓN -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-label">
+          <span>🚀</span>
+          <span>Valor</span>
+        </div>
+        <h2 class="section-title">¿Por Qué es una Innovación?</h2>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <div class="list-grid">
+            <div class="list-item">
+              <strong>Privacidad total:</strong> No usa cámaras ni recopila información del usuario
+            </div>
+            <div class="list-item">
+              <strong>Diseño minimalista y accesible:</strong> Compacto, estético y funcional
+            </div>
+            <div class="list-item">
+              <strong>Sin contacto físico:</strong> A diferencia de wearables, no incomoda ni interrumpe
+            </div>
+            <div class="list-item">
+              <strong>Alertas inteligentes:</strong> Combina luz y vibración con niveles de intensidad progresiva
+            </div>
+            <div class="list-item">
+              <strong>Enfoque educativo:</strong> Promueve hábitos saludables de forma pasiva y amigable
+            </div>
+            <div class="list-item">
+              <strong>Valor diferencial:</strong> Equilibrio entre costo, simplicidad y efectividad ergonómica
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
 
-  <!-- INNOVACIÓN -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body p-4" data-aos="fade-up" data-aos-delay="250">
-      <h2 class="fw-bold mb-3 text-center" style="color: var(--primary);">¿Por qué es una innovación?</h2>
-      <ul style="color:#e5e7eb;">
-        <li><strong>Privacidad total:</strong> no usa cámaras ni recopila información del usuario.</li>
-        <li><strong>Diseño minimalista y accesible:</strong> compacto, estético y funcional.</li>
-        <li><strong>Sin contacto físico:</strong> a diferencia de wearables, no incomoda ni interrumpe.</li>
-        <li><strong>Alertas inteligentes:</strong> combina luz y vibración con niveles de intensidad progresiva.</li>
-        <li><strong>Enfoque educativo:</strong> promueve hábitos saludables de forma pasiva y amigable.</li>
-        <li><strong>Valor diferencial:</strong> equilibrio entre costo, simplicidad y efectividad ergonómica.</li>
-      </ul>
-    </div>
-  </div>
-
-</section>
+</body>
+</html>
