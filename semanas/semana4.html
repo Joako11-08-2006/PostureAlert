@@ -1,80 +1,285 @@
-<!-- =============================
-     SEMANA 4 · PROTOTIPO FÍSICO Y FAB LAB
-     ============================= -->
-<section class="container py-5">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semana 4 - Primer Prototipo Físico</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-  <!-- ENCABEZADO -->
-  <div class="text-center mb-5" data-aos="fade-up">
-    <h1 class="fw-bold mb-2" style="color: var(--primary); text-shadow: 0 0 18px rgba(0,216,255,.3);">
-      Semana 4 · Primer Prototipo Físico
-    </h1>
-    <p class="lead mb-0" style="color:#a3bffa;">
-      Desarrollo y presentación del primer prototipo físico de <strong>PostureAlert</strong> elaborado en el Fab Lab Tecsup.
-    </p>
-  </div>
-
-  <!-- INTRO -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body text-center p-4" data-aos="fade-up">
-      <h2 class="fw-bold mb-3" style="color: var(--primary);">💡 Etapa de prototipado</h2>
-      <p class="mb-0" style="color:#e5e7eb;">
-        Durante esta fase, se llevó a cabo la construcción del primer prototipo de <strong>PostureAlert</strong> 
-        utilizando las herramientas disponibles en el <strong>Fab Lab de Tecsup</strong>.  
-        El objetivo fue transformar el modelo digital diseñado en <em>Tinkercad</em> en una versión física funcional.
+  <div class="container">
+    
+    <!-- HERO -->
+    <div class="week-hero">
+      <div class="week-badge">SEMANA 4</div>
+      <h1 class="week-title">Primer Prototipo Físico</h1>
+      <p class="week-subtitle">
+        Desarrollo y presentación del prototipo inicial elaborado en el Fab Lab Tecsup
       </p>
     </div>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="section">
+      <div class="section-label">
+        <span>🏭</span>
+        <span>Fabricación</span>
+      </div>
+      <h2 class="section-title">Etapa de Prototipado</h2>
+      
+      <div class="card">
+        <p class="card-text">
+          Durante esta fase se llevó a cabo la construcción del primer prototipo de <strong>PostureAlert</strong> 
+          utilizando las herramientas disponibles en el <strong>Fab Lab de Tecsup</strong>. 
+          El objetivo fue transformar el modelo digital en una versión física funcional para evaluar dimensiones, 
+          ergonomía y viabilidad de ensamblaje.
+        </p>
+      </div>
+    </section>
+
+    <!-- PROCESO FAB LAB -->
+    <section class="section">
+      <div class="section-label">
+        <span>⚙️</span>
+        <span>Proceso</span>
+      </div>
+      <h2 class="section-title">Fabricación en el Fab Lab</h2>
+      
+      <div class="card">
+        <p class="card-text" style="margin-bottom: 2rem;">
+          El prototipo se fabricó combinando técnicas de impresión 3D y corte láser. 
+          Se utilizó filamento PLA para las piezas estructurales y MDF para componentes planos, 
+          permitiendo validar el concepto antes de la producción final.
+        </p>
+
+        <div class="process-timeline">
+          <div class="timeline-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h4>Preparación del Archivo</h4>
+              <p>Exportación del modelo 3D en formato .STL y configuración de parámetros de impresión</p>
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h4>Impresión 3D</h4>
+              <p>Fabricación de piezas principales con impresora Bambu Lab utilizando PLA blanco</p>
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h4>Post-procesamiento</h4>
+              <p>Limpieza de soportes, lijado y verificación de tolerancias de ajuste</p>
+            </div>
+          </div>
+
+          <div class="timeline-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h4>Ensamblaje Inicial</h4>
+              <p>Prueba de encaje de componentes y validación estructural</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="full-image">
+          <img src="../assets/img/semana4_fablab.jpg" 
+               alt="Proceso de fabricación en Fab Lab" 
+               style="max-width: 100%; border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.12);">
+          <p class="image-caption">Figura 1. Proceso de construcción del primer prototipo en el Fab Lab Tecsup.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROTOTIPO ENSAMBLADO -->
+    <section class="section">
+      <div class="section-label">
+        <span>🔧</span>
+        <span>Resultado</span>
+      </div>
+      <h2 class="section-title">Prototipo Ensamblado</h2>
+      
+      <div class="card">
+        <p class="card-text" style="margin-bottom: 2rem;">
+          Se obtuvo la primera versión física del dispositivo, lista para pruebas ergonómicas y validación de concepto. 
+          Este prototipo permitió identificar áreas de mejora en cuanto a dimensiones, peso y comodidad de uso.
+        </p>
+
+        <div class="prototype-showcase">
+          <img src="/PostureAlert/assets/img/semana4_prototipo.jpg" 
+               alt="Prototipo ensamblado" 
+               style="max-width: 600px; width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.15);">
+          <p class="image-caption">Figura 2. Primera versión física del dispositivo PostureAlert ensamblado.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OBSERVACIONES -->
+    <section class="section">
+      <div class="section-label">
+        <span>📝</span>
+        <span>Evaluación</span>
+      </div>
+      <h2 class="section-title">Observaciones y Aprendizajes</h2>
+      
+      <div class="observations-grid">
+        <div class="observation-card success">
+          <h4>✅ Aspectos Positivos</h4>
+          <ul>
+            <li>Las dimensiones generales son adecuadas para un wearable</li>
+            <li>El material PLA ofrece resistencia suficiente</li>
+            <li>El ensamblaje de piezas funciona correctamente</li>
+            <li>La forma ergonómica se adapta bien al cuerpo</li>
+          </ul>
+        </div>
+
+        <div class="observation-card improvement">
+          <h4>🔄 Áreas de Mejora</h4>
+          <ul>
+            <li>Reducir grosor de paredes para disminuir peso</li>
+            <li>Optimizar aberturas para mejor acceso a componentes</li>
+            <li>Ajustar tolerancias en el sistema de cierre</li>
+            <li>Mejorar acabado superficial mediante lijado</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSIÓN -->
+    <section class="section">
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon">✅</div>
+          <span>Conclusión</span>
+        </div>
+        <p class="card-text">
+          En esta etapa se logró materializar la idea conceptual de <strong>PostureAlert</strong> en un modelo físico tangible. 
+          El proceso de fabricación en el Fab Lab permitió comprender mejor las dimensiones reales, la disposición de componentes 
+          y la estructura del dispositivo, sentando las bases para la siguiente fase de optimización y pruebas con usuarios reales.
+        </p>
+      </div>
+    </section>
+
   </div>
 
-  <!-- IMAGEN 1: FAB LAB -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body text-center p-4" data-aos="fade-up" data-aos-delay="50">
-      <h2 class="fw-bold mb-3" style="color:#00d8ff;">🏭 Proceso en el Fab Lab</h2>
-      <p class="mb-4" style="color:#a3bffa;">Registro fotográfico del proceso de fabricación y ensamblaje del dispositivo en el laboratorio.</p>
+  <script src="js/app.js"></script>
 
-      <figure class="text-center mb-3">
-        <img src="../assets/img/semana4_fablab.jpg"
-             alt="Prototipo de PostureAlert en proceso de fabricación en el Fab Lab Tecsup"
-             class="img-fluid d-block mx-auto rounded-4 shadow"
-             style="max-width: 780px; width: 100%; object-fit: contain;">
-        <figcaption class="mt-2" style="color:#94a3b8;">
-          Figura 1. Construcción del primer prototipo físico de PostureAlert en el Fab Lab Tecsup.
-        </figcaption>
-      </figure>
-    </div>
-  </div>
+  <style>
+    /* Estilos específicos Semana 4 */
+    .process-timeline {
+      margin: 2rem 0;
+    }
 
-  <!-- IMAGEN 2: PROTOTIPO FINAL -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body text-center p-4" data-aos="fade-up" data-aos-delay="100">
-      <h2 class="fw-bold mb-3" style="color:#00d8ff;">⚙️ Primer Prototipo Ensamblado</h2>
-      <p class="mb-4" style="color:#a3bffa;">Versión inicial del dispositivo funcional, lista para pruebas ergonómicas.</p>
+    .timeline-step {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--cream);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
 
-      <figure class="text-center mb-3">
-        <img src="/PostureAlert/assets/img/semana4_prototipo.jpg"
-             alt="Primer prototipo  del dispositivo PostureAlert ensamblado"
-             class="img-fluid d-block mx-auto rounded-4 shadow"
-             style="max-width: 780px; width: 100%; object-fit: contain;">
-        <figcaption class="mt-2" style="color:#94a3b8;">
-          Figura 2. Primer prototipo  del dispositivo PostureAlert.
-        </figcaption>
-      </figure>
-    </div>
-  </div>
+    .timeline-step:hover {
+      transform: translateX(8px);
+      box-shadow: 0 5px 20px rgba(201, 168, 130, 0.2);
+    }
 
-  <!-- CONCLUSIÓN -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg"
-       style="background: linear-gradient(180deg, rgba(0,216,255,.07), rgba(0,0,0,.15));">
-    <div class="card-body text-center p-4" data-aos="fade-up" data-aos-delay="150">
-      <h2 class="fw-bold mb-3" style="color: var(--primary);">Conclusión de la Semana 4</h2>
-      <p class="mb-0" style="color:#e5e7eb;">
-        En esta etapa se logró materializar la idea conceptual de <strong>PostureAlert</strong> en un modelo físico.
-        El proceso de fabricación en el Fab Lab permitió comprender mejor las dimensiones reales, la disposición de los sensores y 
-        la estructura del dispositivo, sentando las bases para la siguiente fase de optimización y pruebas de usuario.
-      </p>
-    </div>
-  </div>
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--black);
+      flex-shrink: 0;
+    }
 
-</section>
+    .step-content h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-content p {
+      color: var(--text-dark);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .full-image {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .prototype-showcase {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .observations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .observation-card {
+      padding: 2rem;
+      border-radius: 16px;
+      border: 2px solid;
+    }
+
+    .observation-card.success {
+      background: #f0fdf4;
+      border-color: #86efac;
+    }
+
+    .observation-card.improvement {
+      background: #fef3c7;
+      border-color: #fbbf24;
+    }
+
+    .observation-card h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .observation-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .observation-card li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .observation-card li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent-beige);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+  </style>
+
+</body>
+</html>
