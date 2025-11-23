@@ -4,7 +4,435 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Semana 7 - Prototipado Rápido</title>
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --black: #000000;
+      --dark-gray: #1a1a1a;
+      --accent-beige: #c9a882;
+      --light-beige: #e8d5c4;
+      --cream: #f5ebe0;
+      --white: #ffffff;
+      --text-dark: #2d2d2d;
+      --text-light: #6b6b6b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* HERO */
+    .week-hero {
+      text-align: center;
+      padding: 80px 20px 60px;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+      border-radius: 30px;
+      margin-bottom: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .week-hero::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(201, 168, 130, 0.1) 0%, transparent 70%);
+      top: -200px;
+      right: -100px;
+      border-radius: 50%;
+    }
+
+    .week-badge {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .week-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: var(--black);
+      margin-bottom: 1rem;
+      letter-spacing: -2px;
+      line-height: 1.1;
+    }
+
+    .week-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--text-light);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* SECTIONS */
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--light-beige);
+      color: var(--text-dark);
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--black);
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 3rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-beige), var(--light-beige));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-text {
+      color: var(--text-light);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-icon {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    /* METHODOLOGY STEPS */
+    .methodology-steps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .method-step {
+      flex: 1;
+      min-width: 150px;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--cream), var(--light-beige));
+      border-radius: 12px;
+      text-align: center;
+      border-top: 4px solid var(--accent-beige);
+    }
+
+    .step-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .method-step h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .method-step p {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .method-arrow {
+      font-size: 2rem;
+      color: var(--accent-beige);
+      font-weight: 700;
+    }
+
+    /* TOOLS SHOWCASE */
+    .tools-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .tool-item {
+      padding: 2rem;
+      background: var(--white);
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .tool-item:hover {
+      border-color: var(--accent-beige);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(201, 168, 130, 0.25);
+    }
+
+    .tool-logo {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .tool-item h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-item p {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    /* CHALLENGES GRID */
+    .challenges-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .challenge-card {
+      padding: 1.5rem;
+      background: var(--cream);
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-beige);
+    }
+
+    .challenge-card h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.8rem;
+    }
+
+    .challenge-card p {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      margin: 0.3rem 0;
+    }
+
+    .challenge-card .solution {
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    /* VALIDATION RESULTS */
+    .validation-results {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .result-positive,
+    .result-improve {
+      padding: 2rem;
+      border-radius: 16px;
+      border: 2px solid;
+    }
+
+    .result-positive {
+      background: #f0fdf4;
+      border-color: #86efac;
+    }
+
+    .result-improve {
+      background: #fef3c7;
+      border-color: #fbbf24;
+    }
+
+    .result-positive h4,
+    .result-improve h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .result-positive ul,
+    .result-improve ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .result-positive li,
+    .result-improve li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text-dark);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .result-positive li::before,
+    .result-improve li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent-beige);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* GANTT TABLE */
+    .gantt-table {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .gantt-row {
+      display: grid;
+      grid-template-columns: 1.5fr 2fr 1fr 1.5fr;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .gantt-row:last-child {
+      border-bottom: none;
+    }
+
+    .gantt-row.header {
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    .gantt-row div {
+      color: var(--text-dark);
+      font-size: 0.9rem;
+    }
+
+    /* IMAGES */
+    .full-image {
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .full-image img {
+      max-width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+    }
+
+    .image-caption {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .card {
+        padding: 2rem;
+      }
+
+      .methodology-steps {
+        flex-direction: column;
+      }
+
+      .method-arrow {
+        transform: rotate(90deg);
+      }
+
+      .tools-showcase,
+      .challenges-grid,
+      .validation-results {
+        grid-template-columns: 1fr;
+      }
+
+      .gantt-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+
+      .week-hero {
+        padding: 60px 20px 40px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -46,7 +474,7 @@
       
       <div class="card">
         <p class="card-text" style="margin-bottom: 2rem;">
-          Se aplicó una planificación basada en el método <strong>Design–Plan–Build–Test</strong>, 
+          Se aplicó una planificación basada en el método <strong>Design—Plan—Build—Test</strong>, 
           distribuyendo tareas y tiempos mediante un mini Gantt para optimizar el flujo de trabajo.
         </p>
 
@@ -114,8 +542,7 @@
 
       <div class="full-image">
         <img src="/PostureAlert/assets/img/semana7_planificacion.jpg" 
-             alt="Planificación y modelado" 
-             style="max-width: 100%; border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.12);">
+             alt="Planificación y modelado">
         <p class="image-caption">Figura 1. Planificación y modelado digital de las piezas del dispositivo.</p>
       </div>
     </section>
@@ -158,8 +585,7 @@
 
         <div class="full-image">
           <img src="/PostureAlert/assets/img/semana7_prototipado.jpg" 
-               alt="Prototipado físico" 
-               style="max-width: 100%; border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.12);">
+               alt="Prototipado físico">
           <p class="image-caption">Figura 2. Prototipo físico del dispositivo PostureAlert impreso en 3D.</p>
         </div>
       </div>
@@ -204,8 +630,7 @@
 
         <div class="full-image">
           <img src="/PostureAlert/assets/img/semana7_validacion.jpg" 
-               alt="Validación funcional" 
-               style="max-width: 100%; border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.12);">
+               alt="Validación funcional">
           <p class="image-caption">Figura 3. Pruebas de validación funcional del dispositivo.</p>
         </div>
       </div>
@@ -285,6 +710,5 @@
 
   </div>
 
-  <script src="js/app.js"></script>
 </body>
 </html>

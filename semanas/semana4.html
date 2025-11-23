@@ -4,7 +4,334 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Semana 4 - Primer Prototipo Físico</title>
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --black: #000000;
+      --dark-gray: #1a1a1a;
+      --accent-beige: #c9a882;
+      --light-beige: #e8d5c4;
+      --cream: #f5ebe0;
+      --white: #ffffff;
+      --text-dark: #2d2d2d;
+      --text-light: #6b6b6b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* HERO */
+    .week-hero {
+      text-align: center;
+      padding: 80px 20px 60px;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+      border-radius: 30px;
+      margin-bottom: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .week-hero::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(201, 168, 130, 0.1) 0%, transparent 70%);
+      top: -200px;
+      right: -100px;
+      border-radius: 50%;
+    }
+
+    .week-badge {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .week-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: var(--black);
+      margin-bottom: 1rem;
+      letter-spacing: -2px;
+      line-height: 1.1;
+    }
+
+    .week-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--text-light);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* SECTIONS */
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--light-beige);
+      color: var(--text-dark);
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--black);
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 3rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-beige), var(--light-beige));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-text {
+      color: var(--text-light);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-icon {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    /* PROCESS TIMELINE */
+    .process-timeline {
+      margin: 2rem 0;
+    }
+
+    .timeline-step {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--cream);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-step:hover {
+      transform: translateX(8px);
+      box-shadow: 0 5px 20px rgba(201, 168, 130, 0.2);
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--black);
+      flex-shrink: 0;
+    }
+
+    .step-content h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .step-content p {
+      color: var(--text-dark);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* IMAGES */
+    .full-image {
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .full-image img {
+      max-width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+    }
+
+    .image-caption {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    .prototype-showcase {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .prototype-showcase img {
+      max-width: 600px;
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    /* OBSERVATIONS GRID */
+    .observations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .observation-card {
+      padding: 2rem;
+      border-radius: 16px;
+      border: 2px solid;
+    }
+
+    .observation-card.success {
+      background: #f0fdf4;
+      border-color: #86efac;
+    }
+
+    .observation-card.improvement {
+      background: #fef3c7;
+      border-color: #fbbf24;
+    }
+
+    .observation-card h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .observation-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .observation-card li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .observation-card li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent-beige);
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .card {
+        padding: 2rem;
+      }
+
+      .observations-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-step {
+        grid-template-columns: 1fr;
+      }
+
+      .step-number {
+        margin: 0 auto 1rem;
+      }
+
+      .week-hero {
+        padding: 60px 20px 40px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -88,8 +415,7 @@
 
         <div class="full-image">
           <img src="../assets/img/semana4_fablab.jpg" 
-               alt="Proceso de fabricación en Fab Lab" 
-               style="max-width: 100%; border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.12);">
+               alt="Proceso de fabricación en Fab Lab">
           <p class="image-caption">Figura 1. Proceso de construcción del primer prototipo en el Fab Lab Tecsup.</p>
         </div>
       </div>
@@ -111,8 +437,7 @@
 
         <div class="prototype-showcase">
           <img src="/PostureAlert/assets/img/semana4_prototipo.jpg" 
-               alt="Prototipo ensamblado" 
-               style="max-width: 600px; width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.15);">
+               alt="Prototipo ensamblado">
           <p class="image-caption">Figura 2. Primera versión física del dispositivo PostureAlert ensamblado.</p>
         </div>
       </div>
@@ -121,7 +446,7 @@
     <!-- OBSERVACIONES -->
     <section class="section">
       <div class="section-label">
-        <span>📝</span>
+        <span>🔍</span>
         <span>Evaluación</span>
       </div>
       <h2 class="section-title">Observaciones y Aprendizajes</h2>
@@ -165,121 +490,6 @@
     </section>
 
   </div>
-
-  <script src="js/app.js"></script>
-
-  <style>
-    /* Estilos específicos Semana 4 */
-    .process-timeline {
-      margin: 2rem 0;
-    }
-
-    .timeline-step {
-      display: grid;
-      grid-template-columns: 60px 1fr;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      background: var(--cream);
-      border-radius: 12px;
-      transition: all 0.3s ease;
-    }
-
-    .timeline-step:hover {
-      transform: translateX(8px);
-      box-shadow: 0 5px 20px rgba(201, 168, 130, 0.2);
-    }
-
-    .step-number {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: var(--black);
-      flex-shrink: 0;
-    }
-
-    .step-content h4 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 0.5rem;
-    }
-
-    .step-content p {
-      color: var(--text-dark);
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .full-image {
-      text-align: center;
-      margin-top: 3rem;
-    }
-
-    .prototype-showcase {
-      text-align: center;
-      margin: 2rem 0;
-    }
-
-    .observations-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-
-    .observation-card {
-      padding: 2rem;
-      border-radius: 16px;
-      border: 2px solid;
-    }
-
-    .observation-card.success {
-      background: #f0fdf4;
-      border-color: #86efac;
-    }
-
-    .observation-card.improvement {
-      background: #fef3c7;
-      border-color: #fbbf24;
-    }
-
-    .observation-card h4 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 1rem;
-    }
-
-    .observation-card ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .observation-card li {
-      padding: 0.5rem 0;
-      padding-left: 1.5rem;
-      position: relative;
-      color: var(--text-dark);
-      line-height: 1.6;
-    }
-
-    .observation-card li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--accent-beige);
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-  </style>
 
 </body>
 </html>
