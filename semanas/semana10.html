@@ -1,133 +1,192 @@
-<section class="container py-5">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semana 10 - Criterios de Diseño</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-  <!-- ENCABEZADO PRINCIPAL -->
-  <div class="text-center mb-5" data-aos="fade-up">
-    <h1 class="fw-bold mb-2 gradient-text">
-      Semana 10 · Criterios de Diseño y Clasificación de Piezas
-    </h1>
-    <p class="lead" style="color:#a3bffa;">
-      Identificación · Fabricación · Aberturas · Materiales · Iteración
-    </p>
-  </div>
-
-  <!-- INTRODUCCIÓN -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
-    <div class="card-body p-4" data-aos="fade-up">
-      <h2 class="fw-bold mb-3" style="color: var(--primary);">Introducción</h2>
-
-      <p style="color:#e5e7eb;">
-        Esta semana se analizaron los criterios necesarios para identificar y clasificar cada 
-        una de las piezas de PostureAlert, definiendo cuáles deben fabricarse mediante impresión 3D 
-        y cuáles mediante corte láser.  
-        Además, se evaluaron aspectos como función, geometría, resistencia, estética y proceso de ensamblaje.
+  <div class="container">
+    
+    <!-- HERO -->
+    <div class="week-hero">
+      <div class="week-badge">SEMANA 10</div>
+      <h1 class="week-title">Criterios de Diseño y Clasificación</h1>
+      <p class="week-subtitle">
+        Identificación de piezas y definición de métodos de fabricación óptimos
       </p>
-
-      <figure class="text-center mt-3">
-        <img src="../assets/img/semana10_intro.jpg"
-             alt="Introducción semana 10"
-             class="img-fluid rounded-4 shadow"
-             style="max-width: 780px;">
-        <figcaption class="mt-2" style="color:#94a3b8;">Imagen o referencia general de las piezas.</figcaption>
-      </figure>
     </div>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="section">
+      <div class="section-label">
+        <span>📋</span>
+        <span>Introducción</span>
+      </div>
+      <h2 class="section-title">Análisis de Componentes</h2>
+      
+      <div class="card">
+        <p class="card-text">
+          Esta semana se analizaron los criterios necesarios para identificar y clasificar cada pieza 
+          de PostureAlert, definiendo cuáles deben fabricarse mediante <strong>impresión 3D</strong> 
+          y cuáles mediante <strong>corte láser</strong>. Se evaluaron aspectos como función, geometría, 
+          resistencia, estética y proceso de ensamblaje.
+        </p>
+      </div>
+    </section>
+
+    <!-- CLASIFICACIÓN -->
+    <section class="section">
+      <div class="section-label">
+        <span>🔧</span>
+        <span>Clasificación</span>
+      </div>
+      <h2 class="section-title">Clasificación de Piezas</h2>
+      
+      <div class="card">
+        <p class="card-text" style="margin-bottom: 2rem;">
+          Todas las piezas del proyecto se identificaron y clasificaron según su método de fabricación ideal:
+        </p>
+
+        <div class="classification-grid">
+          <div class="class-card print3d">
+            <h4>🖨️ Impresión 3D</h4>
+            <ul>
+              <li>Carcasa principal (geometría curva)</li>
+              <li>Tapa del dispositivo</li>
+              <li>Soportes internos para componentes</li>
+              <li>Sistema de encastre con tolerancias precisas</li>
+              <li>Piezas con cavidades complejas</li>
+            </ul>
+            <p class="reason"><strong>Razón:</strong> Geometrías complejas, curvas y cavidades internas</p>
+          </div>
+
+          <div class="class-card laser">
+            <h4>⚡ Corte Láser</h4>
+            <ul>
+              <li>Base de soporte plana (descartada en versión final)</li>
+              <li>Paneles decorativos (opcional)</li>
+              <li>Plantillas de ensamblaje</li>
+            </ul>
+            <p class="reason"><strong>Razón:</strong> Piezas planas, rápidas y económicas para prototipos</p>
+          </div>
+        </div>
+
+        <div class="full-image">
+          <img src="../assets/img/semana10_clasificacion.jpg" 
+               alt="Clasificación de piezas" 
+               style="max-width: 100%; border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.12);">
+          <p class="image-caption">Figura 1. Piezas clasificadas por método de fabricación óptimo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUNCIONES Y ABERTURAS -->
+    <section class="section">
+      <div class="section-label">
+        <span>🔍</span>
+        <span>Análisis</span>
+      </div>
+      <h2 class="section-title">Funciones y Aberturas</h2>
+      
+      <div class="card">
+        <p class="card-text" style="margin-bottom: 2rem;">
+          Para cada pieza se identificaron sus funciones, tipo de unión, aberturas necesarias 
+          y modo de interacción con los componentes internos.
+        </p>
+
+        <div class="functions-list">
+          <div class="function-item">
+            <h4>🔹 Aberturas Funcionales</h4>
+            <p>Puerto de carga, ventanas para sensores, salida de audio, acceso a botones</p>
+          </div>
+
+          <div class="function-item">
+            <h4>🔹 Sistema de Ensamble</h4>
+            <p>Encastre por presión sin adhesivos, tolerancias de 0.3mm para ajuste perfecto</p>
+          </div>
+
+          <div class="function-item">
+            <h4>🔹 Criterios de Resistencia</h4>
+            <p>Grosor mínimo de paredes: 2mm, refuerzos en esquinas, material PLA para durabilidad</p>
+          </div>
+
+          <div class="function-item">
+            <h4>🔹 Compatibilidad de Impresión</h4>
+            <p>Ángulos de voladizo <45°, mínimo uso de soportes, orientación óptima de piezas</p>
+          </div>
+        </div>
+
+        <div class="full-image">
+          <img src="../assets/img/semana10_aberturas.jpg" 
+               alt="Detalle de aberturas" 
+               style="max-width: 100%; border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.12);">
+          <p class="image-caption">Figura 2. Aberturas estructurales para componentes y ventilación.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ITERACIÓN -->
+    <section class="section">
+      <div class="section-label">
+        <span>🔄</span>
+        <span>Optimización</span>
+      </div>
+      <h2 class="section-title">Iteración del Diseño</h2>
+      
+      <div class="card">
+        <p class="card-text" style="margin-bottom: 2rem;">
+          Esta semana se refinaron decisiones estructurales del prototipo. Se evaluaron alternativas, 
+          se corrigieron errores de dimensiones y se optimizaron las piezas para su futura fabricación real.
+        </p>
+
+        <div class="iterations-grid">
+          <div class="iteration-box">
+            <h4>Iteración 1 → 2</h4>
+            <p><strong>Cambio:</strong> Reducción de grosor de paredes de 3mm a 2mm</p>
+            <p><strong>Resultado:</strong> 30% menos peso, sin pérdida de resistencia</p>
+          </div>
+
+          <div class="iteration-box">
+            <h4>Iteración 2 → 3</h4>
+            <p><strong>Cambio:</strong> Ajuste de tolerancias en encastres de 0.1mm a 0.3mm</p>
+            <p><strong>Resultado:</strong> Ensamblaje más fácil, sin pérdida de firmeza</p>
+          </div>
+
+          <div class="iteration-box">
+            <h4>Iteración 3 → 4</h4>
+            <p><strong>Cambio:</strong> Optimización de aberturas para ventilación</p>
+            <p><strong>Resultado:</strong> Mejor disipación de calor del circuito interno</p>
+          </div>
+        </div>
+
+        <div class="full-image">
+          <img src="../assets/img/semana10_iteracion.jpg" 
+               alt="Iteraciones del diseño" 
+               style="max-width: 100%; border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.12);">
+          <p class="image-caption">Figura 3. Evolución del diseño a través de múltiples iteraciones.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSIÓN -->
+    <section class="section">
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon">✅</div>
+          <span>Conclusión</span>
+        </div>
+        <p class="card-text">
+          Esta semana permitió organizar correctamente las piezas del prototipo, optimizando su fabricación 
+          y mejorando la comprensión interna del diseño. Fue un paso clave para unir el modelado conceptual 
+          con la producción real, asegurando que cada pieza cumple su función de manera eficiente y puede 
+          ser fabricada con los recursos disponibles.
+        </p>
+      </div>
+    </section>
+
   </div>
 
-  <!-- CLASIFICACIÓN DE PIEZAS -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
-    <div class="card-body p-4" data-aos="fade-up">
-
-      <h2 class="fw-bold mb-3" style="color: var(--primary);">Clasificación de Piezas del Proyecto</h2>
-
-      <p style="color:#e5e7eb;">
-        Aquí se identifican todas las piezas que conforman el prototipo, clasificadas según su 
-        método de fabricación ideal.
-      </p>
-
-      <ul style="color:#e5e7eb;">
-        <li><strong>Piezas para impresión 3D:</strong> partes curvas, estructuras complejas, soportes internos.</li>
-        <li><strong>Piezas para corte láser:</strong> piezas planas, tapas rectas, paneles, bases simples.</li>
-        <li><strong>Piezas mixtas o combinadas:</strong> elementos que requieren precisión estructural y estética.</li>
-      </ul>
-
-      <figure class="text-center mt-3">
-        <img src="../assets/img/semana10_clasificacion.jpg"
-             alt="Clasificación de piezas"
-             class="img-fluid rounded-4 shadow"
-             style="max-width: 780px;">
-        <figcaption class="mt-2" style="color:#94a3b8;">Ejemplo visual de piezas clasificadas por método de fabricación.</figcaption>
-      </figure>
-
-    </div>
-  </div>
-
-
-  <!-- ANÁLISIS DE FUNCIONES Y ABERTURAS -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
-    <div class="card-body p-4" data-aos="fade-up">
-
-      <h2 class="fw-bold mb-3" style="color: var(--primary);">Funciones, Aberturas y Ensamble</h2>
-
-      <p style="color:#e5e7eb;">
-        Para cada pieza se identificaron sus funciones, tipo de unión, aberturas necesarias y 
-        modo de interacción con la electrónica interna.
-      </p>
-
-      <ul style="color:#e5e7eb;">
-        <li>Aberturas necesarias para sensores, cables o ventilación.</li>
-        <li>Sistema de ensamble entre piezas (encastre, tornillos, presión).</li>
-        <li>Criterios de resistencia y durabilidad.</li>
-        <li>Compatibilidad con impresión 3D (grosores, soportes, orientación).</li>
-      </ul>
-
-      <figure class="text-center mt-3">
-        <img src="../assets/img/semana10_aberturas.jpg"
-             alt="Detalle de aberturas"
-             class="img-fluid rounded-4 shadow"
-             style="max-width: 780px;">
-        <figcaption class="mt-2" style="color:#94a3b8;">Aberturas estructurales para encajar sensores o ventilación.</figcaption>
-      </figure>
-
-    </div>
-  </div>
-
-
-  <!-- ITERACIÓN -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
-    <div class="card-body p-4" data-aos="fade-up">
-
-      <h2 class="fw-bold mb-3" style="color: var(--primary);">Iteración</h2>
-
-      <p style="color:#e5e7eb;">
-        Esta semana se refinaron decisiones estructurales del prototipo.  
-        Se evaluaron alternativas, se corrigieron errores de dimensiones y se optimizaron 
-        las piezas para su futura fabricación real.
-      </p>
-
-      <figure class="text-center mt-3">
-        <img src="../assets/img/semana10_iteracion.jpg"
-             alt="Iteración del diseño"
-             class="img-fluid rounded-4 shadow"
-             style="max-width: 780px;">
-        <figcaption class="mt-2" style="color:#94a3b8;">Iteraciones realizadas sobre las piezas.</figcaption>
-      </figure>
-
-    </div>
-  </div>
-
-
-  <!-- CONCLUSIÓN -->
-  <div class="card bg-transparent border-0 rounded-4 shadow-lg">
-    <div class="card-body p-4 text-center" data-aos="fade-up">
-
-      <h2 class="fw-bold mb-3" style="color: var(--primary);">Conclusión de la Semana 10</h2>
-
-      <p style="color:#e5e7eb;">
-        Esta semana permitió organizar correctamente las piezas del prototipo, 
-        optimizando su fabricación y mejorando la comprensión interna del diseño.  
-        Fue un paso clave para unir el modelado conceptual con la producción real.
-      </p>
-
-    </div>
-  </div>
-
-</section>
+  <script src="js/app.js"></script>
