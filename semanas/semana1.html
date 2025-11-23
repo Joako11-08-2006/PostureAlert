@@ -383,6 +383,12 @@
   </style>
 </head>
 <body>
+<div id="header"></div>
+<script>
+  fetch("../header.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("header").innerHTML = html);
+</script>
 
   <div class="container">
     
