@@ -1056,5 +1056,101 @@
       }
     }
 
+/* Estilos específicos Semana 6 */
+    .techniques-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .technique-card {
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--cream), var(--light-beige));
+      border-radius: 12px;
+      text-align: center;
+      border-top: 4px solid var(--accent-beige);
+      transition: all 0.3s ease;
+    }
+
+    .technique-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(201, 168, 130, 0.25);
+    }
+
+    .technique-card h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.8rem;
+    }
+
+    .technique-card p {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .tolerances-table {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .tolerance-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 2fr;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .tolerance-row:last-child {
+      border-bottom: none;
+    }
+
+    .tolerance-row.header {
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    .tolerance-row div {
+      color: var(--text-dark);
+      font-size: 0.95rem;
+    }
+
+    .parameters-box {
+      padding: 2rem;
+      background: var(--cream);
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-beige);
+      margin: 2rem 0;
+    }
+
+    .parameters-box h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .parameters-box ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .parameters-box li {
+      padding: 0.5rem 0;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .parameters-box strong {
+      color: var(--black);
+    }
+
+
 
 
