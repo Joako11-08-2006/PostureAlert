@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semana 13 - Componentes Electrónicos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* VARIABLES */
+    :root {
+      --black: #000000;
+      --dark-gray: #1a1a1a;
+      --accent-beige: #c9a882;
+      --light-beige: #e8d5c4;
+      --cream: #f5ebe0;
+      --white: #ffffff;
+      --text-dark: #2d2d2d;
+      --text-light: #6b6b6b;
+    }
+
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* HERO */
+    .week-hero {
+      text-align: center;
+      padding: 80px 20px 60px;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+      border-radius: 30px;
+      margin-bottom: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .week-badge {
+      display: inline-block;
+      background: var(--black);
+      color: var(--white);
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .week-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: var(--black);
+      margin-bottom: 1rem;
+      letter-spacing: -2px;
+      line-height: 1.1;
+    }
+
+    .week-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: var(--text-light);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* SECTIONS */
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--light-beige);
+      color: var(--text-dark);
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--black);
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-beige), var(--light-beige));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-text {
+      color: var(--text-light);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .card-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-icon {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    strong {
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    /* COMPONENTES */
+    .component-card {
+      margin-bottom: 3rem;
+    }
+
+    .component-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 3px solid var(--light-beige);
+    }
+
+    .component-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--black);
+      flex-shrink: 0;
+    }
+
+    .component-header h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--black);
+      margin: 0;
+    }
+
+    .component-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .component-image {
+      text-align: center;
+    }
+
+    .component-image img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .component-details h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .component-details h4:first-child {
+      margin-top: 0;
+    }
+
+    .component-details p {
+      color: var(--text-dark);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .component-details ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .component-details li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    .component-details li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent-beige);
+      font-weight: 700;
+    }
+
+    .highlight-box {
+      margin-top: 1.5rem;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--cream), var(--light-beige));
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-beige);
+    }
+
+    .highlight-box p {
+      margin: 0;
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    .comparison-mini {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+      padding: 1rem;
+      background: var(--cream);
+      border-radius: 12px;
+      text-align: center;
+      font-size: 0.9rem;
+      align-items: center;
+    }
+
+    .comparison-mini .vs {
+      font-weight: 900;
+      color: var(--accent-beige);
+      font-size: 1.2rem;
+    }
+
+    /* COSTOS */
+    .cost-table {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      margin: 2rem 0;
+    }
+
+    .cost-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .cost-row:last-child {
+      border-bottom: none;
+    }
+
+    .cost-row.header {
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    .cost-row.total {
+      background: var(--black);
+      color: var(--white);
+      font-size: 1.1rem;
+    }
+
+    .cost-row div {
+      color: var(--text-dark);
+      font-size: 0.95rem;
+    }
+
+    .cost-row.total div {
+      color: var(--white);
+    }
+
+    .cost-note {
+      margin-top: 2rem;
+      padding: 2rem;
+      background: var(--cream);
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-beige);
+    }
+
+    .cost-note p {
+      margin: 0;
+      color: var(--text-dark);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .image-caption {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 968px) {
+      body {
+        padding: 20px 15px;
+      }
+
+      .card {
+        padding: 2rem;
+      }
+
+      .component-content {
+        grid-template-columns: 1fr;
+      }
+
+      .cost-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+
+      .comparison-mini {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison-mini .vs {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- HERO -->
+    <div class="week-hero">
+      <div class="week-badge">SEMANA 13</div>
+      <h1 class="week-title">Componentes Electrónicos</h1>
+      <p class="week-subtitle">
+        Selección, justificación y adquisición de todos los componentes del sistema PostureAlert
+      </p>
+    </div>
+
+    <!-- INTRODUCCIÓN -->
+    <section class="section">
+      <div class="section-label">
+        <span>🔌</span>
+        <span>Introducción</span>
+      </div>
+      <h2 class="section-title">Sistema Electrónico Completo</h2>
+      
+      <div class="card">
+        <p class="card-text">
+          En esta etapa se definieron y adquirieron todos los <strong>componentes electrónicos</strong> 
+          necesarios para el funcionamiento del dispositivo PostureAlert. Cada componente fue seleccionado 
+          cuidadosamente considerando funcionalidad, tamaño, consumo energético y costo.
+        </p>
+      </div>
+    </section>
+
+    <!-- COMPONENTES PRINCIPALES -->
+    <section class="section">
+      <div class="section-label">
+        <span>⚡</span>
+        <span>Hardware</span>
+      </div>
+      <h2 class="section-title">Componentes del Sistema</h2>
+
+      <!-- MPU6050 -->
+      <div class="card component-card">
+        <div class="component-header">
+          <div class="component-number">1</div>
+          <h3>Sensor MPU6050 (Giroscopio + Acelerómetro)</h3>
+        </div>
+
+        <div class="component-content">
+          <div class="component-image">
+            <img src="https://m.media-amazon.com/images/I/61u0HSuWYeL._AC_SL1001_.jpg" 
+                 alt="Sensor MPU6050">
+          </div>
+
+          <div class="component-details">
+            <h4>🎯 Función Principal</h4>
+            <p>
+              El MPU6050 es el <strong>componente más importante</strong> del sistema. 
+              Combina un giroscopio de 3 ejes y un acelerómetro de 3 ejes para detectar con precisión 
+              la <strong>inclinación de la espalda</strong> del usuario en tiempo real.
+            </p>
+
+            <h4>✅ ¿Por qué lo elegimos?</h4>
+            <ul>
+              <li><strong>Alta precisión:</strong> Detecta cambios de inclinación con exactitud de hasta 0.01 grados</li>
+              <li><strong>Respuesta en tiempo real:</strong> Actualización a 100Hz, alertas instantáneas</li>
+              <li><strong>Bajo consumo:</strong> Solo 3.9mA en operación normal</li>
+              <li><strong>Tamaño compacto:</strong> 21 x 16 mm, perfecto para dispositivos wearables</li>
+              <li><strong>Económico:</strong> Precio accesible (~S/ 15-20)</li>
+              <li><strong>Fácil integración:</strong> Comunicación I2C con Arduino</li>
+            </ul>
+
+            <h4>🔧 Especificaciones Técnicas</h4>
+            <ul>
+              <li>Rango de medición: ±250, ±500, ±1000, ±2000 °/s (giroscopio)</li>
+              <li>Rango de aceleración: ±2g, ±4g, ±8g, ±16g</li>
+              <li>Voltaje de operación: 3-5V DC</li>
+              <li>Interfaz de comunicación: I2C</li>
+            </ul>
+
+            <div class="highlight-box">
+              <p>
+                <strong>💡 Aplicación en PostureAlert:</strong> El sensor se coloca en la carcasa del dispositivo 
+                que va en la espalda del usuario. Cuando detecta que la inclinación supera los <strong>30 grados</strong> 
+                (mala postura), activa inmediatamente el buzzer para alertar al usuario. Es la base de todo el sistema 
+                de detección postural.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ARDUINO NANO -->
+      <div class="card component-card">
+        <div class="component-header">
+          <div class="component-number">2</div>
+          <h3>Arduino Nano</h3>
+        </div>
+
+        <div class="component-content">
+          <div class="component-image">
+            <img src="https://m.media-amazon.com/images/I/61CJWHKGb3L._AC_SL1000_.jpg" 
+                 alt="Arduino Nano">
+          </div>
+
+          <div class="component-details">
+            <h4>🎯 Función Principal</h4>
+            <p>
+              Microcontrolador compacto que procesa los datos del sensor MPU6050 y controla todos los componentes del sistema.
+            </p>
+
+            <h4>✅ ¿Por qué lo elegimos?</h4>
+            <ul>
+              <li><strong>Tamaño reducido:</strong> 45 x 18 mm, ideal para dispositivos portátiles</li>
+              <li><strong>Misma potencia que Arduino UNO:</strong> ATmega328P, 16MHz</li>
+              <li><strong>Menor consumo energético:</strong> Optimizado para uso con batería</li>
+              <li><strong>Programación sencilla:</strong> Compatible con Arduino IDE</li>
+              <li><strong>Suficientes pines:</strong> 14 digitales, 8 analógicos</li>
+              <li><strong>Precio:</strong> ~S/ 25-30</li>
+            </ul>
+
+            <div class="comparison-mini">
+              <div>
+                <strong>Arduino UNO:</strong> 68.6 x 53.4 mm<br>
+                ❌ Demasiado grande para wearable
+              </div>
+              <div class="vs">VS</div>
+              <div>
+                <strong>Arduino Nano:</strong> 45 x 18 mm<br>
+                ✅ Compacto y funcional
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUZZER PASIVO -->
+      <div class="card component-card">
+        <div class="component-header">
+          <div class="component-number">3</div>
+          <h3>Buzzer Pasivo</h3>
+        </div>
+
+        <div class="component-content">
+          <div class="component-image">
+            <img src="https://m.media-amazon.com/images/I/51fqZ3uN3eL._AC_SL1000_.jpg" 
+                 alt="Buzzer Pasivo">
+          </div>
+
+          <div class="component-details">
+            <h4>🎯 Función Principal</h4>
+            <p>
+              Emite señales sonoras personalizables para alertar al usuario sobre su postura. 
+              A diferencia del buzzer activo, permite crear <strong>diferentes tonos y patrones de sonido</strong>.
+            </p>
+
+            <h4>✅ ¿Por qué PASIVO y no ACTIVO?</h4>
+            <ul>
+              <li><strong>Control de tonos:</strong> Podemos programar diferentes pitidos (agudo para alerta urgente, suave para recordatorio)</li>
+              <li><strong>Patrones personalizados:</strong> 1 pitido corto = postura aceptable, 3 pitidos = corrección urgente</li>
+              <li><strong>Menos molesto:</strong> Volumen y frecuencia ajustables desde código</li>
+              <li><strong>Mayor flexibilidad:</strong> El buzzer activo solo emite un tono fijo</li>
+            </ul>
+
+            <h4>🔊 Patrones de Alerta Programados</h4>
+            <ul>
+              <li><strong>1 pitido corto (200ms):</strong> Postura ligeramente incorrecta</li>
+              <li><strong>2 pitidos medianos (500ms):</strong> Corrección necesaria</li>
+              <li><strong>3 pitidos continuos:</strong> Mala postura prolongada (>10 segundos)</li>
+            </ul>
+
+            <div class="highlight-box">
+              <p>
+                <strong>💡 Ventaja clave:</strong> Con un buzzer pasivo, el usuario puede distinguir 
+                la urgencia de la corrección según el patrón de sonido, sin necesidad de mirar el dispositivo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SWITCH ON/OFF -->
+      <div class="card component-card">
+        <div class="component-header">
+          <div class="component-number">4</div>
+          <h3>Switch Button ON/OFF</h3>
+        </div>
+
+        <div class="component-content">
+          <div class="component-image">
+            <img src="https://m.media-amazon.com/images/I/51nL3QgQOkL._AC_SL1000_.jpg" 
+                 alt="Switch Button">
+          </div>
+
+          <div class="component-details">
+            <h4>🎯 Función Principal</h4>
+            <p>
+              Interruptor de encendido/apagado del dispositivo, permitiendo al usuario controlar 
+              fácilmente cuándo está activo el sistema de monitoreo postural.
+            </p>
+
+            <h4>✅ Características</h4>
+            <ul>
+              <li><strong>Tipo:</strong> Interruptor de palanca SPST (Single Pole Single Throw)</li>
+              <li><strong>Fácil acceso:</strong> Ubicado en la parte superior de la carcasa</li>
+              <li><strong>Retroalimentación táctil:</strong> "Click" audible al cambiar de estado</li>
+              <li><strong>Durabilidad:</strong> Resistente a 10,000+ ciclos de uso</li>
+            </ul>
+
+            <div class="highlight-box">
+              <p>
+                <strong>💡 Diseño inteligente:</strong> El switch está estratégicamente ubicado para que 
+                el usuario pueda encender/apagar el dispositivo sin necesidad de quitárselo de la espalda.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BATERÍA 9V -->
+      <div class="card component-card">
+        <div class="component-header">
+          <div class="component-number">5</div>
+          <h3>Batería 9V Duracell</h3>
+        </div>
+
+        <div class="component-content">
+          <div class="component-image">
+            <img src="https://m.media-amazon.com/images/I/71P9H5f3JBL._AC_SL1500_.jpg" 
+                 alt="Batería 9V Duracell">
+          </div>
+
+          <div class="component-details">
+            <h4>🎯 Función Principal</h4>
+            <p>
+              Fuente de energía portátil que permite el <strong>funcionamiento autónomo</strong> del dispositivo 
+              sin necesidad de cables, garantizando comodidad y libertad de movimiento.
+            </p>
+
+            <h4>✅ ¿Por qué batería y no solo cable USB?</h4>
+            <ul>
+              <li><strong>Portabilidad total:</strong> El usuario puede moverse libremente sin cables molestos</li>
+              <li><strong>Uso en cualquier lugar:</strong> Funciona en bibliotecas, aulas, casa, sin necesidad de enchufes</li>
+              <li><strong>Comodidad:</strong> Un cable conectado a la espalda sería incómodo y limitante</li>
+              <li><strong>Duración:</strong> ~8-12 horas de uso continuo con una batería Duracell</li>
+            </ul>
+
+            <h4>🔋 Especificaciones</h4>
+            <ul>
+              <li><strong>Voltaje:</strong> 9V DC</li>
+              <li><strong>Capacidad:</strong> ~550mAh</li>
+              <li><strong>Tipo:</strong> Alcalina (larga duración)</li>
+              <li><strong>Marca:</strong> Duracell (confiable y disponible en Perú)</li>
+            </ul>
+
+            <div class="highlight-box">
+              <p>
+                <strong>💡 Idea futura:</strong> Se consideró agregar un <strong>compartimiento de batería reemplazable</strong> 
+                en el diseño de la carcasa para que el usuario pueda cambiar la batería fácilmente sin desarmar el dispositivo. 
+                Esta característica está planificada para la siguiente iteración del prototipo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADAPTADOR -->
+      <div class="card component-card">
+        <div class="component-header">
+          <div class="component-number">6</div>
+          <h3>Adaptador USB Mini-B + Cables + Correa</h3>
+        </div>
+
+        <div class="component-content">
+          <div class="component-details">
+            <h4>🎯 Componentes Adicionales</h4>
+            
+            <p><strong>Adaptador USB Mini-B:</strong> Permite la conexión del Arduino Nano a la computadora para programación y carga de código.</p>
+            
+            <p><strong>Cables Jumper:</strong> Cables de conexión que interconectan todos los componentes electrónicos (Arduino → Sensores → Actuadores).</p>
+            
+            <p><strong>Correa Elástica en X:</strong> Sistema de sujeción que mantiene el dispositivo firmemente en la espalda del usuario, distribuyendo el peso de manera uniforme.</p>
+
+            <div class="highlight-box">
+              <p>
+                <strong>💡 Adaptación del diseño:</strong> La carcasa fue modificada para incluir 
+                <strong>ganchos de anclaje</strong> específicos para la correa en X, asegurando que el PostureAlert 
+                permanezca estable incluso durante movimientos bruscos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- COSTOS -->
+    <section class="section">
+      <div class="section-label">
+        <span>💰</span>
+        <span>Presupuesto</span>
+      </div>
+      <h2 class="section-title">Análisis de Costos</h2>
+      
+      <div class="card">
+        <h3 style="text-align: center; color: var(--black); margin-bottom: 2rem; font-size: 1.6rem;">
+          Desglose de Inversión Total
+        </h3>
+
+        <div class="cost-table">
+          <div class="cost-row header">
+            <div>Componente</div>
+            <div>Cantidad</div>
+            <div>Precio Unit.</div>
+            <div>Subtotal</div>
+          </div>
+
+          <div class="cost-row">
+            <div>Sensor MPU6050</div>
+            <div>1</div>
+            <div>S/ 18.00</div>
+            <div>S/ 18.00</div>
+          </div>
+
+          <div class="cost-row">
+            <div>Arduino Nano</div>
+            <div>1</div>
+            <div>S/ 28.00</div>
+            <div>S/ 28.00</div>
+          </div>
+
+          <div class="cost-row">
+            <div>Buzzer Pasivo</div>
+            <div>1</div>
+            <div>S/ 5.00</div>
+            <div>S/ 5.00</div>
+          </div>
+
+          <div class="cost-row">
+            <div>Switch ON/OFF</div>
+            <div>1</div>
+            <div>S/ 3.00</div>
+            <div>S/ 3.00</div>
+          </div>
+
+          <div class="cost-row">
+            <div>Batería 9V Duracell</div>
+            <div>1</div>
+            <div>S/ 12.00</div>
+            <div>S/ 12.00</div>
+          </div>
+
+          <div class="cost-row">
+            <div>Adaptador USB Mini-B</div>
+            <div>1</div>
+            <div>S/ 8.00</div>
+            <div>S/ 8.00</div>
+          </div>
+
+          <div class="cost-row">
+            <div>Cables Jumper (pack)</div>
+            <div>1</div>
+            <div>S/ 10.00</div>
+            <div>S/ 10.00</div>
+          </div>
+
+          <div class="cost-row">
+            <div>Correa Elástica</div>
+            <div>1</div>
+            <div>S/ 15.00</div>
+            <div>S/ 15.00</div>
+          </div>
+
+          <div class="cost-row">
+            <div>Filamento PLA (impresión 3D)</div>
+            <div>~50g</div>
+            <div>S/ 6.00</div>
+            <div>S/ 6.00</div>
+          </div>
+
+          <div class="cost-row total">
+            <div><strong>TOTAL</strong></div>
+            <div>-</div>
+            <div>-</div>
+            <div><strong>S/ 105.00</strong></div>
+          </div>
+        </div>
+
+        <div class="cost-note">
+          <p>
+            <strong>📍 Lugar de adquisición:</strong> La mayoría de componentes electrónicos fueron adquiridos 
+            en las tiendas de electrónica de <strong>Paruro</strong> (Centro de Lima), conocido por su amplia variedad 
+            de componentes Arduino y precios competitivos.
+          </p>
+          <div style="text-align: center; margin-top: 2rem;">
+            <img src="https://elcomercio.pe/resizer/DxhWWkCvNJ4NXqB5YNwY7Ro3RME=/1200x800/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/WQGJ6ND5WBHZTLZG4BPVZG2YUU.jpg" 
+                 alt="Paruro" 
+                 style="max-width: 600px; width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
