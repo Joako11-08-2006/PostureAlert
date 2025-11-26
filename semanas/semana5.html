@@ -3,12 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Semana 9 - Posture Alert</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Semana 5 - Empatía y Corte Láser</title>
   <link rel="stylesheet" href="css/style.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semana 5 - Empatía y Corte Láser</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tus estilos globales (de las otras semanas) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Estilos propios de Semana 5 (dejamos tu código tal cual) -->
   <style>
+    /* --- VARIABLES NECESARIAS (copiadas de Semana 3) --- */
     :root {
       --black: #000000;
       --dark-gray: #1a1a1a;
@@ -20,12 +36,7 @@
       --text-light: #6b6b6b;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    /* --- Diseño general (copiado desde Semana 3 para que funcione igual) --- */
     body {
       font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: var(--white);
@@ -39,142 +50,6 @@
       margin: 0 auto;
     }
 
-        /* NAVBAR */
-    .navbar {
-      background: var(--black);
-      padding: 1.2rem 0;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .navbar.scrolled {
-      padding: 0.8rem 0;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    }
-
-    .navbar-brand {
-      display: flex;
-      align-items: center;
-      font-weight: 800;
-      font-size: 1.6rem;
-      color: var(--white);
-      letter-spacing: -1px;
-      transition: transform 0.3s ease;
-      text-decoration: none;
-    }
-
-    .navbar-brand:hover {
-      transform: scale(1.02);
-      color: var(--white);
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-icon {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, var(--accent-beige) 0%, var(--light-beige) 100%);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--black);
-      font-weight: 900;
-      font-size: 1.3rem;
-      box-shadow: 0 6px 20px rgba(201, 168, 130, 0.4);
-      transition: transform 0.3s ease;
-    }
-
-    .logo-icon:hover {
-      transform: rotate(-5deg) scale(1.05);
-    }
-
-    .nav-link {
-      color: rgba(255,255,255,0.9) !important;
-      font-weight: 600;
-      padding: 0.6rem 1.2rem !important;
-      border-radius: 10px;
-      transition: all 0.3s ease;
-      font-size: 1rem;
-    }
-
-    .nav-link:hover {
-      background: var(--medium-gray);
-      color: var(--white) !important;
-      transform: translateY(-2px);
-    }
-
-    /* DROPDOWN CON SCROLL - SOLUCIÓN AL PROBLEMA */
-    .dropdown-menu {
-      background: var(--dark-gray);
-      border: none;
-      border-radius: 14px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-      padding: 0.8rem;
-      margin-top: 0.5rem;
-      min-width: 280px;
-    }
-
-    /* IMPORTANTE: PERMITIR SCROLL EN DROPDOWN */
-    .dropdown-menu-scrollable {
-      max-height: 400px;
-      overflow-y: auto;
-    }
-
-    /* PERSONALIZAR SCROLLBAR */
-    .dropdown-menu-scrollable::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .dropdown-menu-scrollable::-webkit-scrollbar-track {
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-    }
-
-    .dropdown-menu-scrollable::-webkit-scrollbar-thumb {
-      background: var(--accent-beige);
-      border-radius: 10px;
-    }
-
-    .dropdown-menu-scrollable::-webkit-scrollbar-thumb:hover {
-      background: var(--light-beige);
-    }
-
-    .dropdown-item {
-      color: rgba(255,255,255,0.85);
-      padding: 0.8rem 1.2rem;
-      border-radius: 10px;
-      transition: all 0.3s ease;
-      font-weight: 500;
-      font-size: 0.95rem;
-      text-decoration: none;
-      display: block;
-    }
-
-    .dropdown-item:hover {
-      background: linear-gradient(90deg, var(--accent-beige), var(--light-beige));
-      color: var(--black);
-      transform: translateX(8px);
-    }
-
-    .navbar-toggler {
-      border-color: rgba(255,255,255,0.3);
-      padding: 0.5rem 0.8rem;
-    }
-
-    .navbar-toggler:focus {
-      box-shadow: 0 0 0 0.2rem rgba(201, 168, 130, 0.3);
-    }
-
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-
-
-    /* HERO */
     .week-hero {
       text-align: center;
       padding: 80px 20px 60px;
@@ -185,17 +60,6 @@
       overflow: hidden;
     }
 
-    .week-hero::before {
-      content: '';
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(201, 168, 130, 0.1) 0%, transparent 70%);
-      top: -200px;
-      right: -100px;
-      border-radius: 50%;
-    }
-
     .week-badge {
       display: inline-block;
       background: var(--black);
@@ -203,9 +67,7 @@
       padding: 0.6rem 1.5rem;
       border-radius: 50px;
       font-weight: 600;
-      font-size: 0.9rem;
       margin-bottom: 1.5rem;
-      letter-spacing: 1px;
     }
 
     .week-title {
@@ -213,8 +75,6 @@
       font-weight: 900;
       color: var(--black);
       margin-bottom: 1rem;
-      letter-spacing: -2px;
-      line-height: 1.1;
     }
 
     .week-subtitle {
@@ -222,90 +82,50 @@
       color: var(--text-light);
       max-width: 800px;
       margin: 0 auto;
-      line-height: 1.6;
     }
 
-    /* SECTIONS */
     .section {
       margin-bottom: 60px;
     }
 
-    .section-header {
-      margin-bottom: 2.5rem;
-    }
-
     .section-label {
       display: inline-flex;
-      align-items: center;
       gap: 8px;
       background: var(--light-beige);
-      color: var(--text-dark);
       padding: 0.5rem 1.2rem;
       border-radius: 50px;
       font-weight: 600;
-      font-size: 0.85rem;
       margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
 
     .section-title {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-size: 2rem;
       font-weight: 800;
-      color: var(--black);
       margin-bottom: 1rem;
-      letter-spacing: -1px;
     }
 
-    .section-description {
-      font-size: 1.1rem;
-      color: var(--text-light);
-      line-height: 1.8;
-      max-width: 900px;
-    }
-
-    /* CARDS */
     .card {
       background: var(--white);
       border-radius: 24px;
       padding: 3rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       box-shadow: 0 10px 40px rgba(0,0,0,0.06);
       border: 1px solid rgba(0,0,0,0.05);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--accent-beige), var(--light-beige));
-      transform: scaleX(0);
-      transition: transform 0.4s ease;
-    }
-
-    .card:hover {
-      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
-      transform: translateY(-5px);
-    }
-
-    .card:hover::before {
-      transform: scaleX(1);
     }
 
     .card-title {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
       gap: 12px;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .card-text {
+      color: var(--text-light);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
     }
 
     .card-icon {
@@ -319,437 +139,287 @@
       font-size: 1.5rem;
     }
 
-    .card-content p {
-      color: var(--text-light);
-      line-height: 1.8;
-      margin-bottom: 1rem;
-      font-size: 1.05rem;
-    }
 
-    .card-content strong {
-      color: var(--black);
-      font-weight: 700;
-    }
-
-    /* ANALYSIS SECTION */
-    .analysis-grid {
+    /* --- TU CSS DE SEMANA 5 (NO SE TOCÓ) --- */
+    .objectives-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
     }
 
-    .analysis-card {
-      background: linear-gradient(135deg, var(--cream), var(--light-beige));
+    .objective-card {
       padding: 2rem;
-      border-radius: 20px;
+      background: linear-gradient(135deg, var(--cream), var(--light-beige));
+      border-radius: 16px;
+      text-align: center;
       border: 2px solid transparent;
-      transition: all 0.4s ease;
+      transition: all 0.3s ease;
     }
 
-    .analysis-card:hover {
+    .objective-card:hover {
       border-color: var(--accent-beige);
       transform: translateY(-8px);
       box-shadow: 0 15px 40px rgba(201, 168, 130, 0.25);
     }
 
-    .analysis-question {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 0.8rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-    }
-
-    .analysis-answer {
-      color: var(--text-dark);
-      line-height: 1.7;
-      font-size: 1rem;
-    }
-
-    /* IMAGE SHOWCASE */
-    .image-showcase {
-      margin: 3rem 0;
-      text-align: center;
-    }
-
-    .image-showcase img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-      transition: transform 0.4s ease;
-    }
-
-    .image-showcase img:hover {
-      transform: scale(1.02);
-    }
-
-    .image-caption {
-      margin-top: 1.5rem;
-      font-size: 0.95rem;
-      color: var(--text-light);
-      font-style: italic;
-    }
-
-    /* HIGHLIGHT BOX */
-    .highlight-box {
-      background: var(--black);
-      color: var(--white);
-      padding: 2.5rem;
-      border-radius: 20px;
-      margin: 3rem 0;
-      box-shadow: 0 15px 50px rgba(0,0,0,0.2);
-    }
-
-    .highlight-box h3 {
-      font-size: 1.8rem;
-      font-weight: 700;
+    .objective-icon {
+      font-size: 3rem;
       margin-bottom: 1rem;
-      color: var(--white);
     }
 
-    .highlight-box p {
-      color: rgba(255,255,255,0.85);
-      line-height: 1.8;
-      font-size: 1.05rem;
-    }
-
-    .highlight-box strong {
-      color: var(--accent-beige);
-    }
-
-    /* COMPARISON TABLE */
-    .comparison-table {
+    .empathy-insights {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin: 2rem 0;
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
 
-    .comparison-column {
+    .insight-item {
+      padding: 1.5rem;
       background: var(--cream);
-      padding: 2rem;
-      border-radius: 16px;
+      border-radius: 12px;
       border-left: 4px solid var(--accent-beige);
     }
 
-    .comparison-column h4 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 1rem;
+    .empathy-map {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
     }
 
-    .comparison-column p {
-      color: var(--text-dark);
-      line-height: 1.7;
+    .empathy-quadrant {
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+      border-top: 4px solid var(--accent-beige);
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .card {
-        padding: 2rem;
-      }
+    .laser-process {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
 
-      .analysis-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .comparison-table {
-        grid-template-columns: 1fr;
-      }
-
-      .week-hero {
-        padding: 60px 20px 40px;
-      }
+    .feedback-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
     }
   </style>
 </head>
+
 <body>
-<!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="../index.html">
-        <div class="logo-container">
-          <div class="logo-icon">PA</div>
-          <span>Posture Alert</span>
-        </div>
-      </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-              Documentación
-            </a>
-            <!-- DROPDOWN CON SCROLL -->
-            <ul class="dropdown-menu dropdown-menu-scrollable">
-              <li><a class="dropdown-item" href="semana1.html">Semana 1 - Reto Inicial</a></li>
-              <li><a class="dropdown-item" href="semana2.html">Semana 2 - Investigación</a></li>
-              <li><a class="dropdown-item" href="semana3.html">Semana 3 - Design Thinking</a></li>
-              <li><a class="dropdown-item" href="semana4.html">Semana 4 - Prototipo Físico</a></li>
-              <li><a class="dropdown-item" href="semana5.html">Semana 5 - Empatía y Usuario</a></li>
-              <li><a class="dropdown-item" href="semana6.html">Semana 6 - Corte Láser</a></li>
-              <li><a class="dropdown-item" href="semana7.html">Semana 7 - Prototipado Rápido</a></li>
-              <li><a class="dropdown-item" href="semana8.html">Semana 8 - Entrega Final</a></li>
-              <li><a class="dropdown-item" href="semana9.html">Semana 9 - Concepto a Prototipo</a></li>
-              <li><a class="dropdown-item" href="semana10.html">Semana 10 - Diseño de Piezas</a></li>
-              <li><a class="dropdown-item" href="semana11.html">Semana 11 - Validación</a></li>
-              <li><a class="dropdown-item" href="semana12.html">Semana 12 - Modelado 3D</a></li>
-              <li><a class="dropdown-item" href="semana13.html">Semana 13 - Componentes</a></li>
-              <li><a class="dropdown-item" href="semana14.html">Semana 14 - Prototipo Final</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
   <div class="container">
     
     <!-- HERO -->
     <div class="week-hero">
-      <div class="week-badge">SEMANA 9</div>
-      <h1 class="week-title">Del Concepto al Prototipo</h1>
+      <div class="week-badge">SEMANA 5</div>
+      <h1 class="week-title">Empatía con el Usuario y Prototipado</h1>
       <p class="week-subtitle">
-        Técnicas de prototipado · Diseño · Modelado · Iteración
+        Comprendiendo al usuario real y explorando técnicas de fabricación con corte láser
       </p>
     </div>
 
-    <!-- INTRODUCCIÓN -->
+    <!-- OBJETIVOS -->
     <section class="section">
-      <div class="section-header">
-        <div class="section-label">
-          <span>📋</span>
-          <span>Contexto</span>
-        </div>
-        <h2 class="section-title">Evolución del Diseño</h2>
+      <div class="section-label">
+        <span>🎯</span>
+        <span>Objetivos</span>
       </div>
-
-      <div class="card">
-        <div class="card-content">
-          <p>
-            Durante la fase inicial de prototipado, identificamos la necesidad de mejorar la forma del dispositivo,
-            ya que la versión anterior resultaba <strong>demasiado grande e incómoda</strong> para el usuario.
-          </p>
-          <p>
-            Además, concluimos que el <strong>corte láser no ofrecía la precisión ni resistencia necesarias</strong> para nuestro diseño,
-            por lo que decidimos adoptar <strong>impresión 3D al 100%</strong>, obteniendo así un prototipo más firme, preciso y ergonómico.
-          </p>
+      <h2 class="section-title">Objetivos de la Semana</h2>
+      
+      <div class="objectives-grid">
+        <div class="objective-card">
+          <div class="objective-icon">💭</div>
+          <h4>Empatía con el Usuario</h4>
+          <p>Desarrollar comprensión profunda mediante entrevistas y observación directa</p>
         </div>
-      </div>
 
-      <div class="image-showcase">
-        <img src="/PostureAlert/assets/img/semana9_idea.jpg" alt="Evolución del diseño PostureAlert">
-        <p class="image-caption">Figura 1. Evolución del concepto hacia un diseño más ergonómico y funcional.</p>
+        <div class="objective-card">
+          <div class="objective-icon">🔍</div>
+          <h4>Identificar Necesidades</h4>
+          <p>Descubrir las necesidades reales de estudiantes con malas posturas</p>
+        </div>
+
+        <div class="objective-card">
+          <div class="objective-icon">🔧</div>
+          <h4>Prototipo de Baja Fidelidad</h4>
+          <p>Diseñar y fabricar mediante corte láser para validación rápida</p>
+        </div>
+
+        <div class="objective-card">
+          <div class="objective-icon">🔄</div>
+          <h4>Iteración Continua</h4>
+          <p>Recibir feedback y realizar mejoras basadas en usuario</p>
+        </div>
       </div>
     </section>
 
-    <!-- ANÁLISIS GUIADO -->
+    <!-- EMPATÍA -->
     <section class="section">
-      <div class="section-header">
-        <div class="section-label">
-          <span>🔍</span>
-          <span>Análisis</span>
-        </div>
-        <h2 class="section-title">Análisis Guiado del Objeto</h2>
-        <p class="section-description">
-          Evaluación sistemática de las características, funciones y componentes del dispositivo.
+      <div class="section-label">
+        <span>💬</span>
+        <span>Empatía</span>
+      </div>
+      <h2 class="section-title">Empatía con el Usuario</h2>
+      
+      <div class="card">
+        <p class="card-text">
+          Se realizaron <strong>entrevistas cortas</strong> a estudiantes de Tecsup para comprender 
+          sus hábitos posturales y las dificultades que enfrentan al estudiar o trabajar. 
+          Esta fase permitió descubrir <strong>necesidades ocultas</strong> como la falta de conciencia postural 
+          y la ausencia de recordatorios efectivos.
         </p>
-      </div>
 
-      <div class="card">
-        <div class="card-title">
-          <div class="card-icon">🎯</div>
-          <span>Características Principales</span>
-        </div>
-        
-        <div class="analysis-grid">
-          <div class="analysis-card">
-            <div class="analysis-question">
-              ❓ ¿Qué problema busca resolver?
-            </div>
-            <p class="analysis-answer">
-              Reducir lesiones y dolores de espalda en estudiantes derivados de malas posturas prolongadas.
-            </p>
+        <div class="empathy-insights">
+          <div class="insight-item">
+            <h4>🔹 Insight 1: Invisibilidad del Problema</h4>
+            <p>Los usuarios no son conscientes de su mala postura hasta que sienten dolor</p>
           </div>
 
-          <div class="analysis-card">
-            <div class="analysis-question">
-              ❓ ¿Cuál es su función principal?
-            </div>
-            <p class="analysis-answer">
-              Detectar una mala postura y alertar automáticamente al usuario mediante retroalimentación auditiva.
-            </p>
+          <div class="insight-item">
+            <h4>🔹 Insight 2: Necesidad de Discreción</h4>
+            <p>Prefieren soluciones que no llamen la atención en espacios públicos</p>
           </div>
 
-          <div class="analysis-card">
-            <div class="analysis-question">
-              ❓ ¿Qué acciones realiza el usuario?
-            </div>
-            <p class="analysis-answer">
-              El usuario coloca el dispositivo en su espalda mediante una correa en forma de "X". 
-              Una vez encendido, continúa sus actividades normalmente; si la postura es incorrecta, 
-              el dispositivo emite un pitido, permitiendo corregir la posición sin distracciones visuales.
-            </p>
+          <div class="insight-item">
+            <h4>🔹 Insight 3: Simplicidad ante Todo</h4>
+            <p>Rechazan dispositivos complejos que requieran configuración constante</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- IDENTIFICACIÓN DE PARTES -->
+    <!-- MAPA DE EMPATÍA -->
     <section class="section">
-      <div class="section-header">
-        <div class="section-label">
-          <span>🔧</span>
-          <span>Estructura</span>
-        </div>
-        <h2 class="section-title">Identificación de Partes</h2>
+      <div class="section-label">
+        <span>🧠</span>
+        <span>Análisis</span>
       </div>
-
+      <h2 class="section-title">Mapa de Empatía</h2>
+      
       <div class="card">
-        <div class="card-title">
-          <div class="card-icon">📦</div>
-          <span>Componentes del Sistema</span>
-        </div>
-
-        <div class="analysis-grid">
-          <div class="analysis-card">
-            <div class="analysis-question">
-              🔹 ¿Cuántas piezas distintas tiene?
-            </div>
-            <p class="analysis-answer">
-              Actualmente solo tiene <strong>2 piezas</strong>: la caja contenedora y su tapa.
-            </p>
-          </div>
-
-          <div class="analysis-card">
-            <div class="analysis-question">
-              🔹 ¿Cómo están unidas o ensambladas?
-            </div>
-            <p class="analysis-answer">
-              Encaje directo entre tapa y contenedor. En futuras iteraciones se agregarán componentes electrónicos internos.
-            </p>
-          </div>
-
-          <div class="analysis-card">
-            <div class="analysis-question">
-              🔹 ¿Alguna pieza se mueve o ajusta?
-            </div>
-            <p class="analysis-answer">
-              La tapa puede abrirse y cerrarse libremente para acceso a la electrónica interna.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="image-showcase">
-        <img src="/PostureAlert/assets/img/semana9_idea2.jpg" alt="Diagrama de componentes">
-        <p class="image-caption">Figura 2. Vista preliminar del nuevo diseño, más compacto y cómodo para el usuario.</p>
-      </div>
-    </section>
-
-    <!-- DISEÑO Y MODELADO -->
-    <section class="section">
-      <div class="section-header">
-        <div class="section-label">
-          <span>✏️</span>
-          <span>Diseño</span>
-        </div>
-        <h2 class="section-title">Diseño y Modelado</h2>
-      </div>
-
-      <div class="card">
-        <div class="card-title">
-          <div class="card-icon">📐</div>
-          <span>Descripción de la Forma</span>
-        </div>
-
-        <div class="comparison-table">
-          <div class="comparison-column">
-            <h4>Geometría y Proporciones</h4>
-            <p>
-              <strong>¿Qué geometría tiene cada parte?</strong><br>
-              La caja contenedora tiene un diseño <strong>cilíndrico</strong> para mayor ergonomía.
-            </p>
-            <p style="margin-top: 1rem;">
-              <strong>¿Qué proporciones tiene?</strong><br>
-              El diseño actual mide <strong>35×75 mm</strong> con una altura de <strong>16 mm</strong>.
-            </p>
-          </div>
-
-          <div class="comparison-column">
-            <h4>Detalles Críticos</h4>
-            <p>
-              <strong>¿Qué no se puede omitir?</strong><br>
-              La forma debe ser cómoda para el usuario y permitir futura integración de más electrónica. 
-              Esta iteración busca definir la base estructural ideal antes de añadir nuevas funciones.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-title">
-          <div class="card-icon">👤</div>
-          <span>Relación Forma-Usabilidad</span>
-        </div>
-
-        <div class="analysis-grid">
-          <div class="analysis-card">
-            <div class="analysis-question">
-              💡 ¿Cómo mejora la interacción del usuario?
-            </div>
-            <p class="analysis-answer">
-              La forma cilíndrica reduce molestias y hace el dispositivo <strong>casi imperceptible</strong> al usarlo.
-            </p>
-          </div>
-
-          <div class="analysis-card">
-            <div class="analysis-question">
-              💡 ¿Es cómodo, seguro e intuitivo?
-            </div>
-            <p class="analysis-answer">
-              <strong>Cómodo</strong> por su tamaño compacto, <strong>seguro</strong> porque no interfiere con el usuario 
-              e <strong>intuitivo</strong> porque solo requiere encenderlo.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRESENTACIÓN Y FEEDBACK -->
-    <section class="section">
-      <div class="section-header">
-        <div class="section-label">
-          <span>📊</span>
-          <span>Evaluación</span>
-        </div>
-        <h2 class="section-title">Presentación y Retroalimentación</h2>
-      </div>
-
-      <div class="highlight-box">
-        <h3>🔄 Iteración Continua</h3>
-        <p>
-          Se presentó el nuevo diseño del prototipo, mostrando mejoras en <strong>ergonomía, tamaño y forma</strong>.
-          El feedback recibido sugirió trabajar la estabilidad, estética y futura integración de componentes internos.
+        <p class="card-text" style="margin-bottom: 2rem;">
+          Basado en la metodología de empatía presentada por la docente <strong>Evelyn Cuadrado</strong>, 
+          se desarrolló un mapa que resume lo que el usuario piensa, siente, ve y necesita.
         </p>
-        <p style="margin-top: 1rem;">
-          Aunque no es el diseño final, permitió esclarecer el rumbo evolutivo del dispositivo:
-          <strong>abandonar el corte láser</strong> y consolidar un diseño <strong>curvo/cilíndrico</strong> que favorezca la comodidad.
-        </p>
-      </div>
 
-      <div class="image-showcase">
-        <img src="/PostureAlert/assets/img/semana9_idea3.jpg" alt="Aplicación del diseño en usuario">
-        <p class="image-caption">Figura 3. Aplicación del diseño en una persona durante pruebas de uso.</p>
+        <div class="empathy-map">
+          <div class="empathy-quadrant">
+            <h4>💭 Piensa</h4>
+            <p>"Paso muchas horas sentado y me duele la espalda"</p>
+            <p>"Debería mejorar mi postura pero siempre lo olvido"</p>
+          </div>
+
+          <div class="empathy-quadrant">
+            <h4>❤️ Siente</h4>
+            <p>Frustración y cansancio físico al final del día</p>
+            <p>Preocupación por su salud a largo plazo</p>
+          </div>
+
+          <div class="empathy-quadrant">
+            <h4>💬 Dice</h4>
+            <p>"Necesitaría algo que me avise cuando me encorvo"</p>
+            <p>"No quiero algo complicado de usar"</p>
+          </div>
+
+          <div class="empathy-quadrant">
+            <h4>⚡ Hace</h4>
+            <p>Cambia de posición constantemente sin saber si es correcta</p>
+            <p>Intenta recordatorios mentales pero los olvida</p>
+          </div>
+        </div>
+
+        <div class="full-image" style="margin-top: 3rem;">
+          <img src="/PostureAlert/assets/img/semana5_mapaempatia.jpg" 
+               alt="Mapa de empatía" 
+               style="max-width: 700px; width: 100%; border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.12);">
+          <p class="image-caption">Figura 1. Mapa de empatía elaborado a partir de entrevistas con usuarios.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORTE LÁSER -->
+    <section class="section">
+      <div class="section-label">
+        <span>⚡</span>
+        <span>Fabricación</span>
+      </div>
+      <h2 class="section-title">Prototipado con Corte Láser</h2>
+      
+      <div class="card">
+        <p class="card-text" style="margin-bottom: 2rem;">
+          Se aplicó la <strong>tecnología de corte láser</strong> para fabricar prototipos de prueba rápidos. 
+          Se utilizó <strong>cartón</strong> como material, siguiendo los planos digitales generados en <strong>AutoCAD</strong>. 
+          Este proceso permitió crear iteraciones económicas y rápidas para validar conceptos.
+        </p>
+
+        <div class="laser-process">
+          <div class="process-step">
+            <h4>1. Diseño en AutoCAD</h4>
+            <p>Creación de planos 2D con líneas de corte y grabado diferenciadas por colores</p>
+          </div>
+
+          <div class="process-step">
+            <h4>2. Configuración de Láser</h4>
+            <p>Ajuste de parámetros: potencia 80%, velocidad 100mm/s para cartón de 3mm</p>
+          </div>
+
+          <div class="process-step">
+            <h4>3. Corte y Ensamble</h4>
+            <p>Fabricación de piezas y ensamblaje mediante sistema de encastre</p>
+          </div>
+        </div>
+
+        <div class="full-image" style="margin-top: 2rem;">
+          <img src="/PostureAlert/assets/img/semana5_cortelaser.jpg" 
+               alt="Prototipo con corte láser" 
+               style="max-width: 100%; border-radius: 16px; box-shadow: 0 15px 50px rgba(0,0,0,0.12);">
+          <p class="image-caption">Figura 2. Proceso de corte láser y ensamblaje del prototipo de validación.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEEDBACK -->
+    <section class="section">
+      <div class="section-label">
+        <span>📊</span>
+        <span>Validación</span>
+      </div>
+      <h2 class="section-title">Feedback y Mejoras</h2>
+      
+      <div class="card">
+        <p class="card-text" style="margin-bottom: 2rem;">
+          Después del ensamblaje, se realizó una sesión de retroalimentación con usuarios. 
+          Se identificaron aspectos positivos y áreas de mejora que guiaron la siguiente iteración.
+        </p>
+
+        <div class="feedback-grid">
+          <div class="feedback-positive">
+            <h4>✅ Aspectos Valorados</h4>
+            <ul>
+              <li>Tamaño compacto y portátil</li>
+              <li>Sistema de alertas discreto</li>
+              <li>Facilidad de uso sin configuración</li>
+              <li>Comodidad durante uso prolongado</li>
+            </ul>
+          </div>
+
+          <div class="feedback-improve">
+            <h4>🔄 Sugerencias de Mejora</h4>
+            <ul>
+              <li>Mejorar el ángulo del sensor para mayor precisión</li>
+              <li>Reforzar la base para mayor estabilidad</li>
+              <li>Optimizar el sistema de correas para ajuste rápido</li>
+              <li>Reducir peso para mayor comodidad</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -758,25 +428,30 @@
       <div class="card">
         <div class="card-title">
           <div class="card-icon">✅</div>
-          <span>Conclusiones de la Semana 9</span>
+          <span>Conclusión</span>
         </div>
-        <div class="card-content">
-          <p>
-            Esta semana representó un <strong>punto de inflexión crítico</strong> en el desarrollo del proyecto. 
-            La decisión de migrar completamente a impresión 3D y adoptar una geometría cilíndrica 
-            establece las bases para un producto más <strong>robusto, ergonómico y escalable</strong>.
-          </p>
-          <p>
-            El análisis sistemático del objeto nos permitió identificar áreas de mejora y 
-            priorizar la <strong>experiencia del usuario</strong> sobre la complejidad técnica innecesaria.
-          </p>
+        <p class="card-text">
+          En esta semana reforzamos la <strong>empatía con el usuario</strong> para que el diseño de <strong>PostureAlert</strong> 
+          responda realmente a sus necesidades. Gracias al <strong>prototipado con corte láser</strong>, 
+          pudimos materializar ideas de forma rápida y económica, ajustando el diseño mediante iteraciones y feedback directo. 
+          Aprendimos la importancia del diseño centrado en el usuario, la experimentación y la mejora continua 
+          como pilares fundamentales del proceso de innovación tecnológica.
+        </p>
+
+        <div class="references-box">
+          <h4>📚 Referencias</h4>
+          <ul>
+            <li>Tecsup (2025). <em>Investigación e Innovación Tecnológica – Semana 5: Comprendiendo al Usuario con Empatía y Prototipado con Corte Láser</em>. Docente: Evelyn A. Cuadrado Guerrero.</li>
+            <li>IDEO Design Kit. (2023). <em>Empathy Tools: Understanding User Needs.</em></li>
+            <li>Trotec Laser Systems. (2024). <em>Introduction to Laser Cutting for Prototyping.</em></li>
+          </ul>
         </div>
       </div>
     </section>
 
   </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
   <script src="js/app.js"></script>
+
 </body>
 </html>
-
