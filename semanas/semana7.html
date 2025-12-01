@@ -39,7 +39,7 @@
       margin: 0 auto;
     }
 
-        /* NAVBAR */
+    /* NAVBAR */
     .navbar {
       background: var(--black);
       padding: 1.2rem 0;
@@ -107,10 +107,9 @@
       transform: translateY(-2px);
     }
 
-    /* DROPDOWN CON SCROLL - SOLUCIÓN AL PROBLEMA */
+    /* DROPDOWN CON SCROLL */
     .dropdown-menu {
       background: var(--dark-gray);
-      border: none;
       border-radius: 14px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.5);
       padding: 0.8rem;
@@ -118,61 +117,16 @@
       min-width: 280px;
     }
 
-    /* IMPORTANTE: PERMITIR SCROLL EN DROPDOWN */
     .dropdown-menu-scrollable {
       max-height: 400px;
       overflow-y: auto;
     }
 
-    /* PERSONALIZAR SCROLLBAR */
-    .dropdown-menu-scrollable::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .dropdown-menu-scrollable::-webkit-scrollbar-track {
-      background: rgba(255,255,255,0.05);
-      border-radius: 10px;
-    }
-
-    .dropdown-menu-scrollable::-webkit-scrollbar-thumb {
-      background: var(--accent-beige);
-      border-radius: 10px;
-    }
-
-    .dropdown-menu-scrollable::-webkit-scrollbar-thumb:hover {
-      background: var(--light-beige);
-    }
-
     .dropdown-item {
       color: rgba(255,255,255,0.85);
-      padding: 0.8rem 1.2rem;
       border-radius: 10px;
       transition: all 0.3s ease;
-      font-weight: 500;
-      font-size: 0.95rem;
-      text-decoration: none;
-      display: block;
     }
-
-    .dropdown-item:hover {
-      background: linear-gradient(90deg, var(--accent-beige), var(--light-beige));
-      color: var(--black);
-      transform: translateX(8px);
-    }
-
-    .navbar-toggler {
-      border-color: rgba(255,255,255,0.3);
-      padding: 0.5rem 0.8rem;
-    }
-
-    .navbar-toggler:focus {
-      box-shadow: 0 0 0 0.2rem rgba(201, 168, 130, 0.3);
-    }
-
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-
 
     /* HERO */
     .week-hero {
@@ -185,17 +139,6 @@
       overflow: hidden;
     }
 
-    .week-hero::before {
-      content: '';
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(201, 168, 130, 0.1) 0%, transparent 70%);
-      top: -200px;
-      right: -100px;
-      border-radius: 50%;
-    }
-
     .week-badge {
       display: inline-block;
       background: var(--black);
@@ -203,9 +146,7 @@
       padding: 0.6rem 1.5rem;
       border-radius: 50px;
       font-weight: 600;
-      font-size: 0.9rem;
       margin-bottom: 1.5rem;
-      letter-spacing: 1px;
     }
 
     .week-title {
@@ -213,8 +154,6 @@
       font-weight: 900;
       color: var(--black);
       margin-bottom: 1rem;
-      letter-spacing: -2px;
-      line-height: 1.1;
     }
 
     .week-subtitle {
@@ -222,10 +161,9 @@
       color: var(--text-light);
       max-width: 800px;
       margin: 0 auto;
-      line-height: 1.6;
     }
 
-    /* SECTIONS */
+    /* CARDS */
     .section {
       margin-bottom: 60px;
     }
@@ -239,10 +177,7 @@
       padding: 0.5rem 1.2rem;
       border-radius: 50px;
       font-weight: 600;
-      font-size: 0.85rem;
       margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
 
     .section-title {
@@ -250,10 +185,8 @@
       font-weight: 800;
       color: var(--black);
       margin-bottom: 1rem;
-      letter-spacing: -1px;
     }
 
-    /* CARDS */
     .card {
       background: var(--white);
       border-radius: 24px;
@@ -261,30 +194,6 @@
       margin-bottom: 2rem;
       box-shadow: 0 10px 40px rgba(0,0,0,0.06);
       border: 1px solid rgba(0,0,0,0.05);
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--accent-beige), var(--light-beige));
-      transform: scaleX(0);
-      transition: transform 0.4s ease;
-    }
-
-    .card:hover {
-      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
-      transform: translateY(-5px);
-    }
-
-    .card:hover::before {
-      transform: scaleX(1);
     }
 
     .card-text {
@@ -292,27 +201,6 @@
       line-height: 1.8;
       font-size: 1.05rem;
       margin-bottom: 1rem;
-    }
-
-    .card-title {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .card-icon {
-      width: 45px;
-      height: 45px;
-      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
     }
 
     /* METHODOLOGY STEPS */
@@ -335,68 +223,11 @@
       border-top: 4px solid var(--accent-beige);
     }
 
-    .step-icon {
-      font-size: 2.5rem;
-      margin-bottom: 0.8rem;
-    }
-
     .method-step h4 {
       font-size: 1.1rem;
       font-weight: 700;
       color: var(--black);
       margin-bottom: 0.5rem;
-    }
-
-    .method-step p {
-      font-size: 0.9rem;
-      color: var(--text-dark);
-    }
-
-    .method-arrow {
-      font-size: 2rem;
-      color: var(--accent-beige);
-      font-weight: 700;
-    }
-
-    /* TOOLS SHOWCASE */
-    .tools-showcase {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-
-    .tool-item {
-      padding: 2rem;
-      background: var(--white);
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-      border: 2px solid transparent;
-      transition: all 0.3s ease;
-    }
-
-    .tool-item:hover {
-      border-color: var(--accent-beige);
-      transform: translateY(-8px);
-      box-shadow: 0 15px 40px rgba(201, 168, 130, 0.25);
-    }
-
-    .tool-logo {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .tool-item h4 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 0.5rem;
-    }
-
-    .tool-item p {
-      font-size: 0.9rem;
-      color: var(--text-dark);
     }
 
     /* CHALLENGES GRID */
@@ -412,25 +243,6 @@
       background: var(--cream);
       border-radius: 12px;
       border-left: 4px solid var(--accent-beige);
-    }
-
-    .challenge-card h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 0.8rem;
-    }
-
-    .challenge-card p {
-      font-size: 0.9rem;
-      color: var(--text-dark);
-      margin: 0.3rem 0;
-    }
-
-    .challenge-card .solution {
-      color: var(--text-light);
-      font-style: italic;
-      margin-top: 0.5rem;
     }
 
     /* VALIDATION RESULTS */
@@ -458,71 +270,6 @@
       border-color: #fbbf24;
     }
 
-    .result-positive h4,
-    .result-improve h4 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--black);
-      margin-bottom: 1rem;
-    }
-
-    .result-positive ul,
-    .result-improve ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .result-positive li,
-    .result-improve li {
-      padding: 0.5rem 0;
-      padding-left: 1.5rem;
-      position: relative;
-      color: var(--text-dark);
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
-
-    .result-positive li::before,
-    .result-improve li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--accent-beige);
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    /* GANTT TABLE */
-    .gantt-table {
-      background: var(--white);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    }
-
-    .gantt-row {
-      display: grid;
-      grid-template-columns: 1.5fr 2fr 1fr 1.5fr;
-      gap: 1rem;
-      padding: 1rem 1.5rem;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .gantt-row:last-child {
-      border-bottom: none;
-    }
-
-    .gantt-row.header {
-      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
-      font-weight: 700;
-      color: var(--black);
-    }
-
-    .gantt-row div {
-      color: var(--text-dark);
-      font-size: 0.9rem;
-    }
-
     /* IMAGES */
     .full-image {
       text-align: center;
@@ -542,356 +289,291 @@
       font-style: italic;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .card {
-        padding: 2rem;
-      }
-
-      .methodology-steps {
-        flex-direction: column;
-      }
-
-      .method-arrow {
-        transform: rotate(90deg);
-      }
-
-      .tools-showcase,
-      .challenges-grid,
-      .validation-results {
-        grid-template-columns: 1fr;
-      }
-
-      .gantt-row {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-      }
-
-      .week-hero {
-        padding: 60px 20px 40px;
-      }
-    }
   </style>
 </head>
+
 <body>
+
 <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="../index.html">
-        <div class="logo-container">
-          <div class="logo-icon">PA</div>
-          <span>Posture Alert</span>
-        </div>
-      </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-              Documentación
-            </a>
-            <!-- DROPDOWN CON SCROLL -->
-            <ul class="dropdown-menu dropdown-menu-scrollable">
-              <li><a class="dropdown-item" href="semana1.html">Semana 1 - Reto Inicial</a></li>
-              <li><a class="dropdown-item" href="semana2.html">Semana 2 - Investigación</a></li>
-              <li><a class="dropdown-item" href="semana3.html">Semana 3 - Design Thinking</a></li>
-              <li><a class="dropdown-item" href="semana4.html">Semana 4 - Prototipo Físico</a></li>
-              <li><a class="dropdown-item" href="semana5.html">Semana 5 - Empatía y Usuario</a></li>
-              <li><a class="dropdown-item" href="semana6.html">Semana 6 - Corte Láser</a></li>
-              <li><a class="dropdown-item" href="semana7.html">Semana 7 - Prototipado Rápido</a></li>
-              <li><a class="dropdown-item" href="semana8.html">Semana 8 - Entrega Final</a></li>
-              <li><a class="dropdown-item" href="semana9.html">Semana 9 - Concepto a Prototipo</a></li>
-              <li><a class="dropdown-item" href="semana10.html">Semana 10 - Diseño de Piezas</a></li>
-              <li><a class="dropdown-item" href="semana11.html">Semana 11 - Validación</a></li>
-              <li><a class="dropdown-item" href="semana12.html">Semana 12 - Modelado 3D</a></li>
-              <li><a class="dropdown-item" href="semana13.html">Semana 13 - Componentes</a></li>
-              <li><a class="dropdown-item" href="semana14.html">Semana 14 - Prototipo Final</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
+<nav class="navbar navbar-expand-lg fixed-top">
   <div class="container">
+    <a class="navbar-brand" href="../index.html">
+      <div class="logo-container">
+        <div class="logo-icon">PA</div>
+        <span>Posture Alert</span>
+      </div>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Documentación
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-scrollable">
+            <li><a class="dropdown-item" href="semana1.html">Semana 1 - Reto Inicial</a></li>
+            <li><a class="dropdown-item" href="semana2.html">Semana 2 - Investigación</a></li>
+            <li><a class="dropdown-item" href="semana3.html">Semana 3 - Design Thinking</a></li>
+            <li><a class="dropdown-item" href="semana4.html">Semana 4 - Prototipo Físico</a></li>
+            <li><a class="dropdown-item" href="semana5.html">Semana 5 - Empatía y Usuario</a></li>
+            <li><a class="dropdown-item" href="semana6.html">Semana 6 - Corte Láser</a></li>
+            <li><a class="dropdown-item" href="semana7.html">Semana 7 - Prototipado Rápido</a></li>
+            <li><a class="dropdown-item" href="semana8.html">Semana 8 - Entrega Final</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="week-hero">
+    <div class="week-badge">SEMANA 7</div>
+    <h1 class="week-title">Prototipado Rápido</h1>
+    <p class="week-subtitle">
+      Ajustes, revisión digital y preparación del diseño final.
+    </p>
+  </div>
+
+  <!-- OBJETIVO -->
+  <section class="section">
+    <div class="section-label">
+      <span>🎯</span>
+      <span>Objetivo</span>
+    </div>
+    <h2 class="section-title">Propósito de la Semana</h2>
     
-    <!-- HERO -->
-    <div class="week-hero">
-      <div class="week-badge">SEMANA 7</div>
-      <h1 class="week-title">Prototipado Rápido</h1>
-      <p class="week-subtitle">
-        Planificación, creación y validación de piezas mediante iteración continua
+    <div class="card">
+      <p class="card-text">
+        Durante la semana 7, el equipo no pudo continuar con el prototipado físico debido a la falta de acceso al FabLab. 
+        Sin embargo, este tiempo se aprovechó para trabajar de manera digital, realizando ajustes importantes en Tinkercad 
+        y revisando cuidadosamente las medidas, proporciones y tolerancias del diseño previo, preparando así el modelo 
+        para futuras etapas de fabricación.
       </p>
     </div>
+  </section>
 
-    <!-- OBJETIVO -->
-    <section class="section">
-      <div class="section-label">
-        <span>🎯</span>
-        <span>Objetivo</span>
-      </div>
-      <h2 class="section-title">Propósito de la Semana</h2>
-      
-      <div class="card">
-        <p class="card-text">
-          Diseñar y prototipar las piezas físicas de <strong>PostureAlert</strong> mediante técnicas de 
-          <strong>prototipado rápido</strong>, identificando limitaciones técnicas en impresión 3D y corte láser, 
-          y utilizándolas como motor creativo para mejorar el diseño final del dispositivo.
-        </p>
-      </div>
-    </section>
+  <!-- METODOLOGÍA -->
+  <section class="section">
+    <div class="section-label">
+      <span>📋</span>
+      <span>Metodología</span>
+    </div>
+    <h2 class="section-title">Design — Plan — Build — Test</h2>
+    
+    <div class="card">
+      <p class="card-text" style="margin-bottom: 2rem;">
+        Aunque no se generaron piezas físicas esta semana, se aplicó la metodología 
+        <strong>Design—Plan—Build—Test</strong> de manera completamente digital:
+        <br><br>
+        • <strong>Design:</strong> revisión del prototipo anterior y sus fallas. <br>
+        • <strong>Plan:</strong> redimensionamiento, ajustes de espacio interno y mejoras del diseño. <br>
+        • <strong>Build:</strong> reconstrucción digital del modelo en Tinkercad. <br>
+        • <strong>Test:</strong> validación visual, discusión y corrección de errores detectados.
+      </p>
 
-    <!-- PLANIFICACIÓN -->
-    <section class="section">
-      <div class="section-label">
-        <span>📋</span>
-        <span>Planificación</span>
-      </div>
-      <h2 class="section-title">Metodología Design-Plan-Build-Test</h2>
-      
-      <div class="card">
-        <p class="card-text" style="margin-bottom: 2rem;">
-          Se aplicó una planificación basada en el método <strong>Design—Plan—Build—Test</strong>, 
-          distribuyendo tareas y tiempos mediante un mini Gantt para optimizar el flujo de trabajo.
-        </p>
-
-        <div class="methodology-steps">
-          <div class="method-step">
-            <div class="step-icon">✏️</div>
-            <h4>Design</h4>
-            <p>Boceto inicial y definición de especificaciones</p>
-          </div>
-
-          <div class="method-arrow">→</div>
-
-          <div class="method-step">
-            <div class="step-icon">📐</div>
-            <h4>Plan</h4>
-            <p>Modelado 3D y preparación de archivos</p>
-          </div>
-
-          <div class="method-arrow">→</div>
-
-          <div class="method-step">
-            <div class="step-icon">🔧</div>
-            <h4>Build</h4>
-            <p>Fabricación mediante impresión 3D</p>
-          </div>
-
-          <div class="method-arrow">→</div>
-
-          <div class="method-step">
-            <div class="step-icon">🔍</div>
-            <h4>Test</h4>
-            <p>Validación funcional y ajustes</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HERRAMIENTAS -->
-    <section class="section">
-      <div class="section-label">
-        <span>🛠️</span>
-        <span>Software</span>
-      </div>
-      <h2 class="section-title">Herramientas Utilizadas</h2>
-      
-      <div class="tools-showcase">
-        <div class="tool-item">
-          <div class="tool-logo">🎨</div>
-          <h4>Tinkercad</h4>
-          <p>Creación rápida de prototipos conceptuales</p>
+      <div class="methodology-steps">
+        <div class="method-step">
+          <h4>Design</h4>
+          <p>Boceto digital y revisión de errores previos</p>
         </div>
 
-        <div class="tool-item">
-          <div class="tool-logo">📦</div>
-          <h4>Onshape</h4>
-          <p>Modelado paramétrico y optimización de piezas</p>
+        <div class="method-arrow">→</div>
+
+        <div class="method-step">
+          <h4>Plan</h4>
+          <p>Ajustes, holguras y reorganización interna</p>
         </div>
 
-        <div class="tool-item">
-          <div class="tool-logo">🖨️</div>
-          <h4>Bambu Studio</h4>
-          <p>Preparación de STL y simulación de impresión</p>
+        <div class="method-arrow">→</div>
+
+        <div class="method-step">
+          <h4>Build</h4>
+          <p>Reconstrucción digital del modelo 3D</p>
+        </div>
+
+        <div class="method-arrow">→</div>
+
+        <div class="method-step">
+          <h4>Test</h4>
+          <p>Validación visual y discusión interna</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROTOTIPADO -->
+  <section class="section">
+    <div class="section-label">
+      <span>⚙️</span>
+      <span>Ajustes del Prototipo</span>
+    </div>
+    <h2 class="section-title">Rediseño Digital</h2>
+    
+    <div class="card">
+      <p class="card-text" style="margin-bottom: 2rem;">
+        Esta semana se centró exclusivamente en el prototipo digital. El equipo identificó problemas 
+        en el diseño anterior: paredes delgadas, un gancho frágil, falta de espacio interno para los componentes 
+        y la tapa que se hundía.  
+        <br><br>
+        Con base en ello, se realizaron ajustes directamente en Tinkercad para fortalecer la estructura, 
+        corregir proporciones y generar un modelo más preparado para su futura fabricación.
+      </p>
+
+      <div class="challenges-grid">
+        <div class="challenge-card">
+          <h4>🔸 Medidas internas incorrectas</h4>
+          <p><strong>Problema:</strong> El Arduino y la batería no encajaban bien.</p>
+          <p class="solution"><em>Solución:</em> Recalcular holguras y redimensionar la cavidad.</p>
+        </div>
+
+        <div class="challenge-card">
+          <h4>🔸 Caja poco resistente</h4>
+          <p><strong>Problema:</strong> Las paredes eran demasiado delgadas.</p>
+          <p class="solution"><em>Solución:</em> Aumentar grosor mínimo a 2 mm.</p>
+        </div>
+
+        <div class="challenge-card">
+          <h4>🔸 Tapa inestable</h4>
+          <p><strong>Problema:</strong> La tapa se hundía con facilidad.</p>
+          <p class="solution"><em>Solución:</em> Ajustar tolerancias y preparar encaje más firme.</p>
         </div>
       </div>
 
       <div class="full-image">
-        <img src="/PostureAlert/assets/img/semana7_planificacion.jpg" 
-             alt="Planificación y modelado">
-        <p class="image-caption">Figura 1. Planificación y modelado digital de las piezas del dispositivo.</p>
+        <img src="/PostureAlert/assets/img/semana7_digital.jpg" alt="Modelo digital en Tinkercad">
+        <p class="image-caption">Figura 1. Revisión y ajustes del diseño digital del dispositivo.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- PROTOTIPADO -->
-    <section class="section">
-      <div class="section-label">
-        <span>⚙️</span>
-        <span>Fabricación</span>
-      </div>
-      <h2 class="section-title">Creación y Prototipado Rápido</h2>
-      
-      <div class="card">
-        <p class="card-text" style="margin-bottom: 2rem;">
-          Se imprimieron las primeras piezas estructurales del dispositivo PostureAlert, 
-          validando el espacio para los componentes internos. Durante el proceso se identificaron 
-          <strong>limitaciones técnicas</strong> como el grosor de capa, el tiempo de impresión y las tolerancias de ajuste, 
-          que se convirtieron en oportunidades para rediseñar y optimizar el encastre.
-        </p>
+  <!-- VALIDACIÓN -->
+  <section class="section">
+    <div class="section-label">
+      <span>🔍</span>
+      <span>Validación</span>
+    </div>
+    <h2 class="section-title">Validación Digital</h2>
+    
+    <div class="card">
+      <p class="card-text" style="margin-bottom: 2rem;">
+        La validación esta semana fue completamente digital. Se evaluaron el espacio interno, la posición del sensor MPU6050, 
+        el grosor de paredes, la ubicación del gancho, la ergonomía general y la posible distribución de cables.  
+        No se realizaron pruebas físicas, pero esta etapa ayudó a preparar una versión mejor organizada y confiable del diseño.
+      </p>
 
-        <div class="challenges-grid">
-          <div class="challenge-card">
-            <h4>🔸 Limitación Detectada</h4>
-            <p><strong>Grosor de pared insuficiente</strong></p>
-            <p class="solution">Solución: Aumentar a mínimo 2mm para resistencia estructural</p>
-          </div>
-
-          <div class="challenge-card">
-            <h4>🔸 Limitación Detectada</h4>
-            <p><strong>Tiempo de impresión excesivo</strong></p>
-            <p class="solution">Solución: Optimizar geometría y reducir relleno al 15%</p>
-          </div>
-
-          <div class="challenge-card">
-            <h4>🔸 Limitación Detectada</h4>
-            <p><strong>Tolerancias muy ajustadas</strong></p>
-            <p class="solution">Solución: Agregar 0.3mm de holgura en encastres</p>
-          </div>
+      <div class="validation-results">
+        <div class="result-positive">
+          <h4>✅ Resultados Positivos</h4>
+          <ul>
+            <li>Modelo digital más claro y preciso</li>
+            <li>Espacio interno reorganizado</li>
+            <li>Gancho y tapa rediseñados con mejor soporte</li>
+            <li>Correcciones antes de gastar material</li>
+          </ul>
         </div>
 
-        <div class="full-image">
-          <img src="/PostureAlert/assets/img/semana7_prototipado.jpg" 
-               alt="Prototipado físico">
-          <p class="image-caption">Figura 2. Prototipo físico del dispositivo PostureAlert impreso en 3D.</p>
+        <div class="result-improve">
+          <h4>🔄 Áreas de Mejora</h4>
+          <ul>
+            <li>Aún falta fabricar un prototipo físico</li>
+            <li>Probar tolerancias con materiales reales</li>
+            <li>Validar encaje del gancho usando la correa</li>
+            <li>Confirmar resistencia de paredes y tapa</li>
+          </ul>
         </div>
       </div>
-    </section>
 
-    <!-- VALIDACIÓN -->
-    <section class="section">
-      <div class="section-label">
-        <span>🔍</span>
-        <span>Validación</span>
+      <div class="full-image">
+        <img src="/PostureAlert/assets/img/semana7_validacion.jpg" 
+             alt="Validación digital">
+        <p class="image-caption">Figura 2. Validación digital del diseño y estructura interna.</p>
       </div>
-      <h2 class="section-title">Validación del Prototipo</h2>
-      
-      <div class="card">
-        <p class="card-text" style="margin-bottom: 2rem;">
-          La validación se centró en comprobar la <strong>ergonomía y estabilidad</strong> del dispositivo 
-          cuando se usa en la espalda. Se realizaron pruebas funcionales verificando la comodidad durante uso prolongado 
-          y la resistencia de los materiales.
-        </p>
+    </div>
+  </section>
 
-        <div class="validation-results">
-          <div class="result-positive">
-            <h4>✅ Resultados Positivos</h4>
-            <ul>
-              <li>Peso ligero y cómodo para uso continuo</li>
-              <li>Ensamblaje firme sin adhesivos</li>
-              <li>Espacio suficiente para componentes internos</li>
-              <li>Geometría ergonómica adaptable</li>
-            </ul>
-          </div>
-
-          <div class="result-improve">
-            <h4>🔄 Áreas de Mejora</h4>
-            <ul>
-              <li>Optimizar sistema de correas para ajuste rápido</li>
-              <li>Reforzar esquinas de la tapa</li>
-              <li>Agregar ventilación para disipación de calor</li>
-              <li>Mejorar acabado superficial mediante post-procesamiento</li>
-            </ul>
-          </div>
+  <!-- MINI GANTT -->
+  <section class="section">
+    <div class="section-label">
+      <span>📅</span>
+      <span>Cronograma</span>
+    </div>
+    <h2 class="section-title">Mini Gantt del Proceso</h2>
+    
+    <div class="card">
+      <div class="gantt-table">
+        <div class="gantt-row header">
+          <div>Etapa</div>
+          <div>Actividad</div>
+          <div>Tiempo</div>
+          <div>Responsable</div>
         </div>
 
-        <div class="full-image">
-          <img src="/PostureAlert/assets/img/semana7_validacion.jpg" 
-               alt="Validación funcional">
-          <p class="image-caption">Figura 3. Pruebas de validación funcional del dispositivo.</p>
+        <div class="gantt-row">
+          <div>Idea inicial</div>
+          <div>Boceto y revisión del modelo previo</div>
+          <div>15 min</div>
+          <div>Equipo</div>
+        </div>
+
+        <div class="gantt-row">
+          <div>Modelado 3D</div>
+          <div>Correcciones y ajuste de medidas en Tinkercad</div>
+          <div>45 min</div>
+          <div>E. Cárdenas</div>
+        </div>
+
+        <div class="gantt-row">
+          <div>Simulación</div>
+          <div>Validación visual del diseño</div>
+          <div>20 min</div>
+          <div>Equipo</div>
+        </div>
+
+        <div class="gantt-row">
+          <div>Revisión final</div>
+          <div>Discusión de mejoras pendientes</div>
+          <div>15 min</div>
+          <div>Equipo</div>
+        </div>
+
+        <div class="gantt-row">
+          <div>Análisis</div>
+          <div>Revisión digital del modelo final</div>
+          <div>60 min</div>
+          <div>Equipo</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- MINI GANTT -->
-    <section class="section">
-      <div class="section-label">
-        <span>📅</span>
-        <span>Cronograma</span>
+  <!-- CONCLUSIÓN -->
+  <section class="section">
+    <div class="card">
+      <div class="card-title">
+        <div class="card-icon">🎓</div>
+        <span>Conclusión</span>
       </div>
-      <h2 class="section-title">Mini Gantt del Proceso</h2>
-      
-      <div class="card">
-        <div class="gantt-table">
-          <div class="gantt-row header">
-            <div>Etapa</div>
-            <div>Actividad</div>
-            <div>Tiempo</div>
-            <div>Responsable</div>
-          </div>
+      <p class="card-text">
+        La semana 7 fue clave a pesar de no poder fabricar físicamente. El equipo aprovechó este tiempo para mejorar 
+        el diseño digital, identificar errores y preparar una versión más sólida del dispositivo. Esta fase permitió 
+        optimizar medidas, reorganizar componentes y anticipar soluciones antes de pasar a la fabricación real, 
+        fortaleciendo el proyecto rumbo a su etapa final.
+      </p>
+    </div>
+  </section>
 
-          <div class="gantt-row">
-            <div>Idea inicial</div>
-            <div>Boceto rápido en papel</div>
-            <div>15 min</div>
-            <div>Equipo</div>
-          </div>
-
-          <div class="gantt-row">
-            <div>Modelado 3D</div>
-            <div>Diseño en Onshape/Tinkercad</div>
-            <div>45 min</div>
-            <div>E. Cárdenas</div>
-          </div>
-
-          <div class="gantt-row">
-            <div>Simulación</div>
-            <div>Pruebas en Bambu Studio</div>
-            <div>20 min</div>
-            <div>Equipo</div>
-          </div>
-
-          <div class="gantt-row">
-            <div>Validación virtual</div>
-            <div>Revisión de tolerancias</div>
-            <div>15 min</div>
-            <div>Equipo</div>
-          </div>
-
-          <div class="gantt-row">
-            <div>Impresión 3D</div>
-            <div>Fabricación y ensamblaje</div>
-            <div>60 min</div>
-            <div>Fab Lab</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONCLUSIÓN -->
-    <section class="section">
-      <div class="card">
-        <div class="card-title">
-          <div class="card-icon">✅</div>
-          <span>Conclusión</span>
-        </div>
-        <p class="card-text">
-          Esta semana permitió consolidar las habilidades de <strong>diseño paramétrico</strong> y 
-          <strong>prototipado rápido</strong>, aplicándolas directamente en la mejora de PostureAlert. 
-          El proceso demostró la importancia de planificar, probar, fallar y ajustar para alcanzar 
-          un diseño eficiente y funcional. Con esta iteración, el equipo logró un modelo más ergonómico, 
-          estable y viable para futuras pruebas de usuario.
-        </p>
-      </div>
-    </section>
-
-  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/app.js"></script>
+<script src="js/app.js"></script>
+
 </body>
 </html>
