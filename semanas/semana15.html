@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semana 15 - Integración de Componentes Arduino</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --black: #000000;
+      --dark-gray: #1a1a1a;
+      --accent-beige: #c9a882;
+      --light-beige: #e8d5c4;
+      --cream: #f5ebe0;
+      --white: #ffffff;
+      --text-dark: #2d2d2d;
+      --text-light: #6b6b6b;
+      --primary: #c9a882;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      line-height: 1.7;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: var(--black);
+      padding: 1.2rem 0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .navbar.scrolled {
+      padding: 0.8rem 0;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--white);
+      letter-spacing: -1px;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.02);
+      color: var(--white);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--accent-beige) 0%, var(--light-beige) 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--black);
+      font-weight: 900;
+      font-size: 1.3rem;
+      box-shadow: 0 6px 20px rgba(201, 168, 130, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .logo-icon:hover {
+      transform: rotate(-5deg) scale(1.05);
+    }
+
+    .nav-link {
+      color: rgba(255,255,255,0.9) !important;
+      font-weight: 600;
+      padding: 0.6rem 1.2rem !important;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .nav-link:hover {
+      background: var(--medium-gray);
+      color: var(--white) !important;
+      transform: translateY(-2px);
+    }
+
+    /* DROPDOWN CON SCROLL */
+    .dropdown-menu {
+      background: var(--dark-gray);
+      border: none;
+      border-radius: 14px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      min-width: 280px;
+    }
+
+    .dropdown-menu-scrollable {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .dropdown-menu-scrollable::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .dropdown-menu-scrollable::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+    }
+
+    .dropdown-menu-scrollable::-webkit-scrollbar-thumb {
+      background: var(--accent-beige);
+      border-radius: 10px;
+    }
+
+    .dropdown-menu-scrollable::-webkit-scrollbar-thumb:hover {
+      background: var(--light-beige);
+    }
+
+    .dropdown-item {
+      color: rgba(255,255,255,0.85);
+      padding: 0.8rem 1.2rem;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-item:hover {
+      background: linear-gradient(90deg, var(--accent-beige), var(--light-beige));
+      color: var(--black);
+      transform: translateX(8px);
+    }
+
+    .navbar-toggler {
+      border-color: rgba(255,255,255,0.3);
+      padding: 0.5rem 0.8rem;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 0.2rem rgba(201, 168, 130, 0.3);
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* HEADER */
+    .text-center {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: var(--black);
+      margin-bottom: 1rem;
+      letter-spacing: -2px;
+      line-height: 1.1;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--black), var(--accent-beige));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .lead {
+      font-size: 1.2rem;
+      color: var(--text-light);
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 3rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.4s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
+    }
+
+    .card-body {
+      padding: 0;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+    }
+
+    p {
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    ul {
+      color: var(--text-light);
+      line-height: 1.8;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    /* FIGURE */
+    figure {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease;
+    }
+
+    img:hover {
+      transform: scale(1.02);
+    }
+
+    figcaption {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* INSIGHT BOX */
+    .insight-box {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--cream), var(--light-beige));
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-beige);
+    }
+
+    .insight-box p {
+      margin: 0;
+      color: var(--text-dark);
+      line-height: 1.8;
+    }
+
+    /* SPECIAL CARDS */
+    .bg-transparent {
+      background: transparent !important;
+    }
+
+    .border-0 {
+      border: none !important;
+    }
+
+    .rounded-4 {
+      border-radius: 24px;
+    }
+
+    .shadow-lg {
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    }
+
+    .mb-5 {
+      margin-bottom: 3rem;
+    }
+
+    .p-4 {
+      padding: 2.5rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .card {
+        padding: 2rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <div class="logo-container">
+          <div class="logo-icon">PA</div>
+          <span>Posture Alert</span>
+        </div>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              Documentación
+            </a>
+            <!-- DROPDOWN CON SCROLL -->
+            <ul class="dropdown-menu dropdown-menu-scrollable">
+              <li><a class="dropdown-item" href="semana1.html">Semana 1 - Reto Inicial</a></li>
+              <li><a class="dropdown-item" href="semana2.html">Semana 2 - Investigación</a></li>
+              <li><a class="dropdown-item" href="semana3.html">Semana 3 - Design Thinking</a></li>
+              <li><a class="dropdown-item" href="semana4.html">Semana 4 - Prototipo Físico</a></li>
+              <li><a class="dropdown-item" href="semana5.html">Semana 5 - Empatía y Usuario</a></li>
+              <li><a class="dropdown-item" href="semana6.html">Semana 6 - Corte Láser</a></li>
+              <li><a class="dropdown-item" href="semana7.html">Semana 7 - Prototipado Rápido</a></li>
+              <li><a class="dropdown-item" href="semana8.html">Semana 8 - Entrega Final</a></li>
+              <li><a class="dropdown-item" href="semana9.html">Semana 9 - Concepto a Prototipo</a></li>
+              <li><a class="dropdown-item" href="semana10.html">Semana 10 - Diseño de Piezas</a></li>
+              <li><a class="dropdown-item" href="semana11.html">Semana 11 - Validación</a></li>
+              <li><a class="dropdown-item" href="semana12.html">Semana 12 - Modelado 3D</a></li>
+              <li><a class="dropdown-item" href="semana13.html">Semana 13 - Componentes</a></li>
+              <li><a class="dropdown-item" href="semana14.html">Semana 14 - Prototipo Final</a></li>
+              <li><a class="dropdown-item" href="semana15.html">Semana 15 - Integración Arduino</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<section class="container py-5">
+
+  <!-- ENCABEZADO PRINCIPAL -->
+  <div class="text-center mb-5" data-aos="fade-up">
+    <h1 class="fw-bold mb-2 gradient-text">
+      Semana 15 · Integración de Componentes Arduino
+    </h1>
+    <p class="lead">
+      Color blanco · Ensamblaje electrónico · Prototipo funcional completo
+    </p>
+  </div>
+
+
+  <!-- INTRODUCCIÓN -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+      
+      <h2 class="fw-bold mb-3">
+        Introducción
+      </h2>
+
+      <p>
+        En esta semana se llevó a cabo la <strong>integración final de los componentes electrónicos Arduino</strong> 
+        en el prototipo físico de PostureAlert. Se realizó una nueva impresión del dispositivo en <strong>color blanco</strong>, 
+        regresando a la idea visual original planteada desde la semana 2, que transmite limpieza, minimalismo y profesionalismo.
+      </p>
+
+      <p>
+        Este cambio de color no solo responde a una decisión estética, sino que refuerza la <strong>identidad de marca</strong> 
+        del dispositivo como un producto de salud y bienestar. El blanco proyecta confianza, higiene y modernidad, 
+        valores clave para un dispositivo que se usa en contacto directo con el cuerpo del usuario. Sin embargo, la razón principal
+        del cambio es debido a que queriamos recordar nuestros diseños de las primeras semanas y así compararlos.
+      </p>
+
+      <figure class="text-center mt-3">
+        <img src="../assets/img/semana15_prototipo.jpg"
+             alt="Introducción semana 15"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Prototipo final en color blanco listo para integración de componentes.
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+
+
+  <!-- DISEÑO FINAL EN TINKERCAD -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Diseño Final en TinkerCAD
+      </h2>
+
+      <p>
+        Antes de proceder con la impresión, se realizó una última revisión del modelo 3D en TinkerCAD, 
+        asegurando que todas las dimensiones y espacios internos fueran compatibles con los 
+        <strong>componentes Arduino</strong> desarrollados en la semana 13.
+      </p>
+
+      <p>
+        Las modificaciones clave incluyeron:
+      </p>
+
+      <ul>
+        <li><strong>Espacio optimizado para Arduino Nano:</strong> Cavidad ajustada con soportes de montaje.</li>
+        <li><strong>Canales de cableado:</strong> Rutas internas para organizar los cables de manera prolija.</li>
+        <li><strong>Posicionamiento del sensor</strong> Orificios inferior preciso para el sensor MPU6050</li>
+        <li><strong>Acceso a puerto USB:</strong> Abertura lateral para programación y carga sin desarmar el dispositivo.</li>
+        <li><strong>Espacio para buzzer:</strong> Ubicación estratégica para emitir alertas audibles claras.</li>
+        <li><strong>Sistema de ganchos curvos:</strong> Mantenimiento del diseño ergonómico para la correa elástica.</li>
+      </ul>
+
+      <figure class="text-center mt-3">
+        <img src="../assets/img/semana15_tinkercad.JPG"
+             alt="Diseño final en TinkerCAD"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Modelo 3D final en TinkerCAD con todas las cavidades para componentes electrónicos.
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+
+
+  <!-- PROCESO DE IMPRESIÓN -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Proceso de Impresión en FabLab
+      </h2>
+
+      <p>
+        La impresión 3D se realizó en las instalaciones del <strong>FabLab</strong> utilizando tecnología FDM 
+        con filamento PLA blanco de alta calidad. El proceso completo tomó aproximadamente <strong>7 horas</strong>, 
+        garantizando un acabado superficial óptimo y resistencia estructural.
+      </p>
+
+      <p>
+        Parámetros de impresión utilizados:
+      </p>
+
+      <ul>
+        <li><strong>Material:</strong> PLA Blanco Premium</li>
+        <li><strong>Altura de capa:</strong> 0.2mm (balance entre calidad y velocidad)</li>
+        <li><strong>Relleno:</strong> 20% (patrón de panal para ligereza y resistencia)</li>
+        <li><strong>Temperatura de extrusión:</strong> 200°C</li>
+        <li><strong>Temperatura de cama:</strong> 60°C</li>
+        <li><strong>Velocidad de impresión:</strong> 50mm/s</li>
+        <li><strong>Soportes:</strong> Mínimos, solo en zonas críticas</li>
+      </ul>
+
+      <figure class="text-center mt-3">
+        <img src="../assets/img/semana15_fablab.jpg"
+             alt="Proceso de impresión en FabLab"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Impresora 3D en FabLab durante el proceso de fabricación de la carcasa blanca.
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+
+
+  <!-- PROTOTIPO IMPRESO -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Prototipo Impreso en 3D
+      </h2>
+
+      <p>
+        Una vez finalizada la impresión y tras realizar el post-procesamiento (eliminación de soportes, 
+        lijado suave de imperfecciones), se obtuvo el <strong>prototipo físico en color blanco</strong> 
+        con un acabado limpio y profesional.
+      </p>
+
+      <p>
+        El color blanco aporta varias ventajas:
+      </p>
+
+      <ul>
+        <li><strong>Estética médica y de bienestar:</strong> Asociación psicológica con productos de salud.</li>
+        <li><strong>Versatilidad visual:</strong> Se integra fácilmente con cualquier vestimenta o entorno.</li>
+        <li><strong>Limpieza percibida:</strong> Genera sensación de higiene y cuidado personal.</li>
+        <li><strong>Modernidad:</strong> Sigue las tendencias de diseño minimalista contemporáneo.</li>
+        <li><strong>Reflejo de identidad de marca:</strong> Coherencia con la visión original del proyecto.</li>
+      </ul>
+
+      <figure class="text-center mt-3">
+        <img src="../assets/img/semana15_final1.jpg"
+             alt="Prototipo impreso en 3D"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Carcasa del dispositivo PostureAlert impresa en filamento PLA blanco.
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+
+
+  <!-- COMPONENTES ELECTRÓNICOS EXTERIOR -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Integración de Componentes - Vista Exterior
+      </h2>
+
+      <p>
+        Con el prototipo físico listo, se procedió al <strong>ensamblaje de los componentes electrónicos Arduino</strong>. 
+        En esta fase, los componentes fueron colocados en el exterior de la carcasa para validar el posicionamiento, 
+        el acceso a puertos y la ergonomía general del dispositivo.
+      </p>
+
+      <p>
+        Componentes integrados (vista exterior):
+      </p>
+
+      <ul>
+        <li><strong>Sensor MPU6050</strong> Montado en la parte frontal para detección de distancia.</li>
+        <li><strong>Buzzer pasivo:</strong> Ubicado para máxima claridad de alerta sonora.</li>
+        <li><strong>Puerto USB del Arduino:</strong> Accesible lateralmente para programación y depuración.</li>
+        <li><strong>Interruptor de encendido y apagado:</strong> Integrado en posición accesible para el usuario.</li>
+      </ul>
+
+      <div class="insight-box">
+        <p>
+          <strong>💡 Validación de diseño:</strong> La colocación externa de componentes permitió verificar 
+          que todas las funciones eran accesibles antes del ensamblaje final. Esto evitó errores costosos 
+          y confirmó que el diseño CAD era completamente funcional.
+        </p>
+      </div>
+
+      <figure class="text-center mt-3">
+        <img src="../assets/img/semana15_final0.jpg"
+             alt="Componentes electrónicos en el exterior"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Vista del prototipo con los componentes Arduino posicionados externamente para validación.
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+
+
+  <!-- COMPONENTES ELECTRÓNICOS INTERIOR -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Integración de Componentes - Vista Interior
+      </h2>
+
+      <p>
+        La integración interior muestra cómo todos los componentes electrónicos se alojan de manera 
+        <strong>compacta y organizada</strong> dentro de la carcasa del dispositivo. Esta fase fue crítica 
+        para garantizar que el circuito funcionara correctamente sin interferencias y con un cableado ordenado.
+      </p>
+
+      <p>
+        Características de la integración interna:
+      </p>
+
+      <ul>
+        <li><strong>Arduino Nano fijado con soportes:</strong> Asegurado firmemente en la placa base interna.</li>
+        <li><strong>Gestión de cables:</strong> Uso de canales internos para evitar enredos y mejorar la estética.</li>
+        <li><strong>Distribución espacial eficiente:</strong> Aprovechamiento máximo del volumen interno sin apreturas.</li>
+        <li><strong>Acceso para mantenimiento:</strong> Diseño modular que permite reemplazar componentes si es necesario.</li>
+        <li><strong>Protección de circuitos:</strong> La carcasa protege los componentes de polvo, humedad y golpes ligeros.</li>
+        <li><strong>Ventilación adecuada:</strong> Pequeñas aberturas para evitar sobrecalentamiento del Arduino.</li>
+      </ul>
+
+      <p>
+        El resultado es un <strong>dispositivo completamente funcional</strong> donde la electrónica permanece 
+        oculta pero accesible, ofreciendo una experiencia de usuario limpia y profesional.
+      </p>
+
+      <figure class="text-center mt-3">
+        <img src="../assets/img/semana15_final2.jpg"
+             alt="Componentes electrónicos en el interior"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Vista interior del prototipo mostrando la integración completa de los componentes Arduino.
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+
+
+  <!-- REFLEXIÓN FINAL -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Reflexión Final
+      </h2>
+
+      <p>
+        La semana 15 representa la <strong>materialización completa</strong> del concepto PostureAlert: 
+        desde la idea inicial hasta un prototipo físico totalmente funcional con electrónica integrada.
+      </p>
+
+      <p>
+        El regreso al color blanco no fue un simple cambio estético, sino una decisión estratégica 
+        que refleja la <strong>madurez del proyecto</strong> y su alineación con los valores de 
+        salud, bienestar y diseño minimalista que lo caracterizan.
+      </p>
+
+      <p>
+        La integración exitosa de los componentes Arduino demuestra que el proceso de diseño iterativo 
+        —desde la semana 2 hasta ahora— fue efectivo. Cada dimensión, cada abertura, cada gancho curvo 
+        fue pensado con propósito, y ahora todo funciona en armonía.
+      </p>
+
+      <p>
+        Este prototipo está listo para las <strong>pruebas funcionales con usuarios reales</strong>, 
+        donde se validará no solo la funcionalidad técnica del sensor ultrasónico y las alertas, 
+        sino también la experiencia de uso, comodidad y efectividad real en la corrección postural.
+      </p>
+
+      <p>
+        PostureAlert ha pasado de ser una idea o un boceto en papel a un <strong>dispositivo tangible, funcional y estéticamente coherente</strong>, 
+        demostrando el poder del diseño centrado en el usuario combinado con tecnología accesible como Arduino e impresión 3D.
+      </p>
+
+    </div>
+  </div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
