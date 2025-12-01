@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Semana 7 - Prototipado Rápido</title>
+  <title>Semana 7 - Planificación de Prototipado</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -110,6 +110,7 @@
     /* DROPDOWN CON SCROLL */
     .dropdown-menu {
       background: var(--dark-gray);
+      border: none;
       border-radius: 14px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.5);
       padding: 0.8rem;
@@ -122,10 +123,52 @@
       overflow-y: auto;
     }
 
+    .dropdown-menu-scrollable::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .dropdown-menu-scrollable::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+    }
+
+    .dropdown-menu-scrollable::-webkit-scrollbar-thumb {
+      background: var(--accent-beige);
+      border-radius: 10px;
+    }
+
+    .dropdown-menu-scrollable::-webkit-scrollbar-thumb:hover {
+      background: var(--light-beige);
+    }
+
     .dropdown-item {
       color: rgba(255,255,255,0.85);
+      padding: 0.8rem 1.2rem;
       border-radius: 10px;
       transition: all 0.3s ease;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-item:hover {
+      background: linear-gradient(90deg, var(--accent-beige), var(--light-beige));
+      color: var(--black);
+      transform: translateX(8px);
+    }
+
+    .navbar-toggler {
+      border-color: rgba(255,255,255,0.3);
+      padding: 0.5rem 0.8rem;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 0.2rem rgba(201, 168, 130, 0.3);
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
 
     /* HERO */
@@ -139,6 +182,17 @@
       overflow: hidden;
     }
 
+    .week-hero::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(201, 168, 130, 0.1) 0%, transparent 70%);
+      top: -200px;
+      right: -100px;
+      border-radius: 50%;
+    }
+
     .week-badge {
       display: inline-block;
       background: var(--black);
@@ -146,7 +200,9 @@
       padding: 0.6rem 1.5rem;
       border-radius: 50px;
       font-weight: 600;
+      font-size: 0.9rem;
       margin-bottom: 1.5rem;
+      letter-spacing: 1px;
     }
 
     .week-title {
@@ -154,6 +210,8 @@
       font-weight: 900;
       color: var(--black);
       margin-bottom: 1rem;
+      letter-spacing: -2px;
+      line-height: 1.1;
     }
 
     .week-subtitle {
@@ -161,9 +219,10 @@
       color: var(--text-light);
       max-width: 800px;
       margin: 0 auto;
+      line-height: 1.6;
     }
 
-    /* CARDS */
+    /* SECTIONS */
     .section {
       margin-bottom: 60px;
     }
@@ -177,7 +236,10 @@
       padding: 0.5rem 1.2rem;
       border-radius: 50px;
       font-weight: 600;
+      font-size: 0.85rem;
       margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .section-title {
@@ -185,8 +247,10 @@
       font-weight: 800;
       color: var(--black);
       margin-bottom: 1rem;
+      letter-spacing: -1px;
     }
 
+    /* CARDS */
     .card {
       background: var(--white);
       border-radius: 24px;
@@ -194,6 +258,30 @@
       margin-bottom: 2rem;
       box-shadow: 0 10px 40px rgba(0,0,0,0.06);
       border: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-beige), var(--light-beige));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
     }
 
     .card-text {
@@ -201,6 +289,27 @@
       line-height: 1.8;
       font-size: 1.05rem;
       margin-bottom: 1rem;
+    }
+
+    .card-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-icon {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
     }
 
     /* METHODOLOGY STEPS */
@@ -211,3 +320,352 @@
       gap: 1rem;
       margin: 2rem 0;
       flex-wrap: wrap;
+    }
+
+    .method-step {
+      flex: 1;
+      min-width: 150px;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--cream), var(--light-beige));
+      border-radius: 12px;
+      text-align: center;
+      border-top: 4px solid var(--accent-beige);
+    }
+
+    .step-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .method-step h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .method-step p {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    .method-arrow {
+      font-size: 2rem;
+      color: var(--accent-beige);
+      font-weight: 700;
+    }
+
+    /* ALERT BOX */
+    .alert-box {
+      margin: 2rem 0;
+      padding: 2rem;
+      background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+      border-radius: 16px;
+      border-left: 5px solid #fbbf24;
+    }
+
+    .alert-box h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .alert-box p {
+      color: var(--text-dark);
+      line-height: 1.8;
+      margin-bottom: 0.8rem;
+    }
+
+    /* PLANNING LIST */
+    .planning-list {
+      display: grid;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .planning-item {
+      padding: 1.5rem;
+      background: var(--cream);
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-beige);
+    }
+
+    .planning-item h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.8rem;
+    }
+
+    .planning-item p {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .card {
+        padding: 2rem;
+      }
+
+      .methodology-steps {
+        flex-direction: column;
+      }
+
+      .method-arrow {
+        transform: rotate(90deg);
+      }
+
+      .week-hero {
+        padding: 60px 20px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <div class="logo-container">
+          <div class="logo-icon">PA</div>
+          <span>Posture Alert</span>
+        </div>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              Documentación
+            </a>
+            <!-- DROPDOWN CON SCROLL -->
+            <ul class="dropdown-menu dropdown-menu-scrollable">
+              <li><a class="dropdown-item" href="semana1.html">Semana 1 - Reto Inicial</a></li>
+              <li><a class="dropdown-item" href="semana2.html">Semana 2 - Investigación</a></li>
+              <li><a class="dropdown-item" href="semana3.html">Semana 3 - Design Thinking</a></li>
+              <li><a class="dropdown-item" href="semana4.html">Semana 4 - Prototipo Físico</a></li>
+              <li><a class="dropdown-item" href="semana5.html">Semana 5 - Empatía y Usuario</a></li>
+              <li><a class="dropdown-item" href="semana6.html">Semana 6 - Corte Láser</a></li>
+              <li><a class="dropdown-item" href="semana7.html">Semana 7 - Prototipado Rápido</a></li>
+              <li><a class="dropdown-item" href="semana8.html">Semana 8 - Entrega Final</a></li>
+              <li><a class="dropdown-item" href="semana9.html">Semana 9 - Concepto a Prototipo</a></li>
+              <li><a class="dropdown-item" href="semana10.html">Semana 10 - Diseño de Piezas</a></li>
+              <li><a class="dropdown-item" href="semana11.html">Semana 11 - Validación</a></li>
+              <li><a class="dropdown-item" href="semana12.html">Semana 12 - Modelado 3D</a></li>
+              <li><a class="dropdown-item" href="semana13.html">Semana 13 - Componentes</a></li>
+              <li><a class="dropdown-item" href="semana14.html">Semana 14 - Prototipo Final</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    
+    <!-- HERO -->
+    <div class="week-hero">
+      <div class="week-badge">SEMANA 7</div>
+      <h1 class="week-title">Planificación de Prototipado</h1>
+      <p class="week-subtitle">
+        Preparación metodológica y análisis de recursos para futuras iteraciones
+      </p>
+    </div>
+
+    <!-- CONTEXTO -->
+    <section class="section">
+      <div class="section-label">
+        <span>📋</span>
+        <span>Contexto</span>
+      </div>
+      <h2 class="section-title">Situación de la Semana</h2>
+      
+      <div class="card">
+        <p class="card-text">
+          Durante esta semana, el equipo enfrentó <strong>limitaciones de acceso</strong> a las herramientas 
+          de fabricación digital (corte láser e impresión 3D) debido a percances de horarios. 
+          En lugar de detener el avance del proyecto, se aprovechó este tiempo para realizar una 
+          <strong>planificación estratégica detallada</strong> del proceso de prototipado que se ejecutaría 
+          en las siguientes semanas.
+        </p>
+      </div>
+
+      <div class="alert-box">
+        <h4>⚠️ Obstáculo Identificado</h4>
+        <p>
+          <strong>Falta de acceso al Fab Lab:</strong> El laboratorio de fabricación digital no estuvo 
+          disponible durante esta semana debido a mantenimiento de equipos y restricciones de horario.
+        </p>
+        <p>
+          <strong>Estrategia adoptada:</strong> En lugar de perder tiempo valioso, el equipo decidió 
+          enfocarse en la planificación metodológica y el análisis teórico del proceso de prototipado, 
+          asegurando que cuando tuvieran acceso a los equipos, el trabajo sería más eficiente y productivo.
+        </p>
+      </div>
+    </section>
+
+    <!-- METODOLOGÍA -->
+    <section class="section">
+      <div class="section-label">
+        <span>🎯</span>
+        <span>Metodología</span>
+      </div>
+      <h2 class="section-title">Framework Design-Plan-Build-Test</h2>
+      
+      <div class="card">
+        <p class="card-text" style="margin-bottom: 2rem;">
+          Se estudió y adaptó la metodología <strong>Design—Plan—Build—Test</strong> específicamente 
+          para el proyecto PostureAlert. Esta aproximación sistemática asegura que cada iteración 
+          del prototipo sea planificada, ejecutada y validada de manera estructurada.
+        </p>
+
+        <div class="methodology-steps">
+          <div class="method-step">
+            <div class="step-icon">✏️</div>
+            <h4>Design</h4>
+            <p>Definición de requisitos y bocetos iniciales del dispositivo</p>
+          </div>
+          <div class="method-arrow">→</div>
+          <div class="method-step">
+            <div class="step-icon">📐</div>
+            <h4>Plan</h4>
+            <p>Modelado 3D y preparación de archivos para fabricación</p>
+          </div>
+          <div class="method-arrow">→</div>
+          <div class="method-step">
+            <div class="step-icon">🔧</div>
+            <h4>Build</h4>
+            <p>Fabricación física mediante impresión 3D o corte láser</p>
+          </div>
+          <div class="method-arrow">→</div>
+          <div class="method-step">
+            <div class="step-icon">🔍</div>
+            <h4>Test</h4>
+            <p>Validación funcional y detección de mejoras</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLANIFICACIÓN -->
+    <section class="section">
+      <div class="section-label">
+        <span>📊</span>
+        <span>Planificación</span>
+      </div>
+      <h2 class="section-title">Actividades Realizadas</h2>
+      
+      <div class="card">
+        <p class="card-text" style="margin-bottom: 2rem;">
+          Durante esta semana se llevaron a cabo las siguientes actividades de planificación estratégica:
+        </p>
+
+        <div class="planning-list">
+          <div class="planning-item">
+            <h4>📝 Análisis de Requisitos Técnicos</h4>
+            <p>
+              Se revisaron detalladamente las especificaciones técnicas del dispositivo PostureAlert, 
+              identificando las dimensiones exactas necesarias para alojar componentes electrónicos 
+              (Arduino Nano, sensor MPU6050, batería 9V, buzzer) y definiendo tolerancias de fabricación.
+            </p>
+          </div>
+
+          <div class="planning-item">
+            <h4>🛠️ Selección de Herramientas de Software</h4>
+            <p>
+              Se evaluaron diferentes opciones de software CAD (Tinkercad, Onshape, Fusion 360) 
+              considerando curva de aprendizaje, funcionalidades paramétricas y compatibilidad con 
+              formatos de exportación (.STL, .DXF). Se decidió usar <strong>Tinkercad</strong> para 
+              bocetos rápidos y <strong>Onshape</strong> para modelado final.
+            </p>
+          </div>
+
+          <div class="planning-item">
+            <h4>⏱️ Estimación de Tiempos de Fabricación</h4>
+            <p>
+              Se realizó un estudio preliminar sobre tiempos de impresión 3D considerando diferentes 
+              configuraciones de relleno, altura de capa y velocidad. Se estimó que la carcasa completa 
+              requeriría aproximadamente <strong>6-8 horas</strong> de impresión con configuración 
+              estándar (0.2mm de altura, 20% relleno).
+            </p>
+          </div>
+
+          <div class="planning-item">
+            <h4>📐 Diseño de Sistema de Ensamblaje</h4>
+            <p>
+              Se conceptualizaron diferentes mecanismos de ensamblaje (snap-fit, tornillos, adhesivos) 
+              y se decidió implementar un sistema de <strong>encaje a presión</strong> para facilitar 
+              el acceso interno al dispositivo y permitir mantenimiento sin herramientas adicionales.
+            </p>
+          </div>
+
+          <div class="planning-item">
+            <h4>🔄 Estrategia de Iteración</h4>
+            <p>
+              Se estableció un plan de iteraciones sucesivas: comenzar con un prototipo básico de 
+              validación de dimensiones, seguir con un modelo funcional que incluya todos los 
+              componentes, y finalizar con una versión optimizada que considere ergonomía y estética.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APRENDIZAJES -->
+    <section class="section">
+      <div class="section-label">
+        <span>💡</span>
+        <span>Aprendizajes</span>
+      </div>
+      <h2 class="section-title">Lecciones Clave</h2>
+      
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon">✅</div>
+          <span>Reflexiones del Equipo</span>
+        </div>
+        <p class="card-text">
+          Aunque esta semana no se fabricaron piezas físicas, el tiempo dedicado a la 
+          <strong>planificación estratégica</strong> resultó fundamental para el éxito de las 
+          siguientes etapas del proyecto. El equipo aprendió que:
+        </p>
+        <ul style="margin-top: 1rem; color: var(--text-dark); line-height: 1.8;">
+          <li>Una buena planificación reduce significativamente el tiempo de iteración y los errores costosos de fabricación.</li>
+          <li>Los obstáculos logísticos pueden convertirse en oportunidades para fortalecer aspectos metodológicos del proyecto.</li>
+          <li>El diseño conceptual y la preparación de archivos es tan importante como la fabricación misma.</li>
+          <li>Tener un plan claro permite aprovechar mejor el tiempo de acceso limitado a equipos de fabricación.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONCLUSIÓN -->
+    <section class="section">
+      <div class="card">
+        <div class="card-title">
+          <div class="card-icon">🎯</div>
+          <span>Conclusión</span>
+        </div>
+        <p class="card-text">
+          Esta semana demostró la importancia de la <strong>adaptabilidad</strong> en el proceso de diseño. 
+          Aunque no se logró fabricar prototipos físicos por limitaciones de acceso al laboratorio, 
+          el trabajo de planificación metodológica estableció bases sólidas para las siguientes iteraciones. 
+          El equipo quedó preparado con un plan detallado, archivos conceptuales listos para modelar, 
+          y una comprensión clara del proceso <strong>Design-Plan-Build-Test</strong> que se aplicaría 
+          intensivamente en las semanas posteriores, optimizando el uso del tiempo y recursos disponibles.
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
