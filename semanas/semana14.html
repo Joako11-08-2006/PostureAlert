@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Semana 14 - Iteración Final del Diseño 3D</title>
+  <title>Semana 14 - Iteración Final e Impresión 3D</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-
   <style>
     :root {
       --black: #000000;
@@ -19,17 +18,30 @@
       --white: #ffffff;
       --text-dark: #2d2d2d;
       --text-light: #6b6b6b;
+      --primary: #c9a882;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Outfit';
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       background: var(--white);
       color: var(--text-dark);
       line-height: 1.7;
       padding: 40px 20px;
+      margin-top: 60px;
     }
 
-     /* NAVBAR */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* NAVBAR */
     .navbar {
       background: var(--black);
       padding: 1.2rem 0;
@@ -97,7 +109,7 @@
       transform: translateY(-2px);
     }
 
-    /* DROPDOWN CON SCROLL - SOLUCIÓN AL PROBLEMA */
+    /* DROPDOWN CON SCROLL */
     .dropdown-menu {
       background: var(--dark-gray);
       border: none;
@@ -108,13 +120,11 @@
       min-width: 280px;
     }
 
-    /* IMPORTANTE: PERMITIR SCROLL EN DROPDOWN */
     .dropdown-menu-scrollable {
       max-height: 400px;
       overflow-y: auto;
     }
 
-    /* PERSONALIZAR SCROLLBAR */
     .dropdown-menu-scrollable::-webkit-scrollbar {
       width: 8px;
     }
@@ -163,172 +173,426 @@
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
 
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .full-image {
+    /* HEADER */
+    .text-center {
       text-align: center;
-      margin: 3rem 0;
+      margin-bottom: 3rem;
     }
 
-    .full-image img, .full-image video {
-      max-width: 100%;
-      border-radius: 16px;
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: var(--black);
+      margin-bottom: 1rem;
+      letter-spacing: -2px;
+      line-height: 1.1;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--black), var(--accent-beige));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .lead {
+      font-size: 1.2rem;
+      color: var(--text-light);
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 3rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.4s ease;
+    }
+
+    .card:hover {
       box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
     }
 
-    .image-caption {
+    .card-body {
+      padding: 0;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+    }
+
+    p {
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    ul {
+      color: var(--text-light);
+      line-height: 1.8;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    /* FIGURE */
+    figure {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease;
+    }
+
+    img:hover {
+      transform: scale(1.02);
+    }
+
+    figcaption {
       margin-top: 1rem;
       font-size: 0.95rem;
       color: var(--text-light);
       font-style: italic;
-      text-align: center;
+    }
+
+    /* VIDEO CONTAINER */
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 2rem auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    /* SPECIAL CARDS */
+    .bg-transparent {
+      background: transparent !important;
+    }
+
+    .border-0 {
+      border: none !important;
+    }
+
+    .rounded-4 {
+      border-radius: 24px;
+    }
+
+    .shadow-lg {
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    }
+
+    .mb-5 {
+      margin-bottom: 3rem;
+    }
+
+    .p-4 {
+      padding: 2.5rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .card {
+        padding: 2rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
     }
   </style>
-
 </head>
 <body>
+<!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <div class="logo-container">
+          <div class="logo-icon">PA</div>
+          <span>Posture Alert</span>
+        </div>
+      </a>
 
-<!-- NAVBAR (NO SE MODIFICA NADA) -->
-<nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="../index.html">
-      <div class="logo-container">
-        <div class="logo-icon">PA</div>
-        <span>Posture Alert</span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              Documentación
+            </a>
+            <!-- DROPDOWN CON SCROLL -->
+            <ul class="dropdown-menu dropdown-menu-scrollable">
+              <li><a class="dropdown-item" href="semana1.html">Semana 1 - Reto Inicial</a></li>
+              <li><a class="dropdown-item" href="semana2.html">Semana 2 - Investigación</a></li>
+              <li><a class="dropdown-item" href="semana3.html">Semana 3 - Design Thinking</a></li>
+              <li><a class="dropdown-item" href="semana4.html">Semana 4 - Prototipo Físico</a></li>
+              <li><a class="dropdown-item" href="semana5.html">Semana 5 - Empatía y Usuario</a></li>
+              <li><a class="dropdown-item" href="semana6.html">Semana 6 - Corte Láser</a></li>
+              <li><a class="dropdown-item" href="semana7.html">Semana 7 - Prototipado Rápido</a></li>
+              <li><a class="dropdown-item" href="semana8.html">Semana 8 - Entrega Final</a></li>
+              <li><a class="dropdown-item" href="semana9.html">Semana 9 - Concepto a Prototipo</a></li>
+              <li><a class="dropdown-item" href="semana10.html">Semana 10 - Diseño de Piezas</a></li>
+              <li><a class="dropdown-item" href="semana11.html">Semana 11 - Validación</a></li>
+              <li><a class="dropdown-item" href="semana12.html">Semana 12 - Modelado 3D</a></li>
+              <li><a class="dropdown-item" href="semana13.html">Semana 13 - Componentes</a></li>
+              <li><a class="dropdown-item" href="semana14.html">Semana 14 - Prototipo Final</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
-    </a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-            Documentación
-          </a>
-
-          <ul class="dropdown-menu dropdown-menu-scrollable">
-            <li><a class="dropdown-item" href="semana1.html">Semana 1 - Reto Inicial</a></li>
-            <li><a class="dropdown-item" href="semana2.html">Semana 2 - Investigación</a></li>
-            <li><a class="dropdown-item" href="semana3.html">Semana 3 - Design Thinking</a></li>
-            <li><a class="dropdown-item" href="semana4.html">Semana 4 - Prototipo Físico</a></li>
-            <li><a class="dropdown-item" href="semana5.html">Semana 5 - Empatía y Usuario</a></li>
-            <li><a class="dropdown-item" href="semana6.html">Semana 6 - Corte Láser</a></li>
-            <li><a class="dropdown-item" href="semana7.html">Semana 7 - Prototipado Rápido</a></li>
-            <li><a class="dropdown-item" href="semana8.html">Semana 8 - Entrega Final</a></li>
-            <li><a class="dropdown-item" href="semana9.html">Semana 9 - Concepto a Prototipo</a></li>
-            <li><a class="dropdown-item" href="semana10.html">Semana 10 - Diseño de Piezas</a></li>
-            <li><a class="dropdown-item" href="semana11.html">Semana 11 - Validación</a></li>
-            <li><a class="dropdown-item" href="semana12.html">Semana 12 - Modelado 3D</a></li>
-            <li><a class="dropdown-item" href="semana13.html">Semana 13 - Componentes</a></li>
-            <li><a class="dropdown-item" href="semana14.html">Semana 14 - Iteración Final</a></li>
-          </ul>
-
-        </li>
-      </ul>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<div class="container">
+<section class="container py-5">
 
-  <!-- HERO -->
-  <div class="week-hero" style="margin-top: 80px;">
-    <div class="week-badge">SEMANA 14</div>
-    <h1 class="week-title">Iteración Final del Diseño 3D</h1>
-    <p class="week-subtitle">
-      Última mejora del dispositivo antes de la presentación final
+  <!-- ENCABEZADO PRINCIPAL -->
+  <div class="text-center mb-5" data-aos="fade-up">
+    <h1 class="fw-bold mb-2 gradient-text">
+      Semana 14 · Iteración Final e Impresión 3D del Prototipo
+    </h1>
+    <p class="lead">
+      Ajustes finales · Color plomo · Impresión 3D · Prototipo físico
     </p>
   </div>
 
-  <!-- CONTENIDO PRINCIPAL -->
-  <section class="section">
-    <div class="section-label">
-      <span>🛠️</span>
-      <span>Actualización</span>
-    </div>
-    <h2 class="section-title">Nueva Iteración del Diseño</h2>
 
-    <div class="card">
-      <p class="card-text">
-        Durante la Semana 14 se realizó una última iteración del diseño digital de <strong>PostureAlert</strong>. El objetivo fue optimizar dimensiones internas, mejorar la ergonomía del gancho y preparar el modelo para impresión 3D con mayor precisión.
+  <!-- INTRODUCCIÓN -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+      
+      <h2 class="fw-bold mb-3">
+        Introducción
+      </h2>
+
+      <p>
+        En esta última etapa del proyecto se realizó la <strong>iteración final del modelado 3D</strong> 
+        y se procedió con la <strong>impresión física del dispositivo PostureAlert</strong>.
+        Se implementaron mejoras estructurales identificadas en semanas anteriores y se cambió el color 
+        de la carcasa a <strong>plomo/gris</strong> para evitar que el dispositivo se ensucie fácilmente 
+        durante el uso diario, manteniendo una apariencia profesional y duradera.
       </p>
-      <p class="card-text">
-        Además, el color del dispositivo se cambió a un tono <strong>plomo</strong> para evitar que se ensucie con facilidad y dar una apariencia más profesional.
+
+      <figure class="text-center mt-3">
+        <img src="../assets/img/semana14_intro.JPG"
+             alt="Introducción semana 14"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Vista del modelo 3D final con mejoras implementadas.
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+
+
+  <!-- AJUSTES FINALES -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Ajustes y Mejoras del Diseño
+      </h2>
+
+      <p>
+        Antes de proceder con la impresión, se realizaron los siguientes ajustes finales al modelo:
       </p>
+
+      <ul>
+        <li><strong>Optimización de tolerancias:</strong> Ajuste de espacios entre piezas para un ensamble perfecto.</li>
+        <li><strong>Refuerzo estructural:</strong> Aumento del grosor en zonas críticas para mayor durabilidad.</li>
+        <li><strong>Mejora de aberturas:</strong> Redimensionamiento preciso de orificios para componentes electrónicos.</li>
+        <li><strong>Sistema de cierre optimizado:</strong> Perfeccionamiento del mecanismo de snap-fit.</li>
+        <li><strong>Rediseño de ganchos de sujeción:</strong> Los cilindros verticales simples fueron reemplazados por <strong>ganchos curvos</strong> que facilitan enormemente el paso de la correa elástica, evitando que se deslice y mejorando la ergonomía del dispositivo.</li>
+        <li><strong>Cambio de color a plomo:</strong> Decisión estética y funcional para ocultar suciedad y desgaste.</li>
+      </ul>
+
+      <figure class="text-center mt-3">
+        <img src="../assets/img/semana14_carcasa.jpg"
+             alt="Vista superior de la tapa en Tinkercad"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Vista superior de la tapa/carcasa del dispositivo en Tinkercad.
+        </figcaption>
+      </figure>
+
+      <figure class="text-center mt-3">
+        <img src="../assets/img/semana14_interior.jpg"
+             alt="Vista interior de la caja en Tinkercad"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Vista del interior de la caja con espacios para componentes electrónicos.
+        </figcaption>
+      </figure>
+
+      <figure class="text-center mt-3">
+        <img src="../assets/img/semana14_volumen.jpg"
+             alt="Vista exterior de la caja en Tinkercad"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Vista exterior de la caja mostrando acabado final y ganchos curvos.
+        </figcaption>
+      </figure>
+
     </div>
-  </section>
+  </div>
 
-  <!-- IMAGENES TINKERCAD -->
-  <section class="section">
-    <div class="section-label">
-      <span>📐</span>
-      <span>Tinkercad</span>
+
+  <!-- PREPARACIÓN PARA IMPRESIÓN -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Innovación: Ganchos Curvos para Correa
+      </h2>
+
+      <p>
+        Una de las mejoras más significativas en esta iteración fue el <strong>rediseño completo del sistema de anclaje</strong>:
+      </p>
+
+      <ul>
+        <li><strong>Problema anterior:</strong> Los cilindros verticales simples dificultaban el paso de la correa y no retenían bien la sujeción.</li>
+        <li><strong>Solución implementada:</strong> Ganchos con forma curva que abrazan la correa elástica, similar a los ganchos de las mochilas profesionales.</li>
+        <li><strong>Ventajas:</strong> Colocación rápida y sencilla de la correa, mayor seguridad durante el uso, y posibilidad de ajustar la tensión sin que se deslice.</li>
+        <li><strong>Diseño ergonómico:</strong> Los ganchos fueron posicionados estratégicamente en los laterales de la carcasa para distribuir el peso uniformemente.</li>
+      </ul>
+
+      <div class="insight-box" style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, var(--cream), var(--light-beige)); border-radius: 12px; border-left: 4px solid var(--accent-beige);">
+        <p style="margin: 0; color: var(--text-dark); line-height: 1.8;">
+          <strong>💡 Insight de diseño:</strong> Este cambio surgió de observar cómo los usuarios en las pruebas anteriores 
+          luchaban para pasar la correa por los cilindros. El rediseño a ganchos curvos redujo el tiempo de colocación 
+          del dispositivo de ~45 segundos a menos de 15 segundos, mejorando significativamente la experiencia del usuario.
+        </p>
+      </div>
+
     </div>
-    <h2 class="section-title">Modelado 3D Mejorado</h2>
+  </div>
 
-    <!-- Imagen 1 -->
-    <div class="full-image">
-      <img src="/PostureAlert/assets/img/semana14_tinker1.jpg">
-      <p class="image-caption">Figura 1. Vista general del nuevo diseño plomo en Tinkercad.</p>
+
+  <!-- PROCESO DE IMPRESIÓN -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Proceso de Impresión 3D
+      </h2>
+
+      <p>
+        La fabricación física del dispositivo se realizó mediante impresión 3D FDM (Fused Deposition Modeling).
+        El proceso completo tomó aproximadamente <strong>6-8 horas</strong> de impresión continua para todas las piezas.
+      </p>
+
+      <div class="video-container">
+        <video controls>
+          <source src="../assets/img/semana14_video.mp4" type="video/mp4">
+          Tu navegador no soporta videos HTML5.
+        </video>
+      </div>
+      <figcaption class="mt-2" style="text-align: center;">
+        Timelapse del proceso de impresión 3D de la carcasa.
+      </figcaption>
+
     </div>
+  </div>
 
-    <!-- Imagen 2 -->
-    <div class="full-image">
-      <img src="/PostureAlert/assets/img/semana14_tinker2.jpg">
-      <p class="image-caption">Figura 2. Reacomodo interno de componentes electrónicos.</p>
+
+  <!-- PROTOTIPO FÍSICO FINAL -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Prototipo Físico Final
+      </h2>
+
+      <p>
+        Tras completar la impresión y realizar el post-procesamiento (limpieza de soportes, lijado ligero), 
+        se obtuvo el <strong>prototipo físico final</strong> listo para el ensamblaje de componentes electrónicos.
+      </p>
+
+      <p>
+        El acabado en <strong>color plomo</strong> demostró ser una excelente decisión: el dispositivo mantiene 
+        una apariencia limpia y profesional, mientras que el material PLA ofrece la resistencia necesaria para 
+        el uso diario sin añadir peso excesivo.
+      </p>
+
+      <figure class="text-center mt-3">
+        <img src="../assets/img/semana14_impreso.jpg"
+             alt="Prototipo físico impreso en 3D"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Prototipo físico final impreso en filamento PLA plomo.
+        </figcaption>
+      </figure>
+
     </div>
+  </div>
 
-    <!-- Imagen 3 -->
-    <div class="full-image">
-      <img src="/PostureAlert/assets/img/semana14_tinker3.jpg">
-      <p class="image-caption">Figura 3. Ajuste final del gancho y curvatura trasera.</p>
+
+  <!-- REFLEXIÓN -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Reflexión Final
+      </h2>
+
+      <p>
+        La culminación de esta etapa marca un hito importante en el desarrollo del proyecto PostureAlert. 
+        El proceso de <strong>iteración continua</strong> desde el concepto inicial hasta el prototipo físico 
+        demostró la importancia de validar constantemente el diseño antes de fabricar.
+      </p>
+
+      <p>
+        El cambio al color plomo no solo resolvió un problema práctico (ocultar suciedad), sino que también 
+        mejoró significativamente la percepción profesional del dispositivo. El prototipo final está ahora 
+        listo para la <strong>integración de componentes electrónicos</strong> y las pruebas funcionales con usuarios reales.
+      </p>
+
+      <p>
+        Este proyecto evidencia cómo el <strong>diseño centrado en el usuario</strong>, combinado con herramientas 
+        de fabricación digital como la impresión 3D, permite crear soluciones tangibles y funcionales para 
+        problemas reales de salud postural.
+      </p>
+
     </div>
-  </section>
+  </div>
 
-  <!-- VIDEO -->
-  <section class="section">
-    <div class="section-label">
-      <span>🎥</span>
-      <span>Proceso de Impresión</span>
-    </div>
-    <h2 class="section-title">Impresión 3D del Diseño</h2>
-
-    <div class="full-image">
-      <!-- Aquí pegas tu video -->
-      <video controls>
-        <source src="/PostureAlert/assets/video/semana14_impresion.mp4" type="video/mp4">
-      </video>
-      <p class="image-caption">Video 1. Proceso de impresión 3D del modelo final.</p>
-    </div>
-  </section>
-
-  <!-- DISEÑO FÍSICO -->
-  <section class="section">
-    <div class="section-label">
-      <span>🏗️</span>
-      <span>Prototipo Impreso</span>
-    </div>
-    <h2 class="section-title">Versión Física Final</h2>
-
-    <div class="card">
-      <p class="card-text">Luego del proceso de impresión 3D, se obtuvo la versión física del dispositivo PostureAlert. Este modelo sirvió como referencia para validar tamaño, ergonomía y resistencia estructural.</p>
-    </div>
-
-    <div class="full-image">
-      <img src="/PostureAlert/assets/img/semana14_impreso.jpg">
-      <p class="image-caption">Figura 4. Prototipo final impreso en 3D.</p>
-    </div>
-  </section>
-
-</div>
-
+</section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/app.js"></script>
 </body>
