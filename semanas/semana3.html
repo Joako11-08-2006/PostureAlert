@@ -382,11 +382,13 @@
     }
 
     .prototype-image img {
-      max-width: 200%;
-      height: auto;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
+  width: 100%;
+  max-width: 700px;   /* Ajusta el límite máximo */
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
 
     .image-caption {
       margin-top: 1rem;
@@ -420,15 +422,13 @@
 
     .tool-img {
   width: 100%;
-  max-width: 120px;
+  max-width: 180px;   /* antes 120px */
   height: auto;
   margin-bottom: 1rem;
   border-radius: 10px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
   object-fit: contain;
 }
+
 
 
     .tool-card h4 {
@@ -732,6 +732,7 @@
 </body>
 
 </html>
+
 
 
 
