@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semana 16 - Cierre del Proyecto PostureAlert</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --black: #000000;
+      --dark-gray: #1a1a1a;
+      --accent-beige: #c9a882;
+      --light-beige: #e8d5c4;
+      --cream: #f5ebe0;
+      --white: #ffffff;
+      --text-dark: #2d2d2d;
+      --text-light: #6b6b6b;
+      --primary: #c9a882;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      line-height: 1.7;
+      padding: 40px 20px;
+      margin-top: 60px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: var(--black);
+      padding: 1.2rem 0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .navbar.scrolled {
+      padding: 0.8rem 0;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-weight: 800;
+      font-size: 1.6rem;
+      color: var(--white);
+      letter-spacing: -1px;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.02);
+      color: var(--white);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--accent-beige) 0%, var(--light-beige) 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--black);
+      font-weight: 900;
+      font-size: 1.3rem;
+      box-shadow: 0 6px 20px rgba(201, 168, 130, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .logo-icon:hover {
+      transform: rotate(-5deg) scale(1.05);
+    }
+
+    .nav-link {
+      color: rgba(255,255,255,0.9) !important;
+      font-weight: 600;
+      padding: 0.6rem 1.2rem !important;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .nav-link:hover {
+      background: var(--medium-gray);
+      color: var(--white) !important;
+      transform: translateY(-2px);
+    }
+
+    /* DROPDOWN CON SCROLL */
+    .dropdown-menu {
+      background: var(--dark-gray);
+      border: none;
+      border-radius: 14px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      min-width: 280px;
+    }
+
+    .dropdown-menu-scrollable {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .dropdown-menu-scrollable::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .dropdown-menu-scrollable::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+    }
+
+    .dropdown-menu-scrollable::-webkit-scrollbar-thumb {
+      background: var(--accent-beige);
+      border-radius: 10px;
+    }
+
+    .dropdown-menu-scrollable::-webkit-scrollbar-thumb:hover {
+      background: var(--light-beige);
+    }
+
+    .dropdown-item {
+      color: rgba(255,255,255,0.85);
+      padding: 0.8rem 1.2rem;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-item:hover {
+      background: linear-gradient(90deg, var(--accent-beige), var(--light-beige));
+      color: var(--black);
+      transform: translateX(8px);
+    }
+
+    .navbar-toggler {
+      border-color: rgba(255,255,255,0.3);
+      padding: 0.5rem 0.8rem;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 0.2rem rgba(201, 168, 130, 0.3);
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* HEADER */
+    .text-center {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: var(--black);
+      margin-bottom: 1rem;
+      letter-spacing: -2px;
+      line-height: 1.1;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--black), var(--accent-beige));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .lead {
+      font-size: 1.2rem;
+      color: var(--text-light);
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 3rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.4s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
+    }
+
+    .card-body {
+      padding: 0;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      letter-spacing: -1px;
+    }
+
+    h3 {
+      font-size: clamp(1.4rem, 3vw, 1.8rem);
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+    }
+
+    p {
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    ul {
+      color: var(--text-light);
+      line-height: 1.8;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    strong {
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    /* TEAM MEMBERS */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .team-member {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--cream), var(--light-beige));
+      border-radius: 20px;
+      transition: all 0.4s ease;
+      border: 2px solid transparent;
+    }
+
+    .team-member:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent-beige);
+      box-shadow: 0 15px 40px rgba(201, 168, 130, 0.3);
+    }
+
+    .team-member img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 4px solid var(--white);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .team-member h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .team-member p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    /* FIGURE */
+    figure {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease;
+    }
+
+    img:hover {
+      transform: scale(1.02);
+    }
+
+    figcaption {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* VIDEO CONTAINER */
+    .video-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 2rem auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    /* ROI TABLE */
+    .roi-table {
+      background: linear-gradient(135deg, var(--cream), var(--light-beige));
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .roi-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .roi-row:last-child {
+      border-bottom: none;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--black);
+    }
+
+    .roi-label {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .roi-value {
+      font-weight: 700;
+      color: var(--accent-beige);
+    }
+
+    .roi-highlight {
+      background: linear-gradient(135deg, var(--accent-beige), var(--light-beige));
+      color: var(--black);
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 1.8rem;
+      font-weight: 900;
+    }
+
+    /* INSIGHT BOX */
+    .insight-box {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, var(--cream), var(--light-beige));
+      border-radius: 12px;
+      border-left: 4px solid var(--accent-beige);
+    }
+
+    .insight-box p {
+      margin: 0;
+      color: var(--text-dark);
+      line-height: 1.8;
+    }
+
+    /* SPECIAL CARDS */
+    .bg-transparent {
+      background: transparent !important;
+    }
+
+    .border-0 {
+      border: none !important;
+    }
+
+    .rounded-4 {
+      border-radius: 24px;
+    }
+
+    .shadow-lg {
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    }
+
+    .mb-5 {
+      margin-bottom: 3rem;
+    }
+
+    .p-4 {
+      padding: 2.5rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .card {
+        padding: 2rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .roi-row {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">
+        <div class="logo-container">
+          <div class="logo-icon">PA</div>
+          <span>Posture Alert</span>
+        </div>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              Documentación
+            </a>
+            <!-- DROPDOWN CON SCROLL -->
+            <ul class="dropdown-menu dropdown-menu-scrollable">
+              <li><a class="dropdown-item" href="semana1.html">Semana 1 - Reto Inicial</a></li>
+              <li><a class="dropdown-item" href="semana2.html">Semana 2 - Investigación</a></li>
+              <li><a class="dropdown-item" href="semana3.html">Semana 3 - Design Thinking</a></li>
+              <li><a class="dropdown-item" href="semana4.html">Semana 4 - Prototipo Físico</a></li>
+              <li><a class="dropdown-item" href="semana5.html">Semana 5 - Empatía y Usuario</a></li>
+              <li><a class="dropdown-item" href="semana6.html">Semana 6 - Corte Láser</a></li>
+              <li><a class="dropdown-item" href="semana7.html">Semana 7 - Prototipado Rápido</a></li>
+              <li><a class="dropdown-item" href="semana8.html">Semana 8 - Entrega Final</a></li>
+              <li><a class="dropdown-item" href="semana9.html">Semana 9 - Concepto a Prototipo</a></li>
+              <li><a class="dropdown-item" href="semana10.html">Semana 10 - Diseño de Piezas</a></li>
+              <li><a class="dropdown-item" href="semana11.html">Semana 11 - Validación</a></li>
+              <li><a class="dropdown-item" href="semana12.html">Semana 12 - Modelado 3D</a></li>
+              <li><a class="dropdown-item" href="semana13.html">Semana 13 - Componentes</a></li>
+              <li><a class="dropdown-item" href="semana14.html">Semana 14 - Prototipo Final</a></li>
+              <li><a class="dropdown-item" href="semana15.html">Semana 15 - Integración Arduino</a></li>
+              <li><a class="dropdown-item" href="semana16.html">Semana 16 - Cierre del Proyecto</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<section class="container py-5">
+
+  <!-- ENCABEZADO PRINCIPAL -->
+  <div class="text-center mb-5" data-aos="fade-up">
+    <h1 class="fw-bold mb-2 gradient-text">
+      Semana 16 · Cierre del Proyecto PostureAlert
+    </h1>
+    <p class="lead">
+      Reflexión final · Equipo · Resultados · Viabilidad comercial
+    </p>
+  </div>
+
+
+  <!-- INTRODUCCIÓN -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+      
+      <h2 class="fw-bold mb-3">
+        Cierre del Proyecto
+      </h2>
+
+      <p>
+        Después de 16 semanas intensas de trabajo, investigación, diseño, prototipado e iteración, 
+        llegamos al <strong>cierre oficial del proyecto PostureAlert</strong>. Este dispositivo wearable 
+        nació de la identificación de un problema real que afecta a miles de estudiantes y trabajadores: 
+        los <strong>dolores crónicos de espalda causados por mala postura</strong>.
+      </p>
+
+      <p>
+        A lo largo de este proceso, aplicamos metodologías de <strong>Design Thinking</strong>, realizamos 
+        pruebas con usuarios reales, iteramos el diseño físico múltiples veces, integramos componentes 
+        electrónicos Arduino, y validamos la funcionalidad del prototipo final.
+      </p>
+
+      <p>
+        Esta semana presentamos los <strong>resultados finales</strong> del proyecto: nuestro equipo de trabajo, 
+        el spot publicitario, los hallazgos de la encuesta a usuarios potenciales, el análisis de viabilidad 
+        comercial (ROI), y una sorpresa especial que añadimos al dispositivo.
+      </p>
+
+    </div>
+  </div>
+
+
+  <!-- EQUIPO DEL PROYECTO -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Nuestro Equipo
+      </h2>
+
+      <p>
+        PostureAlert fue desarrollado por un equipo multidisciplinario de estudiantes de Tecsup, 
+        cada uno aportando habilidades únicas que fueron fundamentales para el éxito del proyecto:
+      </p>
+
+      <div class="team-grid">
+        
+        <!-- MIEMBRO 1 -->
+        <div class="team-member">
+          <img src="../assets/img/team_joaquin.jpg" alt="Joaquín Casas">
+          <h4>Joaquín Casas</h4>
+          <p>Líder de Proyecto e Integración de Arduino en el Dispositivo</p>
+        </div>
+
+        <!-- MIEMBRO 2 -->
+        <div class="team-member">
+          <img src="../assets/img/team_steven.jpg" alt="Steven Saldaña">
+          <h4>Steven Saldaña</h4>
+          <p>Responsable de la Página Web Posture Alert</p>
+        </div>
+
+        <!-- MIEMBRO 3 -->
+        <div class="team-member">
+          <img src="../assets/img/team_elias.jpg" alt="Elias Cardenas">
+          <h4>Elias Cardenas</h4>
+          <p>Responsable de la Programación del Arduino Nano</p>
+        </div>
+
+        <!-- MIEMBRO 4 -->
+        <div class="team-member">
+          <img src="../assets/img/team_roony.jpg" alt="Roony Campos">
+          <h4>Roony Campos</h4>
+          <p>Responsable de la Documentación del Proyecto</p>
+        </div>
+
+      </div>
+
+      <div class="insight-box">
+        <p>
+          <strong>💡 Trabajo colaborativo:</strong> El éxito de PostureAlert se debe a la sinergia 
+          del equipo. Cada integrante no solo dominó su área de responsabilidad, sino que también 
+          colaboró activamente en las demás fases del proyecto, demostrando verdadero trabajo en equipo.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- SPOT PUBLICITARIO -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Spot Publicitario
+      </h2>
+
+      <p>
+        Como parte de la estrategia de comunicación del proyecto, desarrollamos un <strong>spot publicitario</strong> 
+        que presenta PostureAlert de manera clara, atractiva y enfocada en los beneficios para el usuario final.
+      </p>
+
+      <p>
+        El video destaca:
+      </p>
+
+      <ul>
+        <li><strong>El problema:</strong> Dolores de espalda por mala postura durante largas jornadas de estudio/trabajo</li>
+        <li><strong>La solución:</strong> PostureAlert, un dispositivo wearable discreto y efectivo</li>
+        <li><strong>Cómo funciona:</strong> Sensores que detectan la inclinación y alertas sonoras para corrección inmediata</li>
+        <li><strong>Beneficios:</strong> Prevención de dolores crónicos, mejora de salud postural, comodidad y portabilidad</li>
+        <li><strong>Call to action:</strong> Invitación a conocer más del producto y adquirirlo</li>
+      </ul>
+
+      <div class="video-container">
+        <video controls>
+          <source src="../assets/img/spot_publicitario.mp4" type="video/mp4">
+          Tu navegador no soporta videos HTML5.
+        </video>
+      </div>
+      <figcaption class="mt-2" style="text-align: center;">
+        Spot publicitario oficial de PostureAlert.
+      </figcaption>
+
+    </div>
+  </div>
+
+
+  <!-- RESULTADOS DE ENCUESTA -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Resultados de Encuesta a Usuarios Potenciales
+      </h2>
+
+      <p>
+        Para validar la necesidad del producto y comprender mejor las expectativas de nuestros usuarios objetivo, 
+        realizamos una <strong>encuesta estructurada</strong> a estudiantes y trabajadores que pasan largas horas 
+        sentados frente a computadoras.
+      </p>
+
+      <p>
+        A continuación, presentamos los hallazgos más relevantes de las 6 preguntas clave de la encuesta:
+      </p>
+
+      <!-- PREGUNTA 1 -->
+      <h3>Pregunta 1</h3>
+      <figure class="text-center mt-3">
+        <img src="../assets/img/encuesta_pregunta1.jpg"
+             alt="Resultados de la pregunta 1 de la encuesta"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Se concluye que el 85% de los encuestados experimenta dolores de espalda frecuentes debido a largas horas de estudio o trabajo.
+        </figcaption>
+      </figure>
+
+      <!-- PREGUNTA 2 -->
+      <h3>Pregunta 2</h3>
+      <figure class="text-center mt-3">
+        <img src="../assets/img/encuesta_pregunta2.jpg"
+             alt="Resultados de la pregunta 2 de la encuesta"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Se concluye que el 78% de los encuestados considera que una alerta sonora sería útil para corregir su postura en tiempo real.
+        </figcaption>
+      </figure>
+
+      <!-- PREGUNTA 3 -->
+      <h3>Pregunta 3</h3>
+      <figure class="text-center mt-3">
+        <img src="../assets/img/encuesta_pregunta3.jpg"
+             alt="Resultados de la pregunta 3 de la encuesta"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Se concluye que el 92% de los encuestados estaría dispuesto a usar un dispositivo wearable discreto para mejorar su postura.
+        </figcaption>
+      </figure>
+
+      <!-- PREGUNTA 4 -->
+      <h3>Pregunta 4</h3>
+      <figure class="text-center mt-3">
+        <img src="../assets/img/encuesta_pregunta4.jpg"
+             alt="Resultados de la pregunta 4 de la encuesta"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Se concluye que el 67% de los encuestados prefiere un dispositivo con batería portátil en lugar de uno conectado por cable USB.
+        </figcaption>
+      </figure>
+
+      <!-- PREGUNTA 5 -->
+      <h3>Pregunta 5</h3>
+      <figure class="text-center mt-3">
+        <img src="../assets/img/encuesta_pregunta5.jpg"
+             alt="Resultados de la pregunta 5 de la encuesta"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Se concluye que el 81% de los encuestados consideraría comprar PostureAlert si el precio estuviera entre S/ 150 y S/ 200.
+        </figcaption>
+      </figure>
+
+      <!-- PREGUNTA 6 -->
+      <h3>Pregunta 6</h3>
+      <figure class="text-center mt-3">
+        <img src="../assets/img/encuesta_pregunta6.jpg"
+             alt="Resultados de la pregunta 6 de la encuesta"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Se concluye que el 74% de los encuestados valora más la funcionalidad y comodidad del dispositivo que su apariencia estética.
+        </figcaption>
+      </figure>
+
+      <div class="insight-box">
+        <p>
+          <strong>💡 Validación de mercado:</strong> Los resultados de la encuesta confirman que existe una 
+          <strong>demanda real</strong> para PostureAlert. La alta disposición de compra (81%) y la preferencia 
+          por funcionalidad sobre estética validan nuestras decisiones de diseño centrado en el usuario.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ANÁLISIS DE ROI -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Análisis de Retorno de Inversión (ROI)
+      </h2>
+
+      <p>
+        Para evaluar la <strong>viabilidad comercial</strong> de PostureAlert, realizamos un análisis de 
+        Retorno de Inversión (ROI) basado en los costos reales de producción y una proyección conservadora 
+        de ventas en el primer mes de comercialización.
+      </p>
+
+      <h3>¿Qué es el ROI?</h3>
+      <p>
+        El <strong>ROI (Return on Investment)</strong> es una métrica financiera que mide la rentabilidad 
+        de una inversión. Se calcula comparando la ganancia obtenida con el costo de la inversión inicial.
+      </p>
+
+      <p style="text-align: center; font-size: 1.2rem; background: var(--cream); padding: 1rem; border-radius: 10px; margin: 1.5rem 0;">
+      <p style="text-align: center; font-size: 1.2rem; background: var(--cream); padding: 1rem; border-radius: 10px; margin: 1.5rem 0;">
+        <strong>Fórmula ROI:</strong> ROI = [(Ganancia - Inversión) / Inversión] × 100
+      </p>
+
+      <h3>Costos de Producción por Unidad</h3>
+      <p>
+        Basándonos en los componentes reales utilizados en el prototipo y considerando que la 
+        <strong>impresión 3D es gratuita gracias al FabLab de Tecsup</strong>, el costo por unidad es:
+      </p>
+
+      <div class="roi-table">
+        <div class="roi-row">
+          <span class="roi-label">Sensor MPU6050</span>
+          <span class="roi-value">S/ 18.00</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">Arduino Nano</span>
+          <span class="roi-value">S/ 28.00</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">Buzzer Pasivo</span>
+          <span class="roi-value">S/ 5.00</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">Switch ON/OFF</span>
+          <span class="roi-value">S/ 3.00</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">Batería 9V Duracell</span>
+          <span class="roi-value">S/ 12.00</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">Adaptador USB Mini-B</span>
+          <span class="roi-value">S/ 8.00</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">Cables Jumper (pack)</span>
+          <span class="roi-value">S/ 10.00</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">Correa Elástica</span>
+          <span class="roi-value">S/ 15.00</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">Filamento PLA (impresión 3D)</span>
+          <span class="roi-value">S/ 6.00</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">COSTO TOTAL POR UNIDAD</span>
+          <span class="roi-value">S/ 105.00</span>
+        </div>
+      </div>
+
+      <h3>Proyección de Ventas (Primer Mes)</h3>
+      <p>
+        Basándonos en los resultados de la encuesta (81% de intención de compra) y estableciendo un 
+        objetivo conservador para el primer mes de comercialización:
+      </p>
+
+      <div class="roi-table">
+        <div class="roi-row">
+          <span class="roi-label">Precio de venta por unidad</span>
+          <span class="roi-value">S/ 180.00</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">Unidades vendidas (mes 1)</span>
+          <span class="roi-value">20 unidades</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">Ingresos totales</span>
+          <span class="roi-value">S/ 3,600.00</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">Costos de producción totales</span>
+          <span class="roi-value">S/ 2,100.00</span>
+        </div>
+        <div class="roi-row">
+          <span class="roi-label">GANANCIA NETA</span>
+          <span class="roi-value">S/ 1,500.00</span>
+        </div>
+      </div>
+
+      <h3>Cálculo del ROI</h3>
+      <p style="text-align: center; font-size: 1.1rem; margin: 1.5rem 0;">
+        ROI = [(S/ 3,600 - S/ 2,100) / S/ 2,100] × 100
+      </p>
+
+      <div class="roi-highlight">
+        ROI = 71.43%
+      </div>
+
+      <p style="margin-top: 2rem;">
+        <strong>Interpretación del resultado:</strong> Un ROI del 71.43% significa que por cada sol invertido 
+        en la producción de PostureAlert, obtenemos una ganancia de S/ 0.71. Este es un retorno 
+        <strong>altamente favorable</strong> para un proyecto en su fase inicial.
+      </p>
+
+      <div class="insight-box">
+        <p>
+          <strong>💰 Viabilidad comercial confirmada:</strong> El análisis ROI demuestra que PostureAlert 
+          es un producto <strong>comercialmente viable y rentable</strong>. Con solo 20 unidades vendidas 
+          en el primer mes, recuperamos la inversión y generamos una ganancia significativa. A medida que 
+          escalemos la producción y optimicemos costos (compra de componentes al por mayor), el margen de 
+          ganancia aumentará considerablemente.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- EXTRA NAVIDEÑO -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg mb-5">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Extra: Melodía Navideña para Postura Correcta 🎄
+      </h2>
+
+      <p>
+        Como un <strong>toque especial y creativo</strong> al proyecto, decidimos agregar una funcionalidad 
+        adicional al dispositivo PostureAlert: cuando el usuario mantiene una <strong>postura correcta 
+        durante un período prolongado</strong> (por ejemplo, 30 minutos consecutivos), el buzzer emite 
+        una breve melodía de <strong>"I Wish You a Merry Christmas"</strong> como refuerzo positivo.
+      </p>
+
+      <h3>¿Por qué esta melodía?</h3>
+      <ul>
+        <li><strong>Refuerzo positivo:</strong> Recompensar la buena conducta es más efectivo que solo castigar la mala</li>
+        <li><strong>Experiencia emocional:</strong> Una melodía alegre genera asociaciones positivas con el uso del dispositivo</li>
+        <li><strong>Gamificación de la salud:</strong> Convierte la corrección postural en un "juego" motivante</li>
+        <li><strong>Toque humano:</strong> Añade personalidad al dispositivo, haciéndolo más que un simple gadget técnico</li>
+        <li><strong>Espíritu festivo:</strong> La melodía navideña aporta alegría y buen ánimo al usuario</li>
+      </ul>
+
+      <h3>Implementación Técnica</h3>
+      <p>
+        La melodía fue programada en el Arduino Nano utilizando frecuencias específicas para cada nota musical. 
+        El buzzer pasivo permite reproducir tonos precisos, creando una versión simplificada pero reconocible 
+        de "I Wish You a Merry Christmas".
+      </p>
+
+      <figure class="text-center mt-3">
+        <img src="../assets/img/melodia_navidad.jpg"
+             alt="Código de la melodía navideña en Arduino"
+             class="img-fluid rounded-4 shadow">
+        <figcaption class="mt-2">
+          Fragmento del código Arduino que reproduce la melodía navideña como refuerzo positivo.
+        </figcaption>
+      </figure>
+
+      <div class="insight-box">
+        <p>
+          <strong>🎵 Innovación en UX:</strong> Esta característica convierte PostureAlert de un simple 
+          corrector de postura en un <strong>compañero de bienestar</strong> que celebra tus logros. 
+          Los usuarios reportaron en pruebas preliminares que esta melodía los motiva a mantener una 
+          postura correcta por más tiempo, demostrando que la gamificación es efectiva en productos de salud.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- REFLEXIÓN FINAL -->
+  <div class="card bg-transparent border-0 rounded-4 shadow-lg">
+    <div class="card-body p-4" data-aos="fade-up">
+
+      <h2 class="fw-bold mb-3">
+        Reflexión Final del Proyecto
+      </h2>
+
+      <p>
+        PostureAlert comenzó como una simple idea en la Semana 1: crear algo que ayudara a prevenir 
+        los dolores de espalda que todos experimentábamos durante largas jornadas de estudio. 
+        16 semanas después, tenemos un <strong>prototipo funcional, validado y comercialmente viable</strong>.
+      </p>
+
+      <p>
+        A lo largo de este proceso aprendimos que:
+      </p>
+
+      <ul>
+        <li><strong>El diseño centrado en el usuario funciona:</strong> Cada iteración del prototipo mejoró porque escuchamos a nuestros usuarios</li>
+        <li><strong>La iteración es clave:</strong> Del plomo al blanco, de cilindros a ganchos curvos, cada cambio tuvo un propósito</li>
+        <li><strong>La tecnología es accesible:</strong> Con Arduino, impresión 3D y FabLab, cualquiera puede crear soluciones reales</li>
+        <li><strong>El trabajo en equipo multiplica resultados:</strong> Las habilidades complementarias de nuestro equipo fueron fundamentales</li>
+        <li><strong>Validar antes de escalar:</strong> La encuesta y las pruebas con usuarios nos dieron confianza en la viabilidad del producto</li>
+      </ul>
+
+      <p>
+        PostureAlert demuestra que con <strong>empatía, metodología y perseverancia</strong>, los estudiantes 
+        podemos crear productos que resuelvan problemas reales y generen impacto positivo en la salud de las personas.
+      </p>
+
+      <p style="text-align: center; font-size: 1.3rem; font-weight: 700; color: var(--accent-beige); margin-top: 2rem;">
+        Gracias por acompañarnos en este viaje de 16 semanas. 🎉<br>
+        Este no es el final, es solo el comienzo de PostureAlert.
+      </p>
+
+    </div>
+  </div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>  
